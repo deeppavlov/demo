@@ -72,17 +72,22 @@ for (let i = 0; i < tabs.length; i++){
 
 Vue.component('tab-content', {
   props: ['tab'],
-  template: `<div>
-    <p>{{tab.about}}</p>
+  template: `<div style="margin-top:1em; margin-bottom:3em">
+    <blockquote class="blockquote">
+      <p>{{tab.about}}</p>
+    </blockquote>
     <div style="display: flex;">
       <div style="width: 50%;">
         <form v-on:submit.prevent="send">
           <div>
           </div>
-
-          <input v-model="tab.text1"/>
-          <input v-if="tab.hasOwnProperty('text2')" v-model="tab.text2"/>
-          <button type="submit">send</button>
+          <div class="form-group">
+            <input v-model="tab.text1" class="form-control"/>
+          </div>
+          <div class="form-group">
+            <input v-if="tab.hasOwnProperty('text2')" v-model="tab.text2" class="form-control"/>
+          </div>
+          <button type="submit" class="btn btn-primary">send</button>
         </form>
       </div>
       <div>
