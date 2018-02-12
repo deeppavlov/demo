@@ -2,7 +2,7 @@ baseURL = 'http://dev.ipavlov.mipt.ru:6001'
 
 tabs = [
   {
-    id: 'insults',
+    id: 'Insult detection',
     examples:[
       {text1: 'Fuck you you fucking fucker'},
       {text1: 'Thanks, Obama'},
@@ -10,10 +10,10 @@ tabs = [
       {text1: 'This cockroach eats shit'}
     ],
     url: baseURL + '/answer/kpi1',
-    about: 'This is Insults detection'
+    about: 'Detecting insults in social commentary'
   },
   {
-    id: 'classification',
+    id: 'Intent classification',
     examples:[
       {text1: 'Fuck you you fucking fucker'},
       {text1: 'Thanks, Obama'},
@@ -21,10 +21,10 @@ tabs = [
       {text1: 'This cockroach eats shit'}
     ],
     url: baseURL + '/answer/classifier',
-    about: 'This is Sentence classification'
+    about: 'Classify intent for a user utterance'
   },
   {
-    id: 'ner',
+    id: 'Named Entity Recognition',
     examples:[
       {text1: 'Fuck you you fucking fucker'},
       {text1: 'Thanks, Obama'},
@@ -32,10 +32,10 @@ tabs = [
       {text1: 'This cockroach eats shit'}
     ],
     url: baseURL + '/answer/kpi3en',
-    about: 'This is the NER'
+    about: 'Extract named entities from text'
   },
   {
-    id: 'squad',
+    id: 'Text compression',
     examples:[
       {
         text1: 'Fuck you you fucking fucker',
@@ -55,7 +55,7 @@ tabs = [
       }
     ],
     url: baseURL + '/answer/kpi4',
-    about: 'This is SQUAD'
+    about: 'Answer questions from text'
   }
 ]
 
@@ -87,7 +87,7 @@ Vue.component('tab-content', {
           <div class="form-group">
             <input v-if="tab.hasOwnProperty('text2')" v-model="tab.text2" class="form-control"/>
           </div>
-          <button type="submit" class="btn btn-primary">send</button>
+          <button type="submit" class="btn btn-primary">Send</button>
         </form>
       </div>
       <div>
