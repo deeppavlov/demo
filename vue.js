@@ -66,7 +66,8 @@ for (let i = 0; i < tabs.length; i++){
   if ('text2' in example){
     tab.text2 = example.text2;
   };
-  tab.results = []
+  tab.results = [];
+  tab.selectedExample = 0;
 }
 
 
@@ -82,7 +83,12 @@ Vue.component('tab-content', {
           <div>
           </div>
           <div class="form-group">
-            <input v-model="tab.text1" class="form-control"/>
+            <select v-model="tab.selectedExample" class="form-control">
+              <option v-for="(example, index) in tab.examples" :value="index">Example {{index + 1}}</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <textarea v-model="tab.text1" class="form-control"/>
           </div>
           <div class="form-group">
             <input v-if="tab.hasOwnProperty('text2')" v-model="tab.text2" class="form-control"/>
@@ -107,6 +113,15 @@ Vue.component('tab-content', {
         this.tab.results.splice(0, 0, response.body);
       });
       // alert(JSON.stringify(data));
+    }
+  },
+  watch: {
+    'tab.selectedExample'(newVal){
+      let example = this.tab.examples[newVal]
+      this.tab.text1 = example.text1;
+      if ('text2' in example){
+        this.tab.text2 = example.text2;
+      };
     }
   }
 })
