@@ -1,4 +1,4 @@
-baseURL = 'http://dev.ipavlov.mipt.ru:6001';
+baseURL = 'http://lnsigo.mipt.ru:6001';
 
 tabs = [
     {
