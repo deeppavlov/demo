@@ -10,7 +10,11 @@ tabs = [
             {text1: 'This cockroach eats shit'}
         ],
         url: baseURL + '/answer/kpi1',
-        about: 'Detecting insults in social commentary'
+        about: 'Detecting insults in social commentary',
+        report: function (t1, t2, response){
+            res = '<div class="card w-100" style="margin:1em"><div class="card-body"><blockquote class="blockquote">'+ t1 +'</blockquote>'+ ((parseFloat(response) >= 0.5) ? 'Insult': 'Not Insult') + '</div></div>';
+            return res;
+        }
     },
     {
         id: 'Intent classification',
@@ -46,13 +50,13 @@ Kensington Palace said in a statement that the couple is “hugely grateful” f
         url: baseURL + '/answer/kpi3en',
         about: 'Extract named entities from text',
         report: function (t1, t2, response){
-            return '<p>' + response.map(function (x) {
+            return '<div class="card w-100" style="margin:1em"><div class="card-body">' + response.map(function (x) {
                 let w = x[0];
                 let t = x[1];
                 if (t == 'O')
                     return w;
                 return '<span style="color: blue">' + w + '</span>';
-            }).join(' ') + '</p>';
+            }).join(' ') + '</div></div>';
         }
     },
     {
@@ -95,10 +99,11 @@ for (let i = 0; i < tabs.length; i++) {
 
     if (!tab.hasOwnProperty('report')){
         tab.report = function (t1, t2, response) {
-            let res = '<p>' + t1 + '</p>';
-            if (t2)
-                res += '<p>' + t2 + '</p>';
-            return res + response;
+            let query = t2 || t1;
+
+            res = '<div class="card w-100" style="margin:1em"><div class="card-body"><blockquote class="blockquote">'+ query +'</blockquote>'+ response + '</div></div>';
+
+            return res;
         }
     }
 }
@@ -106,34 +111,34 @@ for (let i = 0; i < tabs.length; i++) {
 
 Vue.component('tab-content', {
     props: ['tab'],
-    template: `<div style="margin-top:1em; margin-bottom:3em">
-    <blockquote class="blockquote">
-      <p>{{tab.about}}</p>
-    </blockquote>
-    <div style="display: flex;">
-      <div style="width: 50%;">
-        <form v-on:submit.prevent="send">
+    template: `
+      <div class="row show-grid" style="margin-top:2em">
+        <div class="col-sm-6">
+          <blockquote class="blockquote">
+            <p>{{tab.about}}</p>
+          </blockquote>
           <div>
+            <form v-on:submit.prevent="send">
+              <div class="form-group">
+                <select v-model="tab.selectedExample" class="form-control">
+                  <option v-for="(example, index) in tab.examples" :value="index">Example {{index + 1}}</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <textarea v-model="tab.text1" class="form-control" rows="7"/>
+              </div>
+              <div class="form-group">
+                <input v-if="tab.hasOwnProperty('text2')" v-model="tab.text2" class="form-control"/>
+              </div>
+              <button type="submit" class="btn btn-primary">Send</button>
+            </form>
           </div>
-          <div class="form-group">
-            <select v-model="tab.selectedExample" class="form-control">
-              <option v-for="(example, index) in tab.examples" :value="index">Example {{index + 1}}</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <textarea v-model="tab.text1" class="form-control" rows="7"/>
-          </div>
-          <div class="form-group">
-            <input v-if="tab.hasOwnProperty('text2')" v-model="tab.text2" class="form-control"/>
-          </div>
-          <button type="submit" class="btn btn-primary">Send</button>
-        </form>
-      </div>
-      <div style="width: 50%;">
-        <div v-for="result in tab.results" v-html="result"></div>
-      </div>
-    </div>
-  </div>`,
+       </div>
+        <div class="col-sm-6">
+          <div class="row" v-for="result in tab.results" v-html="result"></div>
+        </div>
+        </div>
+      </div>`,
     methods: {
         send: function () {
             let tab = this.tab;
