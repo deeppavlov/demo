@@ -12,7 +12,7 @@ tabs = [
         url: baseURL + '/answer/kpi1',
         about: 'Detecting insults in social commentary',
         report: function (t1, t2, response){
-            res = '<div class="card w-100" style="margin:1em"><div class="card-body"><blockquote class="blockquote">'+ t1 +'</blockquote>'+ ((parseFloat(response) >= 0.5) ? 'Insult': 'Not Insult') + '</div></div>';
+            let res = '<div class="card w-100" style="margin:1em"><div class="card-body"><blockquote class="blockquote">'+ t1 +'</blockquote>'+ ((parseFloat(response) >= 0.5) ? 'Insult': 'Not Insult') + '</div></div>';
             return res;
         }
     },
@@ -101,7 +101,7 @@ for (let i = 0; i < tabs.length; i++) {
         tab.report = function (t1, t2, response) {
             let query = t2 || t1;
 
-            res = '<div class="card w-100" style="margin:1em"><div class="card-body"><blockquote class="blockquote">'+ query +'</blockquote>'+ response + '</div></div>';
+            let res = '<div class="card w-100" style="margin:1em"><div class="card-body"><blockquote class="blockquote">'+ query +'</blockquote>'+ response + '</div></div>';
 
             return res;
         }
