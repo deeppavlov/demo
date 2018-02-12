@@ -1,4 +1,4 @@
-baseURL = 'http://dev.ipavlov.mipt.ru:6001'
+baseURL = 'http://dev.ipavlov.mipt.ru:6001';
 
 tabs = [
   {
@@ -20,7 +20,7 @@ tabs = [
       {text1: 'Your mother is nice'},
       {text1: 'This cockroach eats shit'}
     ],
-    url: baseURL + '/answer/classifier',
+    url: baseURL + '/answer/intents',
     about: 'Classify intent for a user utterance'
   },
   {
@@ -57,7 +57,7 @@ tabs = [
     url: baseURL + '/answer/kpi4',
     about: 'Answer questions from text'
   }
-]
+];
 
 for (let i = 0; i < tabs.length; i++){
   let tab = tabs[i];
@@ -65,7 +65,7 @@ for (let i = 0; i < tabs.length; i++){
   tab.text1 = example.text1;
   if ('text2' in example){
     tab.text2 = example.text2;
-  };
+  }
   tab.results = [];
   tab.selectedExample = 0;
 }
