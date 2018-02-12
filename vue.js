@@ -53,7 +53,7 @@ Kensington Palace said in a statement that the couple is “hugely grateful” f
             return '<div class="card w-100" style="margin:1em"><div class="card-body">' + response.map(function (x) {
                 let w = x[0];
                 let t = x[1];
-                if (t == 'O')
+                if (t === 'O')
                     return w;
                 return '<span style="color: blue">' + w + '</span>';
             }).join(' ') + '</div></div>';
@@ -146,12 +146,9 @@ Vue.component('tab-content', {
                 text1: tab.text1,
                 text2: tab.text2
             };
-            // console.dir(this.tab)
             this.$http.post(this.tab.url, data).then(function (response) {
-                console.dir(response);
                 tab.results.splice(0, 0, tab.report(data.text1, data.text2, response.body));
             });
-            // alert(JSON.stringify(data));
         }
     },
     watch: {
