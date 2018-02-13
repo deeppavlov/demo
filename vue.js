@@ -8,20 +8,58 @@ tabs = [
                 text1: 'The U.S. is ready to engage in talks about North Korea’s nuclear program even as it maintains pressure on Kim Jong Un’s regime, the Washington Post reported, citing an interview with Vice President Mike Pence. \
 Pence and South Korea’s President Moon Jae-in agreed on a post-Olympics strategy during conversations at the Winter Olympics in the South Korean resort of Pyeongchang that Pence dubbed “maximum pressure and engagement at the same time.” Pence spoke in an interview on his way home from the Winter Olympics. \
 “The point is, no pressure comes off until they are actually doing something that the alliance believes represents a meaningful step toward denuclearization,” the Post quoted Pence as saying. “So the maximum pressure campaign is going to continue and intensify. But if you want to talk, we’ll talk.”',
+                text2: 'What country is under the pressure?'
+            },
+            {
+                text1: 'The U.S. is ready to engage in talks about North Korea’s nuclear program even as it maintains pressure on Kim Jong Un’s regime, the Washington Post reported, citing an interview with Vice President Mike Pence. \
+Pence and South Korea’s President Moon Jae-in agreed on a post-Olympics strategy during conversations at the Winter Olympics in the South Korean resort of Pyeongchang that Pence dubbed “maximum pressure and engagement at the same time.” Pence spoke in an interview on his way home from the Winter Olympics. \
+“The point is, no pressure comes off until they are actually doing something that the alliance believes represents a meaningful step toward denuclearization,” the Post quoted Pence as saying. “So the maximum pressure campaign is going to continue and intensify. But if you want to talk, we’ll talk.”',
                 text2: 'Who is Mike Pence?'
+            },
+            {
+                text1: 'The U.S. is ready to engage in talks about North Korea’s nuclear program even as it maintains pressure on Kim Jong Un’s regime, the Washington Post reported, citing an interview with Vice President Mike Pence. \
+Pence and South Korea’s President Moon Jae-in agreed on a post-Olympics strategy during conversations at the Winter Olympics in the South Korean resort of Pyeongchang that Pence dubbed “maximum pressure and engagement at the same time.” Pence spoke in an interview on his way home from the Winter Olympics. \
+“The point is, no pressure comes off until they are actually doing something that the alliance believes represents a meaningful step toward denuclearization,” the Post quoted Pence as saying. “So the maximum pressure campaign is going to continue and intensify. But if you want to talk, we’ll talk.”',
+                text2: 'Where is the Winter Olympic Games in 2018?'
             },
             {
                 text1: 'New York’s attorney general on Sunday filed a lawsuit against disgraced Hollywood movie producer Harvey Weinstein and the Weinstein Co. following an investigation into allegations of sexual misconduct. \
 “As alleged in our complaint, The Weinstein Company repeatedly broke New York law by failing to protect its employees from pervasive sexual harassment, intimidation, and discrimination,” state Attorney General Eric Schneiderman said in court papers. \
 Schneiderman launched a civil rights probe into the New York City-based company in October after The New York Times and The New Yorker exposed allegations of sexual assault and harassment spanning decades. \
 Scores of women, including well-known actresses, have come forward with stories of forced sexual encounters. Weinstein was fired by the film company he founded with his brother Robert and expelled from Hollywood’s movie academy.',
-                text2: 'Who is Harvey Weinstein?'
+                text2: 'How long sexual harassment was taking place?'
+            },
+            {
+                text1: 'New York’s attorney general on Sunday filed a lawsuit against disgraced Hollywood movie producer Harvey Weinstein and the Weinstein Co. following an investigation into allegations of sexual misconduct. \
+“As alleged in our complaint, The Weinstein Company repeatedly broke New York law by failing to protect its employees from pervasive sexual harassment, intimidation, and discrimination,” state Attorney General Eric Schneiderman said in court papers. \
+Schneiderman launched a civil rights probe into the New York City-based company in October after The New York Times and The New Yorker exposed allegations of sexual assault and harassment spanning decades. \
+Scores of women, including well-known actresses, have come forward with stories of forced sexual encounters. Weinstein was fired by the film company he founded with his brother Robert and expelled from Hollywood’s movie academy.',
+                text2: 'Was Weinstein fired?'
+            },
+            {
+                text1: 'New York’s attorney general on Sunday filed a lawsuit against disgraced Hollywood movie producer Harvey Weinstein and the Weinstein Co. following an investigation into allegations of sexual misconduct. \
+“As alleged in our complaint, The Weinstein Company repeatedly broke New York law by failing to protect its employees from pervasive sexual harassment, intimidation, and discrimination,” state Attorney General Eric Schneiderman said in court papers. \
+Schneiderman launched a civil rights probe into the New York City-based company in October after The New York Times and The New Yorker exposed allegations of sexual assault and harassment spanning decades. \
+Scores of women, including well-known actresses, have come forward with stories of forced sexual encounters. Weinstein was fired by the film company he founded with his brother Robert and expelled from Hollywood’s movie academy.',
+                text2: 'Why Weinstein is being sued?'
             },
             {
                 text1: 'Prince Harry and fiancee American actress Meghan Markle have released more details about their May 19 wedding, revealing that the event will include a carriage ride through Windsor so they can share the big day with the public. \
 The couple will marry at noon in St. George’s Chapel, the 15th century church on the grounds of Windsor Castle that has long been the backdrop of choice for royal occasions. Harry’s grandmother, Queen Elizabeth II, gave permission for use of the venue and will attend the wedding. \
 Kensington Palace said in a statement that the couple is “hugely grateful” for the many good wishes they have received and they hope the carriage ride will give the general public a chance to take part.',
-                text2: 'What is St. George’s Chapel?'
+                text2: 'Who are going to marry?'
+            },
+            {
+                text1: 'Prince Harry and fiancee American actress Meghan Markle have released more details about their May 19 wedding, revealing that the event will include a carriage ride through Windsor so they can share the big day with the public. \
+The couple will marry at noon in St. George’s Chapel, the 15th century church on the grounds of Windsor Castle that has long been the backdrop of choice for royal occasions. Harry’s grandmother, Queen Elizabeth II, gave permission for use of the venue and will attend the wedding. \
+Kensington Palace said in a statement that the couple is “hugely grateful” for the many good wishes they have received and they hope the carriage ride will give the general public a chance to take part.',
+                text2: 'When will be the wedding?'
+            },
+            {
+                text1: 'Prince Harry and fiancee American actress Meghan Markle have released more details about their May 19 wedding, revealing that the event will include a carriage ride through Windsor so they can share the big day with the public. \
+The couple will marry at noon in St. George’s Chapel, the 15th century church on the grounds of Windsor Castle that has long been the backdrop of choice for royal occasions. Harry’s grandmother, Queen Elizabeth II, gave permission for use of the venue and will attend the wedding. \
+Kensington Palace said in a statement that the couple is “hugely grateful” for the many good wishes they have received and they hope the carriage ride will give the general public a chance to take part.',
+                text2: 'Where is St. George’s Chapel located?'
             }
         ],
         url: baseURL + '/answer/kpi4',
@@ -62,10 +100,13 @@ Kensington Palace said in a statement that the couple is “hugely grateful” f
      {
         id: 'Intent classification',
         examples: [
-            {text1: 'Find a store near Sia\'s place where I can buy champagne'},
-            {text1: 'Is my hotel in NYC for this week better than the hotel I stayed in when I was in Chicago?'},
+            {text1: 'Show me the forecast for my upcoming weekend'},
+            {text1: 'Find me the I, Robot television show'},
             {text1: 'What is the cheapest restaurant between Balthazar and Lombardi\'s?'},
-            {text1: 'What will the weather be like tomorrow morning?'}
+            {text1: 'Add Diamonds to my roadtrip playlist'},
+            {text1: 'Play the last track from Beyoncé off Spotify'},
+            {text1: 'Give 6 stars to Of Mice and Men'},
+            {text1: 'Check the showtimes for Wonder Woman in Paris'}
         ],
         url: baseURL + '/answer/intents',
         about: 'Classify intent for a user utterance'
@@ -73,10 +114,14 @@ Kensington Palace said in a statement that the couple is “hugely grateful” f
     {
         id: 'Insult detection',
         examples: [
-            {text1: 'Fuck you you fucking fucker'},
-            {text1: 'Thanks, Obama'},
-            {text1: 'Your mother is nice'},
-            {text1: 'This cockroach eats shit'}
+            {text1: 'Don\'t you have a terribly empty feeling - in your skull?'},
+            {text1: 'Shit happens'},
+            {text1: 'You\'re so fat, you could sell shade'},
+            {text1: 'Money talks and bullshit walks'},
+            {text1: 'You are stupid asshole'},
+            {text1: 'I just fucked up'},
+            {text1: 'Your house is so dirty you have to wipe your feet before you go outside'},
+            {text1: 'Moby Dick is a fictional sperm whale'}
         ],
         url: baseURL + '/answer/kpi1',
         about: 'Detecting insults in social commentary',
