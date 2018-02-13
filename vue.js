@@ -213,6 +213,13 @@ Vue.component('tab-content', {
                 tab.results.push({show: false, data: res});
                 // return new Promise(resolve => setTimeout(resolve, 100));
                 return Vue.nextTick();
+            }, function (response) {
+                console.log('ERROR!');
+                let res = '<div class="card w-100" style="margin:1em"><div class="card-body">';
+                res += `<span style="color: red;">ERROR</span>`;
+                res += '</div></div>';
+                tab.results.push({show: false, data: res});
+                return Vue.nextTick();
             }).then(function () {
                 tab.results[tab.results.length - 1].show = true;
             });
