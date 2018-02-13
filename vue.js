@@ -101,7 +101,7 @@ for (let i = 0; i < tabs.length; i++) {
         tab.report = function (t1, t2, response) {
             let query = t2 || t1;
 
-            let res = '<div class="card w-100" style="margin:1em"><div class="card-body"><blockquote class="blockquote">'+ query +'</blockquote>'+ response + '</div></div>';
+            let res = '<div class="card w-100" style="margin:1em"><div class="card-body"><blockquote class="blockquote">' + query + '</blockquote>' + response + '</div></div>';
 
             return res;
         }
@@ -112,35 +112,46 @@ for (let i = 0; i < tabs.length; i++) {
 Vue.component('tab-content', {
     props: ['tab'],
     template: `
-      <div class="row show-grid" style="margin-top:2em">
-        <div class="col-sm-6">
-          <blockquote class="blockquote">
-            <p>{{tab.about}}</p>
-          </blockquote>
-          <div>
-            <form v-on:submit.prevent="send">
-              <div class="form-group">
-                <select v-model="tab.selectedExample" class="form-control">
-                  <option v-for="(example, index) in tab.examples" :value="index">Example {{index + 1}}</option>
-                </select>
-              </div>
-              <div class="form-group">
-                <textarea v-model="tab.text1" class="form-control" rows="7"/>
-              </div>
-              <div class="form-group">
-                <input v-if="tab.hasOwnProperty('text2')" v-model="tab.text2" class="form-control"/>
-              </div>
-              <button type="submit" class="btn btn-primary">Send</button>
-            </form>
-          </div>
-       </div>
-        <div class="col-sm-6">
-          <div class="row" v-for="result in tab.results" v-html="result"></div>
+<div>
+    <div class="row show-grid" style="margin-top:2em">
+        <div class="col">
+            <blockquote class="blockquote">
+                <p>{{tab.about}}</p>
+            </blockquote>
         </div>
+    </div>
+    <div class="row show-grid">
+        <div class="col-sm-6">
+            <div>
+                <form v-on:submit.prevent="send">
+                    <div class="form-group">
+                        <textarea v-model="tab.text1" class="form-control" rows="7" @focus="tab.selectedExample = -1"/>
+                    </div>
+                    <div class="form-group">
+                        <input v-if="tab.hasOwnProperty('text2')" v-model="tab.text2" class="form-control"
+                         @focus="tab.selectedExample = -1"/>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Send</button>
+                </form>
+            </div>
         </div>
-      </div>`,
+        <div class="col-sm-6">
+            <div class="list-group">
+                <a href="#" v-for="(example, index) in tab.examples" v-html="examplePreview(example)"
+                    :class="'list-group-item list-group-item-action flex-column align-items-start' +
+                     (selected===index?' active':'')"
+                    @click.prevent="selected = index"></a>
+            </div>
+        </div>
+    </div>
+    <div class="row show-grid">
+        <div class="col">
+            <div class="row" v-for="result in tab.results" v-html="result"></div>
+        </div>
+    </div>
+</div>`,
     methods: {
-        send: function () {
+        send() {
             let tab = this.tab;
             let data = {
                 text1: tab.text1,
@@ -149,14 +160,34 @@ Vue.component('tab-content', {
             this.$http.post(this.tab.url, data).then(function (response) {
                 tab.results.splice(0, 0, tab.report(data.text1, data.text2, response.body));
             });
+        },
+        examplePreview(example){
+            const maxLength = 100;
+            let text1 = (example.text1.length > maxLength)?example.text1.substring(0, maxLength) + '...':example.text1;
+            return text1;
         }
     },
-    watch: {
-        'tab.selectedExample'(newVal) {
-            let example = this.tab.examples[newVal];
-            this.tab.text1 = example.text1;
-            if ('text2' in example) {
-                this.tab.text2 = example.text2;
+    // watch: {
+    //     'tab.selectedExample'(newVal) {
+    //         let example = this.tab.examples[newVal];
+    //         this.tab.text1 = example.text1;
+    //         if ('text2' in example) {
+    //             this.tab.text2 = example.text2;
+    //         }
+    //     }
+    // },
+    computed: {
+        selected: {
+            get() {
+                return this.tab.selectedExample;
+            },
+            set(newVal) {
+                this.tab.selectedExample = newVal;
+                let example = this.tab.examples[newVal];
+                this.tab.text1 = example.text1;
+                if ('text2' in example) {
+                    this.tab.text2 = example.text2;
+                }
             }
         }
     }
