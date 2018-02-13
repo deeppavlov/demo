@@ -15,3 +15,9 @@ div#reversed > div {
     -webkit-transform: scaleY(-1);
     transform: scaleY(-1);
 }
+
+.list-group-item.active {
+    background-color: lightgray;
+    border-color: lightgray;
+    color: black;
+}
