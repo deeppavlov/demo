@@ -73,7 +73,9 @@ Kensington Palace said in a statement that the couple is “hugely grateful” f
             }
         ],
         url: baseURL + '/answer/kpi4',
-        about: 'Answer questions from text'
+        about: '',
+        text1header: 'Source Text',
+        submit_text: 'Ask'
     },
     {
         id: 'Named Entity Recognition',
@@ -96,7 +98,9 @@ Kensington Palace said in a statement that the couple is “hugely grateful” f
             }
         ],
         url: baseURL + '/answer/kpi3en',
-        about: 'Extract named entities from text',
+        about: 'Entities: Person, Organization, Location',
+        text1header: 'Source Text',
+        submit_text: 'Search',
         report: function (t1, t2, response){
             return response.map(function (x) {
                 let w = x[0];
@@ -108,7 +112,7 @@ Kensington Palace said in a statement that the couple is “hugely grateful” f
         }
     },
      {
-        id: 'Intention classification: ',
+        id: 'Intention classification',
         examples: [
             {text1: 'Show me the forecast for my upcoming weekend'},
             {text1: 'Find me the I, Robot television show'},
@@ -119,7 +123,9 @@ Kensington Palace said in a statement that the couple is “hugely grateful” f
             {text1: 'Check the showtimes for Wonder Woman in Paris'}
         ],
         url: baseURL + '/answer/intents',
-        about: `Classify intention of user utterance as: ${Object.keys(badges).map(function(k,i){ return '<span class="badge '+badges[k]+'">'+k+'</span>' }).join(" ")}`,
+        about: `Classes: ${Object.keys(badges).map(function(k,i){ return '<span class="badge '+badges[k]+'">'+k+'</span>' }).join(" ")}`,
+        text1header: 'Classified Text',
+        submit_text: 'Classify',
         report: function(t1, t2, response){
           let res = `<blockquote class="blockquote">${t1}</blockquote><span class="badge ${badges[response]}">${response}</span>`;
           return res;
@@ -138,7 +144,9 @@ Kensington Palace said in a statement that the couple is “hugely grateful” f
             {text1: 'Moby Dick is a fictional sperm whale'}
         ],
         url: baseURL + '/answer/kpi1',
-        about: 'Detecting insults in social commentary',
+        about: '',
+        text1header: 'Source Text',
+        submit_text: 'Ask',
         report: function (t1, t2, response){
             let res = `<blockquote class="blockquote">${t1}</blockquote>${((parseFloat(response) >= 0.5) ? 'Insult': 'Not Insult')}`;
             return res;
@@ -183,17 +191,18 @@ Vue.component('tab-content', {
     </div>
     <div class="row show-grid">
         <div class="col-sm-6">
-            <h3></h3>
+            <h3 v-html="tab.text1header"></h3>
             <div>
                 <form v-on:submit.prevent="send">
                     <div class="form-group">
                         <textarea v-model="tab.text1" class="form-control" rows="7" @focus="tab.selectedExample = -1"/>
                     </div>
+                    <h3 v-if="tab.hasOwnProperty('text2')">Question</h3>
                     <div class="form-group">
                         <input v-if="tab.hasOwnProperty('text2')" v-model="tab.text2" class="form-control"
                          @focus="tab.selectedExample = -1"/>
                     </div>
-                    <button type="submit" class="btn btn-primary">Send</button>
+                    <button type="submit" class="btn btn-primary" v-html="tab.submit_text"></button>
                 </form>
             </div>
         </div>
