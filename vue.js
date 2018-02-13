@@ -1,4 +1,4 @@
-baseURL = 'http://lnsigo.mipt.ru:6001';
+baseURL = '//lnsigo.mipt.ru:6001';
 
 tabs = [
     {
