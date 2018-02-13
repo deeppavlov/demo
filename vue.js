@@ -190,8 +190,10 @@ Vue.component('tab-content', {
         </div>
     </div>
     <div class="row show-grid">
-        <div class="col">
-            <div class="row" v-for="result in tab.results" v-html="result"></div>
+        <div id="reversed" class="col">
+            <transition name="fade" v-for="result in tab.results">
+                <div class="row" v-show="result.show" v-html="result.data"></div>
+            </transition>
         </div>
     </div>
 </div>`,
@@ -203,7 +205,11 @@ Vue.component('tab-content', {
                 text2: tab.text2
             };
             this.$http.post(this.tab.url, data).then(function (response) {
-                tab.results.splice(0, 0, tab.report(data.text1, data.text2, response.body));
+                tab.results.push({show: false, data: tab.report(data.text1, data.text2, response.body)});
+                // return new Promise(resolve => setTimeout(resolve, 100));
+                return Vue.nextTick();
+            }).then(function () {
+                tab.results[tab.results.length - 1].show = true;
             });
         },
         examplePreview(example){
@@ -212,15 +218,6 @@ Vue.component('tab-content', {
             return text1;
         }
     },
-    // watch: {
-    //     'tab.selectedExample'(newVal) {
-    //         let example = this.tab.examples[newVal];
-    //         this.tab.text1 = example.text1;
-    //         if ('text2' in example) {
-    //             this.tab.text2 = example.text2;
-    //         }
-    //     }
-    // },
     computed: {
         selected: {
             get() {
