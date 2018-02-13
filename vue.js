@@ -88,13 +88,13 @@ Kensington Palace said in a statement that the couple is “hugely grateful” f
         url: baseURL + '/answer/kpi3en',
         about: 'Extract named entities from text',
         report: function (t1, t2, response){
-            return '<div class="card w-100" style="margin:1em"><div class="card-body">' + response.map(function (x) {
+            return response.map(function (x) {
                 let w = x[0];
                 let t = x[1];
                 if (t === 'O')
                     return w;
                 return '<span style="color: blue">' + w + '</span>';
-            }).join(' ') + '</div></div>';
+            }).join(' ');
         }
     },
      {
@@ -126,7 +126,7 @@ Kensington Palace said in a statement that the couple is “hugely grateful” f
         url: baseURL + '/answer/kpi1',
         about: 'Detecting insults in social commentary',
         report: function (t1, t2, response){
-            let res = '<div class="card w-100" style="margin:1em"><div class="card-body"><blockquote class="blockquote">'+ t1 +'</blockquote>'+ ((parseFloat(response) >= 0.5) ? 'Insult': 'Not Insult') + '</div></div>';
+            let res = '<blockquote class="blockquote">'+ t1 +'</blockquote>'+ ((parseFloat(response) >= 0.5) ? 'Insult': 'Not Insult');
             return res;
         }
     }
@@ -146,7 +146,7 @@ for (let i = 0; i < tabs.length; i++) {
         tab.report = function (t1, t2, response) {
             let query = t2 || t1;
 
-            let res = '<div class="card w-100" style="margin:1em"><div class="card-body"><blockquote class="blockquote">' + query + '</blockquote>' + response + '</div></div>';
+            let res = '<blockquote class="blockquote">' + query + '</blockquote>' + response;
 
             return res;
         }
@@ -205,7 +205,10 @@ Vue.component('tab-content', {
                 text2: tab.text2
             };
             this.$http.post(this.tab.url, data).then(function (response) {
-                tab.results.push({show: false, data: tab.report(data.text1, data.text2, response.body)});
+                let res = '<div class="card w-100" style="margin:1em"><div class="card-body">';
+                res += tab.report(data.text1, data.text2, response.body);
+                res += '</div></div>';
+                tab.results.push({show: false, data: res});
                 // return new Promise(resolve => setTimeout(resolve, 100));
                 return Vue.nextTick();
             }).then(function () {
