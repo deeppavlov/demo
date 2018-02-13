@@ -1,4 +1,4 @@
-baseURL = 'http://lnsigo.mipt.ru:6001';
+baseURL = 'https://lnsigo.mipt.ru:6443';
 
 badges = {
           'AddToPlaylist': 'badge-primary',
