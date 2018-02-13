@@ -93,7 +93,7 @@ Kensington Palace said in a statement that the couple is “hugely grateful” f
                 let t = x[1];
                 if (t === 'O')
                     return w;
-                return '<span style="color: blue">' + w + '</span>';
+                return `<span style="color: blue">${w}</span>`;
             }).join(' ');
         }
     },
@@ -126,7 +126,7 @@ Kensington Palace said in a statement that the couple is “hugely grateful” f
         url: baseURL + '/answer/kpi1',
         about: 'Detecting insults in social commentary',
         report: function (t1, t2, response){
-            let res = '<blockquote class="blockquote">'+ t1 +'</blockquote>'+ ((parseFloat(response) >= 0.5) ? 'Insult': 'Not Insult');
+            let res = `<blockquote class="blockquote">${t1}</blockquote>${((parseFloat(response) >= 0.5) ? 'Insult': 'Not Insult')}`;
             return res;
         }
     }
@@ -144,9 +144,11 @@ for (let i = 0; i < tabs.length; i++) {
 
     if (!tab.hasOwnProperty('report')){
         tab.report = function (t1, t2, response) {
-            let query = t2 || t1;
-
-            let res = '<blockquote class="blockquote">' + query + '</blockquote>' + response;
+            let res = `<blockquote class="blockquote">${t1}</blockquote>`;
+            if (t2){
+                res += `<blockquote class="blockquote">${t2}</blockquote>`;
+            }
+            res += response;
 
             return res;
         }
