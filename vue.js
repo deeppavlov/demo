@@ -98,7 +98,7 @@ Kensington Palace said in a statement that the couple is “hugely grateful” f
             }
         ],
         url: baseURL + '/answer/kpi3en',
-        about: 'Entities: Person, Organization, Location',
+        about: 'Entities: <span class="badge badge-success">Person</span> <span class="badge badge-danger">Organization</span> <span class="badge badge-warning">Location</span>',
         text1header: 'Source Text',
         submit_text: 'Search',
         report: function (t1, t2, response){
@@ -148,7 +148,7 @@ Kensington Palace said in a statement that the couple is “hugely grateful” f
         text1header: 'Source Text',
         submit_text: 'Ask',
         report: function (t1, t2, response){
-            let res = `<blockquote class="blockquote">${t1}</blockquote>${((parseFloat(response) >= 0.5) ? 'Insult': 'Not Insult')}`;
+            let res = `<blockquote class="blockquote">${t1}</blockquote>${((parseFloat(response) >= 0.5) ? '<span class="badge badge-danger">Insult</span>': '<span class="badge badge-success">Not Insult</span>')}`;
             return res;
         }
     }
