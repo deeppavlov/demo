@@ -1,8 +1,18 @@
-baseURL = '//lnsigo.mipt.ru:6001';
+baseURL = 'http://lnsigo.mipt.ru:6001';
+
+badges = {
+          'AddToPlaylist': 'badge-primary',
+          'BookRestaurant': 'badge-secondary',
+          'GetWeather': 'badge-success',
+          'PlayMusic': 'badge-danger',
+          'RateBook': 'badge-warning',
+          'SearchCreativeWork': 'badge-info',
+          'SearchScreeningEvent': 'badge-dark'
+        }
 
 tabs = [
     {
-        id: 'Text compression',
+        id: 'Question Answering',
         examples: [
             {
                 text1: 'The U.S. is ready to engage in talks about North Korea’s nuclear program even as it maintains pressure on Kim Jong Un’s regime, the Washington Post reported, citing an interview with Vice President Mike Pence. \
@@ -98,7 +108,7 @@ Kensington Palace said in a statement that the couple is “hugely grateful” f
         }
     },
      {
-        id: 'Intent classification',
+        id: 'Intention classification: ',
         examples: [
             {text1: 'Show me the forecast for my upcoming weekend'},
             {text1: 'Find me the I, Robot television show'},
@@ -109,7 +119,11 @@ Kensington Palace said in a statement that the couple is “hugely grateful” f
             {text1: 'Check the showtimes for Wonder Woman in Paris'}
         ],
         url: baseURL + '/answer/intents',
-        about: 'Classify intent for a user utterance'
+        about: `Classify intention of user utterance as: ${Object.keys(badges).map(function(k,i){ return '<span class="badge '+badges[k]+'">'+k+'</span>' }).join(" ")}`,
+        report: function(t1, t2, response){
+          let res = `<blockquote class="blockquote">${t1}</blockquote><span class="badge ${badges[response]}">${response}</span>`;
+          return res;
+        }
     },
     {
         id: 'Insult detection',
@@ -163,12 +177,13 @@ Vue.component('tab-content', {
     <div class="row show-grid" style="margin-top:2em">
         <div class="col">
             <blockquote class="blockquote">
-                <p>{{tab.about}}</p>
+                <p v-html="tab.about"></p>
             </blockquote>
         </div>
     </div>
     <div class="row show-grid">
         <div class="col-sm-6">
+            <h3></h3>
             <div>
                 <form v-on:submit.prevent="send">
                     <div class="form-group">
@@ -183,12 +198,18 @@ Vue.component('tab-content', {
             </div>
         </div>
         <div class="col-sm-6">
+            <h3>Examples</h3>
             <div class="list-group">
                 <a href="#" v-for="(example, index) in tab.examples" v-html="examplePreview(example)"
                     :class="'list-group-item list-group-item-action flex-column align-items-start' +
                      (selected===index?' active':'')"
                     @click.prevent="selected = index"></a>
             </div>
+        </div>
+    </div>
+    <div class="row show-grid">
+        <div class="col">
+            <h3>Results</h3>
         </div>
     </div>
     <div class="row show-grid">
