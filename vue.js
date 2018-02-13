@@ -214,8 +214,12 @@ Vue.component('tab-content', {
         },
         examplePreview(example){
             const maxLength = 100;
-            let text1 = (example.text1.length > maxLength)?example.text1.substring(0, maxLength) + '...':example.text1;
-            return text1;
+            let shorten = (x) => (x.length > maxLength)?x.substring(0, maxLength) + '...':x;
+
+            if (example.text2){
+                return shorten(example.text2);
+            }
+            return shorten(example.text1);
         }
     },
     computed: {
