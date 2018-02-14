@@ -8,7 +8,13 @@ badges = {
           'RateBook': 'badge-warning',
           'SearchCreativeWork': 'badge-info',
           'SearchScreeningEvent': 'badge-dark'
-        }
+        };
+
+ner_styles = {
+    'ORG': 'badge badge-danger',
+    'LOC': 'badge badge-warning',
+    'PER': 'badge badge-success'
+};
 
 tabs = [
     {
@@ -98,7 +104,7 @@ Kensington Palace said in a statement that the couple is “hugely grateful” f
             }
         ],
         url: baseURL + '/answer/kpi3en',
-        about: 'Entities: <span class="badge badge-success">Person</span> <span class="badge badge-danger">Organization</span> <span class="badge badge-warning">Location</span>',
+        about: `Entities: <span class="${ner_styles['PER']}">Person</span> <span class="${ner_styles['ORG']}">Organization</span> <span class="${ner_styles['LOC']}">Location</span>`,
         text1header: 'Source Text',
         submit_text: 'Search',
         report: function (t1, t2, response){
@@ -107,11 +113,12 @@ Kensington Palace said in a statement that the couple is “hugely grateful” f
                 let t = x[1];
                 if (t === 'O')
                     return w;
-                return `<span style="color: blue">${w}</span>`;
+                let style = ner_styles[t.substring(2)];
+                return `<span class="${style}">${w}</span>`;
             }).join(' ');
         }
     },
-     {
+    {
         id: 'Intention classification',
         examples: [
             {text1: 'Show me the forecast for my upcoming weekend'},
