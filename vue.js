@@ -87,20 +87,21 @@ Kensington Palace said in a statement that the couple is “hugely grateful” f
         id: 'Named Entity Recognition',
         examples: [
             {
-                text1: 'The U.S. is ready to engage in talks about North Korea’s nuclear program even as it maintains pressure on Kim Jong Un’s regime, the Washington Post reported, citing an interview with Vice President Mike Pence. \
-Pence and South Korea’s President Moon Jae-in agreed on a post-Olympics strategy during conversations at the Winter Olympics in the South Korean resort of Pyeongchang that Pence dubbed “maximum pressure and engagement at the same time.” Pence spoke in an interview on his way home from the Winter Olympics. \
-“The point is, no pressure comes off until they are actually doing something that the alliance believes represents a meaningful step toward denuclearization,” the Post quoted Pence as saying. “So the maximum pressure campaign is going to continue and intensify. But if you want to talk, we’ll talk.”'
+                text1: 'Australia’s Deputy Prime Minister Barnaby Joyce is perhaps best known for the Pistol and Boo affair -- when he threatened actor Johnny Depp with perjury over bringing his dogs into the country illegally. \
+But it’s a very different type of affair which is now engulfing the Deputy PM and leader of the Nationals Party.'
             },
             {
-                text1: 'New York’s attorney general on Sunday filed a lawsuit against disgraced Hollywood movie producer Harvey Weinstein and the Weinstein Co. following an investigation into allegations of sexual misconduct. \
-“As alleged in our complaint, The Weinstein Company repeatedly broke New York law by failing to protect its employees from pervasive sexual harassment, intimidation, and discrimination,” state Attorney General Eric Schneiderman said in court papers. \
-Schneiderman launched a civil rights probe into the New York City-based company in October after The New York Times and The New Yorker exposed allegations of sexual assault and harassment spanning decades. \
-Scores of women, including well-known actresses, have come forward with stories of forced sexual encounters. Weinstein was fired by the film company he founded with his brother Robert and expelled from Hollywood’s movie academy.'
+                text1: 'The chief counsel for the US Immigration and Customs Enforcement Seattle field office was charged with stealing the \
+identities of seven people who were involved in immigration proceedings, according to court documents. Raphael A. Sanchez allegedly \
+devised a plan to defraud several financial institutions by using their identities to obtain money and property over a four-year period \
+between October 2013 to October 2017, according to the court documents filed Monday in the US District Court for the Western District of Washington. '
             },
             {
-                text1: 'Prince Harry and fiancee American actress Meghan Markle have released more details about their May 19 wedding, revealing that the event will include a carriage ride through Windsor so they can share the big day with the public. \
-The couple will marry at noon in St. George’s Chapel, the 15th century church on the grounds of Windsor Castle that has long been the backdrop of choice for royal occasions. Harry’s grandmother, Queen Elizabeth II, gave permission for use of the venue and will attend the wedding. \
-Kensington Palace said in a statement that the couple is “hugely grateful” for the many good wishes they have received and they hope the carriage ride will give the general public a chance to take part.'
+                text1: 'The International Criminal Court is looking into allegations of excessive force and other abuses \
+by Venezuela’s government in response to sometimes deadly anti-regime protests, its prosecutor said Thursday. \
+The “preliminary examination“ by the Netherlands-based tribunal is the first step toward launching an investigation \
+into what ICC prosecutor Fatou Bensouda called allegations of “excessive force“ by state security forces against opponents \
+of President Nicolas Maduro.'
             }
         ],
         url: baseURL + '/answer/kpi3en',
