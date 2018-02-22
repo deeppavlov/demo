@@ -120,7 +120,7 @@ of President Nicolas Maduro.'
         }
     },
     {
-        id: 'Intention classification',
+        id: 'Intent classification',
         examples: [
             {text1: 'Show me the forecast for my upcoming weekend'},
             {text1: 'Find me the I, Robot television show'},
