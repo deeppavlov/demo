@@ -43,7 +43,7 @@ tabs = [
         ],
         url: baseURL + '/answer/kpi4ru',
         about: '',
-        text1header: 'Ведите текст',
+        text1header: 'Введите текст',
         text2header: 'Введите вопрос',
         submit_text: 'Спросить',
         results_text: 'Результаты',
