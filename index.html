@@ -34,9 +34,19 @@
             <div id="app">
                 <!-- Nav tabs -->
                 <ul class="nav nav-pills nav-fill">
-                    <li class="nav-item" v-for="(tab, index) in tabs">
+                    <li class="nav-item" v-for="(tab, index) in tabs" v-show="tab.lang===lang">
                         <a :class="index?'nav-link':'nav-link active'" :href="'#' + tab.id" role="tab"
                            data-toggle="tab">{{tab.id}}</a>
+                    </li>
+                    <li>
+                        <div class="btn-group btn-group-toggle">
+                            <label :class="(lang==='ru')?'btn btn-primary':'btn btn-secondary'">
+                                <input type="radio" name="lang" id="langRu" value="ru" autocomplete="off" v-model="lang"> Ru
+                            </label>
+                            <label :class="(lang==='en')?'btn btn-primary':'btn btn-secondary'">
+                                <input type="radio" name="lang" id="langEn" value="en" autocomplete="off" v-model="lang"> En
+                            </label>
+                        </div>
                     </li>
                 </ul>
 
