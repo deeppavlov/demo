@@ -44,7 +44,10 @@ tabs = [
         url: baseURL + '/answer/kpi4ru',
         about: '',
         text1header: 'Исходный текст',
+        text2header: 'Вопрос',
         submit_text: 'Спросить',
+        results_text: 'Результаты',
+        examples_text: 'Примеры',
         lang: 'ru'
     },
     {
@@ -64,6 +67,8 @@ tabs = [
         about: `Сущности: <span class="${ner_styles['PER']}">Человек</span> <span class="${ner_styles['ORG']}">Организация</span> <span class="${ner_styles['LOC']}">Локация</span>`,
         text1header: 'Исходный текст',
         submit_text: 'Распознать',
+        results_text: 'Результаты',
+        examples_text: 'Примеры',
         lang: 'ru',
         report: function (t1, t2, response){
             return response.map(function (x) {
@@ -268,7 +273,7 @@ Vue.component('tab-content', {
                     <div class="form-group">
                         <textarea v-model="tab.text1" class="form-control" rows="7" @focus="tab.selectedExample = -1"/>
                     </div>
-                    <h3 v-if="tab.hasOwnProperty('text2')">Question</h3>
+                    <h3 v-if="tab.hasOwnProperty('text2')">{{tab.text2header || 'Question'}}</h3>
                     <div class="form-group">
                         <input v-if="tab.hasOwnProperty('text2')" v-model="tab.text2" class="form-control"
                          @focus="tab.selectedExample = -1"/>
@@ -278,7 +283,7 @@ Vue.component('tab-content', {
             </div>
         </div>
         <div class="col-sm-6">
-            <h3>Examples</h3>
+            <h3>{{tab.examples_text || 'Examples'}}</h3>
             <div class="list-group">
                 <a href="#" v-for="(example, index) in tab.examples" v-html="examplePreview(example)"
                     :class="'list-group-item list-group-item-action flex-column align-items-start' +
@@ -289,7 +294,7 @@ Vue.component('tab-content', {
     </div>
     <div class="row show-grid">
         <div class="col">
-            <h3>Results</h3>
+            <h3>{{tab.results_text || 'Results'}}</h3>
         </div>
     </div>
     <div class="row show-grid">
