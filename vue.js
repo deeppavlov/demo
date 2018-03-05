@@ -43,8 +43,8 @@ tabs = [
         ],
         url: baseURL + '/answer/kpi4ru',
         about: '',
-        text1header: 'Исходный текст',
-        text2header: 'Вопрос',
+        text1header: 'Ведите текст',
+        text2header: 'Введите вопрос',
         submit_text: 'Спросить',
         results_text: 'Результаты',
         examples_text: 'Примеры',
@@ -65,7 +65,7 @@ tabs = [
         ],
         url: baseURL + '/answer/kpi3_2',
         about: `Сущности: <span class="${ner_styles['PER']}">Человек</span> <span class="${ner_styles['ORG']}">Организация</span> <span class="${ner_styles['LOC']}">Локация</span>`,
-        text1header: 'Исходный текст',
+        text1header: 'Введите текст',
         submit_text: 'Распознать',
         results_text: 'Результаты',
         examples_text: 'Примеры',
@@ -144,7 +144,7 @@ Kensington Palace said in a statement that the couple is “hugely grateful” f
         ],
         url: baseURL + '/answer/kpi4',
         about: '',
-        text1header: 'Source Text',
+        text1header: 'Enter Text',
         submit_text: 'Ask',
         lang: 'en'
     },
@@ -171,7 +171,7 @@ of President Nicolas Maduro.'
         ],
         url: baseURL + '/answer/kpi3en',
         about: `Entities: <span class="${ner_styles['PER']}">Person</span> <span class="${ner_styles['ORG']}">Organization</span> <span class="${ner_styles['LOC']}">Location</span>`,
-        text1header: 'Source Text',
+        text1header: 'Enter Text',
         submit_text: 'Search',
         lang: 'en',
         report: function (t1, t2, response){
@@ -198,7 +198,7 @@ of President Nicolas Maduro.'
         ],
         url: baseURL + '/answer/intents',
         about: `Classes: ${Object.keys(badges).map(function(k,i){ return '<span class="badge '+badges[k]+'">'+k+'</span>' }).join(" ")}`,
-        text1header: 'Classified Text',
+        text1header: 'Enter Text',
         submit_text: 'Classify',
         lang: 'en',
         report: function(t1, t2, response){
@@ -220,8 +220,8 @@ of President Nicolas Maduro.'
         ],
         url: baseURL + '/answer/kpi1',
         about: '',
-        text1header: 'Source Text',
-        submit_text: 'Ask',
+        text1header: 'Enter Text',
+        submit_text: 'Classify',
         lang: 'en',
         report: function (t1, t2, response){
             let res = `<blockquote class="blockquote">${t1}</blockquote>${((parseFloat(response) >= 0.5) ? '<span class="badge badge-danger">Insult</span>': '<span class="badge badge-success">Not Insult</span>')}`;
