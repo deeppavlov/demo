@@ -358,5 +358,15 @@ new Vue({
     data: {
         tabs,
         lang: 'ru'
+    },
+    methods: {
+        langChange(){
+            Vue.nextTick().then(function () {
+                $('#tabs li:first-child a').tab('show');
+                // alert(this.lang);
+            })
+        }
     }
 });
+
+$('#tabs li:first-child a').tab('show');

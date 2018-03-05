@@ -33,18 +33,20 @@
         <div class="col">
             <div id="app">
                 <!-- Nav tabs -->
-                <ul class="nav nav-pills nav-fill">
-                    <li class="nav-item" v-for="(tab, index) in tabs" v-show="tab.lang===lang">
-                        <a :class="index?'nav-link':'nav-link active'" :href="'#' + tab.id" role="tab"
+                <ul class="nav nav-pills nav-fill" id="tabs">
+                    <li class="nav-item" v-for="(tab, index) in tabs" v-if="tab.lang===lang">
+                        <a class="nav-link" :href="'#' + tab.id" role="tab"
                            data-toggle="tab">{{tab.id}}</a>
                     </li>
                     <li>
                         <div class="btn-group btn-group-toggle">
                             <label :class="(lang==='ru')?'btn btn-primary':'btn btn-secondary'">
-                                <input type="radio" name="lang" id="langRu" value="ru" autocomplete="off" v-model="lang"> Ru
+                                <input type="radio" name="lang" id="langRu" value="ru" autocomplete="off"
+                                       v-model="lang" @change="langChange"> Ru
                             </label>
                             <label :class="(lang==='en')?'btn btn-primary':'btn btn-secondary'">
-                                <input type="radio" name="lang" id="langEn" value="en" autocomplete="off" v-model="lang"> En
+                                <input type="radio" name="lang" id="langEn" value="en" autocomplete="off"
+                                       v-model="lang" @change="langChange"> En
                             </label>
                         </div>
                     </li>
@@ -53,7 +55,7 @@
                 <!-- Tab panes -->
                 <div class="tab-content">
                     <div role="tabpanel" v-for="(tab, index) in tabs"
-                         :class="index?'tab-pane fade':'tab-pane fade active show'" :id="tab.id">
+                         class="tab-pane fade" :id="tab.id">
                         <tab-content :tab="tab"/>
                     </div>
                 </div>
