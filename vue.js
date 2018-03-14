@@ -71,14 +71,26 @@ tabs = [
         examples_text: 'Примеры',
         lang: 'ru',
         report: function (t1, t2, response){
-            return response.map(function (x) {
+            let prev = null;
+            let res = response.map(function (x) {
                 let w = x[0];
                 let t = x[1];
-                if (t === 'O')
+
+                if(prev !== null && t !== `I-${prev}`){
+                    w = '</span> ' + w;
+                    prev = null;
+                }
+                if(t === 'O' || t === `I-${prev}`)
                     return w;
-                let style = ner_styles[t.substring(2)];
-                return `<span class="${style}">${w}</span>`;
+
+                prev = t.substring(2);
+                let style = ner_styles[prev];
+                return `<span class="${style}">${w}`;
             }).join(' ');
+            if(prev !== null){
+                res += '</span>';
+            }
+            return res;
         }
     },
     {
@@ -175,14 +187,26 @@ of President Nicolas Maduro.'
         submit_text: 'Search',
         lang: 'en',
         report: function (t1, t2, response){
-            return response.map(function (x) {
+            let prev = null;
+            let res = response.map(function (x) {
                 let w = x[0];
                 let t = x[1];
-                if (t === 'O')
+
+                if(prev !== null && t !== `I-${prev}`){
+                    w = '</span> ' + w;
+                    prev = null;
+                }
+                if(t === 'O' || t === `I-${prev}`)
                     return w;
-                let style = ner_styles[t.substring(2)];
-                return `<span class="${style}">${w}</span>`;
+
+                prev = t.substring(2);
+                let style = ner_styles[prev];
+                return `<span class="${style}">${w}`;
             }).join(' ');
+            if(prev !== null){
+                res += '</span>';
+            }
+            return res;
         }
     },
     {
