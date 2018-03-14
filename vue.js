@@ -333,7 +333,7 @@ Vue.component('tab-content', {
         send() {
             let tab = this.tab;
             let data = {
-                text1: tab.text1,
+                text1: tab.text1.replace(').', ') .'), //TODO: remove this dirty hack
                 text2: tab.text2
             };
             this.$http.post(this.tab.url, data).then(function (response) {
