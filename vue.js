@@ -386,7 +386,7 @@ new Vue({
     el: '#app',
     data: {
         tabs,
-        lang: 'ru'
+        lang: 'en'
     },
     methods: {
         langChange(){
