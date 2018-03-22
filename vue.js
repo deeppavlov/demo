@@ -16,6 +16,26 @@ ner_styles = {
     'PER': 'badge badge-success'
 };
 
+ontonotes_classes = {
+    "PERSON": "People, including fictional.",
+    "NORP": "Nationalities or religious or political groups.",
+    "FACILITY": "Buildings, airports, highways, bridges, etc.",
+    "ORG": "Companies, agencies, institutions, etc.",
+    "GPE": "Countries, cities, states.",
+    "LOC": "Non-GPE locations, mountain ranges, bodies of water.",
+    "PRODUCT": "Objects, vehicles, foods, etc. (Not services.)",
+    "EVENT": "Named hurricanes, battles, wars, sports events, etc.",
+    "WORK_OF_ART": "Titles of books, songs, etc.",
+    "LAW": "Named documents made into laws.",
+    "LANGUAGE": "Any named language.",
+    "DATE": "Absolute or relative dates or periods.",
+    "TIME": "Times smaller than a day.",
+    "PERCENT": "Percentage, including \"%\".",
+    "MONEY": "Monetary values, including unit.",
+    "QUANTITY": "Measurements, as of weight or distance.",
+    "ORDINAL": "\"first\", \"second\", etc.",
+    "CARDINAL": "Numerals that do not fall under another type."};
+
 tabs = [
     {
         id: 'Ответы на вопросы',
@@ -162,7 +182,7 @@ Kensington Palace said in a statement that the couple is “hugely grateful” f
         lang: 'en'
     },
     {
-        id: 'Named Entity Recognition',
+        id: '3 classes Entity Recognition',
         examples: [
             {
                 text1: 'Australia’s Deputy Prime Minister Barnaby Joyce is perhaps best known for the Pistol and Boo affair -- when he threatened actor Johnny Depp with perjury over bringing his dogs into the country illegally. \
@@ -204,6 +224,56 @@ of President Nicolas Maduro.'
                 prev = t.substring(2);
                 let style = ner_styles[prev];
                 return `${prefix}<span class="${style}">${w}`;
+            }).join(' ');
+            if(prev !== null){
+                res += '</span>';
+            }
+            return res;
+        }
+    },
+    {
+        id: '18 classes Entity Recognition',
+        examples: [
+            {
+                text1: 'Australia’s Deputy Prime Minister Barnaby Joyce is perhaps best known for the Pistol and Boo affair -- when he threatened actor Johnny Depp with perjury over bringing his dogs into the country illegally. \
+But it’s a very different type of affair which is now engulfing the Deputy PM and leader of the Nationals Party.'
+            },
+            {
+                text1: 'The chief counsel for the US Immigration and Customs Enforcement Seattle field office was charged with stealing the \
+identities of seven people who were involved in immigration proceedings, according to court documents. Raphael A. Sanchez allegedly \
+devised a plan to defraud several financial institutions by using their identities to obtain money and property over a four-year period \
+between October 2013 to October 2017, according to the court documents filed Monday in the US District Court for the Western District of Washington. '
+            },
+            {
+                text1: 'The International Criminal Court is looking into allegations of excessive force and other abuses \
+by Venezuela’s government in response to sometimes deadly anti-regime protests, its prosecutor said Thursday. \
+The “preliminary examination“ by the Netherlands-based tribunal is the first step toward launching an investigation \
+into what ICC prosecutor Fatou Bensouda called allegations of “excessive force“ by state security forces against opponents \
+of President Nicolas Maduro.'
+            }
+        ],
+        url: baseURL + '/answer/ner_en_ontonotes',
+        about: `Hover on an entity to see its class`,
+        text1header: 'Enter Text',
+        submit_text: 'Search',
+        lang: 'en',
+        report: function (t1, t2, response){
+            let prev = null;
+            let res = response.map(function (x) {
+                let w = x[0];
+                let t = x[1];
+                let prefix = '';
+
+                if(prev !== null && t !== `I-${prev}`){
+                    prefix = '</span> ';
+                    prev = null;
+                }
+                if(t === 'O' || t === `I-${prev}`)
+                    return prefix + w;
+
+                prev = t.substring(2);
+                let style = ner_styles[prev];
+                return `${prefix}<span class="badge badge-info" data-toggle="tooltip" title="${ontonotes_classes[prev]}" style="cursor: help;">${w}`;
             }).join(' ');
             if(prev !== null){
                 res += '</span>';
