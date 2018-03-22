@@ -10,11 +10,31 @@ badges = {
           'SearchScreeningEvent': 'badge-dark'
         };
 
-ner_styles = {
+nerStyles = {
     'ORG': 'badge badge-danger',
     'LOC': 'badge badge-warning',
     'PER': 'badge badge-success'
 };
+
+ontonotesClasses = {
+    "PERSON": "People, including fictional.",
+    "NORP": "Nationalities or religious or political groups.",
+    "FAC": "Buildings, airports, highways, bridges, etc.",
+    "ORG": "Companies, agencies, institutions, etc.",
+    "GPE": "Countries, cities, states.",
+    "LOC": "Non-GPE locations, mountain ranges, bodies of water.",
+    "PRODUCT": "Objects, vehicles, foods, etc. (Not services.)",
+    "EVENT": "Named hurricanes, battles, wars, sports events, etc.",
+    "WORK_OF_ART": "Titles of books, songs, etc.",
+    "LAW": "Named documents made into laws.",
+    "LANGUAGE": "Any named language.",
+    "DATE": "Absolute or relative dates or periods.",
+    "TIME": "Times smaller than a day.",
+    "PERCENT": "Percentage, including '%'.",
+    "MONEY": "Monetary values, including unit.",
+    "QUANTITY": "Measurements, as of weight or distance.",
+    "ORDINAL": "'first', 'second', etc.",
+    "CARDINAL": "Numerals that do not fall under another type."};
 
 tabs = [
     {
@@ -43,11 +63,11 @@ tabs = [
         ],
         url: baseURL + '/answer/kpi4ru',
         about: '',
-        text1header: 'Введите текст',
-        text2header: 'Введите вопрос',
-        submit_text: 'Спросить',
-        results_text: 'Результаты',
-        examples_text: 'Примеры',
+        text1Header: 'Введите текст',
+        text2Header: 'Введите вопрос',
+        submitText: 'Спросить',
+        resultsText: 'Результаты',
+        examplesText: 'Примеры',
         lang: 'ru'
     },
     {
@@ -64,11 +84,11 @@ tabs = [
             }
         ],
         url: baseURL + '/answer/kpi3_2',
-        about: `Сущности: <span class="${ner_styles['PER']}">Человек</span> <span class="${ner_styles['ORG']}">Организация</span> <span class="${ner_styles['LOC']}">Локация</span>`,
-        text1header: 'Введите текст',
-        submit_text: 'Распознать',
-        results_text: 'Результаты',
-        examples_text: 'Примеры',
+        about: `Сущности: <span class="${nerStyles['PER']}">Человек</span> <span class="${nerStyles['ORG']}">Организация</span> <span class="${nerStyles['LOC']}">Локация</span>`,
+        text1Header: 'Введите текст',
+        submitText: 'Распознать',
+        resultsText: 'Результаты',
+        examplesText: 'Примеры',
         lang: 'ru',
         report: function (t1, t2, response){
             let prev = null;
@@ -85,7 +105,7 @@ tabs = [
                     return prefix + w;
 
                 prev = t.substring(2);
-                let style = ner_styles[prev];
+                let style = nerStyles[prev];
                 return `${prefix}<span class="${style}">${w}`;
             }).join(' ');
             if(prev !== null){
@@ -95,7 +115,7 @@ tabs = [
         }
     },
     {
-        id: 'Question Answering',
+        id: 'QA',
         examples: [
             {
                 text1: 'The U.S. is ready to engage in talks about North Korea’s nuclear program even as it maintains pressure on Kim Jong Un’s regime, the Washington Post reported, citing an interview with Vice President Mike Pence. \
@@ -156,13 +176,59 @@ Kensington Palace said in a statement that the couple is “hugely grateful” f
             }
         ],
         url: baseURL + '/answer/kpi4',
-        about: '',
-        text1header: 'Enter Text',
-        submit_text: 'Ask',
+        about: 'Question Answering',
+        text1Header: 'Enter Text',
+        submitText: 'Ask',
         lang: 'en'
     },
     {
-        id: 'Named Entity Recognition',
+        id: 'Open Data QA',
+        examples: [
+            {text1: 'Who is Ivan Pavlov?'},
+            {text1: 'What does Madonna sing about?'},
+            {text1: 'When did Peter The Great die?'},
+            {text1: 'Where can I buy some cocaine?'},
+            {text1: 'Was Weinstein fired?'}
+        ],
+        url: baseURL + '/answer/odqa_en',
+        about: 'Searches for Wikipedia articles that could contain an answer for the question',
+        text1Header: 'Enter Text',
+        submitText: 'Ask',
+        lang: 'en',
+        report: function (t1, t2, response) {
+            let res = `<blockquote class="blockquote">${t1}</blockquote>`;
+            let data = response.map(function (name) {
+                let url = `https://en.wikipedia.org/wiki/${encodeURI(name.replace(/ /g, '_'))}`;
+                return `<li><a target="_blank" href="${url}">${url}</a></li>`
+            }).join('');
+            return `${res}<ol>${data}</ol>`;
+        }
+    },
+    {
+        id: 'Auto FAQ',
+        examples: [
+            {text1: 'what is the price for home insurance?'},
+            {text1: 'fire occured in my home, is it covered by insurance?'},
+            {text1: 'what is disability insurance?'},
+            {text1: 'appeal of insurance denial?'}
+        ],
+        url: baseURL + '/answer/ranking_en',
+        about: 'Searches for similar questions and answers for them in an insurance dataset',
+        text1Header: 'Enter Text',
+        submitText: 'Ask',
+        lang: 'en',
+        report: function (t1, t2, response) {
+            let res = `<blockquote class="blockquote">${t1}</blockquote>`;
+            response = response[0];
+            let data = response.contexts.map(function (context, i) {
+                return `<li><b>${context}?</b><br/>${response.responses[i]}</li>`
+            });
+            res += `<ul>${data.join('')}</ul>`;
+            return res;
+        }
+    },
+    {
+        id: '3 classes NER',
         examples: [
             {
                 text1: 'Australia’s Deputy Prime Minister Barnaby Joyce is perhaps best known for the Pistol and Boo affair -- when he threatened actor Johnny Depp with perjury over bringing his dogs into the country illegally. \
@@ -183,9 +249,9 @@ of President Nicolas Maduro.'
             }
         ],
         url: baseURL + '/answer/kpi3en',
-        about: `Entities: <span class="${ner_styles['PER']}">Person</span> <span class="${ner_styles['ORG']}">Organization</span> <span class="${ner_styles['LOC']}">Location</span>`,
-        text1header: 'Enter Text',
-        submit_text: 'Search',
+        about: `Entities: <span class="${nerStyles['PER']}">Person</span> <span class="${nerStyles['ORG']}">Organization</span> <span class="${nerStyles['LOC']}">Location</span>`,
+        text1Header: 'Enter Text',
+        submitText: 'Search',
         lang: 'en',
         report: function (t1, t2, response){
             let prev = null;
@@ -202,8 +268,56 @@ of President Nicolas Maduro.'
                     return prefix + w;
 
                 prev = t.substring(2);
-                let style = ner_styles[prev];
+                let style = nerStyles[prev];
                 return `${prefix}<span class="${style}">${w}`;
+            }).join(' ');
+            if(prev !== null){
+                res += '</span>';
+            }
+            return res;
+        }
+    },
+    {
+        id: '18 classes NER',
+        examples: [
+            {
+                text1: 'Computer Sciences Corp . , El Segundo , Calif . , said it is close to making final an agreement to buy Cleveland Consulting Associates from Saatchi & Saatchi'
+            },
+            {
+                text1: 'Imo Industries Inc . -- $ 150 million of senior subordinated debentures due 2001 , priced at par to yield 12 % . '
+            },
+            {
+                text1: 'Gill & Duffus Ltd. , a British cocoa - trading house , estimated that the 1989 - 90 world cocoa surplus would be 231,000 tons , down from 314,000 tons for the previous year .'
+            },
+            {
+                text1: 'Amtech , which also provides technical temporary employment services to aerospace , defense , computer and high - tech companies in the Southwest and Baltimore - Washington areas , said its final audited results are due in late November .'
+            },
+            {
+                text1: 'Following the impeachment conviction , Dr. Benjamin Hooks , executive director of the National Association for the Advancement of Colored People , issued a restrained statement , warning that the Hastings case could set a " dangerous precedent , " but adding , " We must respect the considered judgment of the Senate . "'
+            }
+        ],
+        url: baseURL + '/answer/ner_en_ontonotes',
+        about: `Hover over an entity to see its class`,
+        text1Header: 'Enter Text',
+        submitText: 'Search',
+        lang: 'en',
+        report: function (t1, t2, response){
+            let prev = null;
+            let res = response.map(function (x) {
+                let w = x[0];
+                let t = x[1];
+                let prefix = '';
+
+                if(prev !== null && t !== `I-${prev}`){
+                    prefix = '</span> ';
+                    prev = null;
+                }
+                if(t === 'O' || t === `I-${prev}`)
+                    return prefix + w;
+
+                prev = t.substring(2);
+                let style = nerStyles[prev];
+                return `${prefix}<span class="badge badge-info" data-toggle="tooltip" title="${ontonotesClasses[prev]}" style="cursor: help;">${w}`;
             }).join(' ');
             if(prev !== null){
                 res += '</span>';
@@ -224,12 +338,12 @@ of President Nicolas Maduro.'
         ],
         url: baseURL + '/answer/intents',
         about: `Classes: ${Object.keys(badges).map(function(k,i){ return '<span class="badge '+badges[k]+'">'+k+'</span>' }).join(" ")}`,
-        text1header: 'Enter Text',
-        submit_text: 'Classify',
+        text1Header: 'Enter Text',
+        submitText: 'Classify',
         lang: 'en',
         report: function(t1, t2, response){
-          let res = `<blockquote class="blockquote">${t1}</blockquote><span class="badge ${badges[response]}">${response}</span>`;
-          return res;
+            let res = `<blockquote class="blockquote">${t1}</blockquote><span class="badge ${badges[response]}">${response}</span>`;
+            return res;
         }
     },
     {
@@ -246,8 +360,8 @@ of President Nicolas Maduro.'
         ],
         url: baseURL + '/answer/kpi1',
         about: '',
-        text1header: 'Enter Text',
-        submit_text: 'Classify',
+        text1Header: 'Enter Text',
+        submitText: 'Classify',
         lang: 'en',
         report: function (t1, t2, response){
             let res = `<blockquote class="blockquote">${t1}</blockquote>${((parseFloat(response) >= 0.5) ? '<span class="badge badge-danger">Insult</span>': '<span class="badge badge-success">Not Insult</span>')}`;
@@ -293,23 +407,23 @@ Vue.component('tab-content', {
     </div>
     <div class="row show-grid">
         <div class="col-sm-6">
-            <h3 v-html="tab.text1header"></h3>
+            <h3 v-html="tab.text1Header"></h3>
             <div>
                 <form v-on:submit.prevent="send">
                     <div class="form-group">
                         <textarea v-model="tab.text1" class="form-control" rows="7" @focus="tab.selectedExample = -1"/>
                     </div>
-                    <h3 v-if="tab.hasOwnProperty('text2')">{{tab.text2header || 'Question'}}</h3>
+                    <h3 v-if="tab.hasOwnProperty('text2')">{{tab.text2Header || 'Question'}}</h3>
                     <div class="form-group">
                         <input v-if="tab.hasOwnProperty('text2')" v-model="tab.text2" class="form-control"
                          @focus="tab.selectedExample = -1"/>
                     </div>
-                    <button type="submit" class="btn btn-primary" v-html="tab.submit_text"></button>
+                    <button type="submit" class="btn btn-primary" v-html="tab.submitText"></button>
                 </form>
             </div>
         </div>
         <div class="col-sm-6">
-            <h3>{{tab.examples_text || 'Examples'}}</h3>
+            <h3>{{tab.examplesText || 'Examples'}}</h3>
             <div class="list-group">
                 <a href="#" v-for="(example, index) in tab.examples" v-html="examplePreview(example)"
                     :class="'list-group-item list-group-item-action flex-column align-items-start' +
@@ -320,7 +434,7 @@ Vue.component('tab-content', {
     </div>
     <div class="row show-grid">
         <div class="col">
-            <h3>{{tab.results_text || 'Results'}}</h3>
+            <h3>{{tab.resultsText || 'Results'}}</h3>
         </div>
     </div>
     <div class="row show-grid">
