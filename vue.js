@@ -235,21 +235,19 @@ of President Nicolas Maduro.'
         id: '18 classes Entity Recognition',
         examples: [
             {
-                text1: 'Australia’s Deputy Prime Minister Barnaby Joyce is perhaps best known for the Pistol and Boo affair -- when he threatened actor Johnny Depp with perjury over bringing his dogs into the country illegally. \
-But it’s a very different type of affair which is now engulfing the Deputy PM and leader of the Nationals Party.'
+                text1: 'Computer Sciences Corp . , El Segundo , Calif . , said it is close to making final an agreement to buy Cleveland Consulting Associates from Saatchi & Saatchi'
             },
             {
-                text1: 'The chief counsel for the US Immigration and Customs Enforcement Seattle field office was charged with stealing the \
-identities of seven people who were involved in immigration proceedings, according to court documents. Raphael A. Sanchez allegedly \
-devised a plan to defraud several financial institutions by using their identities to obtain money and property over a four-year period \
-between October 2013 to October 2017, according to the court documents filed Monday in the US District Court for the Western District of Washington. '
+                text1: 'Imo Industries Inc . -- $ 150 million of senior subordinated debentures due 2001 , priced at par to yield 12 % . '
             },
             {
-                text1: 'The International Criminal Court is looking into allegations of excessive force and other abuses \
-by Venezuela’s government in response to sometimes deadly anti-regime protests, its prosecutor said Thursday. \
-The “preliminary examination“ by the Netherlands-based tribunal is the first step toward launching an investigation \
-into what ICC prosecutor Fatou Bensouda called allegations of “excessive force“ by state security forces against opponents \
-of President Nicolas Maduro.'
+                text1: 'Gill & Duffus Ltd. , a British cocoa - trading house , estimated that the 1989 - 90 world cocoa surplus would be 231,000 tons , down from 314,000 tons for the previous year .'
+            },
+            {
+                text1: 'Amtech , which also provides technical temporary employment services to aerospace , defense , computer and high - tech companies in the Southwest and Baltimore - Washington areas , said its final audited results are due in late November .'
+            },
+            {
+                text1: 'Following the impeachment conviction , Dr. Benjamin Hooks , executive director of the National Association for the Advancement of Colored People , issued a restrained statement , warning that the Hastings case could set a " dangerous precedent , " but adding , " We must respect the considered judgment of the Senate . "'
             }
         ],
         url: baseURL + '/answer/ner_en_ontonotes',
