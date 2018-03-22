@@ -75,17 +75,18 @@ tabs = [
             let res = response.map(function (x) {
                 let w = x[0];
                 let t = x[1];
+                let prefix = '';
 
                 if(prev !== null && t !== `I-${prev}`){
-                    w = '</span> ' + w;
+                    prefix = '</span> ';
                     prev = null;
                 }
                 if(t === 'O' || t === `I-${prev}`)
-                    return w;
+                    return prefix + w;
 
                 prev = t.substring(2);
                 let style = ner_styles[prev];
-                return `<span class="${style}">${w}`;
+                return `${prefix}<span class="${style}">${w}`;
             }).join(' ');
             if(prev !== null){
                 res += '</span>';
@@ -191,17 +192,18 @@ of President Nicolas Maduro.'
             let res = response.map(function (x) {
                 let w = x[0];
                 let t = x[1];
+                let prefix = '';
 
                 if(prev !== null && t !== `I-${prev}`){
-                    w = '</span> ' + w;
+                    prefix = '</span> ';
                     prev = null;
                 }
                 if(t === 'O' || t === `I-${prev}`)
-                    return w;
+                    return prefix + w;
 
                 prev = t.substring(2);
                 let style = ner_styles[prev];
-                return `<span class="${style}">${w}`;
+                return `${prefix}<span class="${style}">${w}`;
             }).join(' ');
             if(prev !== null){
                 res += '</span>';
