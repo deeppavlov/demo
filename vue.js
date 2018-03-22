@@ -253,7 +253,7 @@ of President Nicolas Maduro.'
             }
         ],
         url: baseURL + '/answer/ner_en_ontonotes',
-        about: `Hover on an entity to see its class`,
+        about: `Hover over an entity to see its class`,
         text1Header: 'Enter Text',
         submitText: 'Search',
         lang: 'en',
