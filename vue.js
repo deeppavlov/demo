@@ -19,7 +19,7 @@ nerStyles = {
 ontonotesClasses = {
     "PERSON": "People, including fictional.",
     "NORP": "Nationalities or religious or political groups.",
-    "FACILITY": "Buildings, airports, highways, bridges, etc.",
+    "FAC": "Buildings, airports, highways, bridges, etc.",
     "ORG": "Companies, agencies, institutions, etc.",
     "GPE": "Countries, cities, states.",
     "LOC": "Non-GPE locations, mountain ranges, bodies of water.",
