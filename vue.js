@@ -328,7 +328,8 @@ of President Nicolas Maduro.'
             {text1: 'Who is Ivan Pavlov?'},
             {text1: 'What about sings Madonna?'},
             {text1: 'When did Peter The Great die?'},
-            {text1: 'Where can I buy some cocaine?'}
+            {text1: 'Where can I buy some cocaine?'},
+            {text1: 'Was Weinstein fired?'}
         ],
         url: baseURL + '/answer/odqa_en',
         about: 'Searches for Wikipedia articles that could contain an answer for the question',
