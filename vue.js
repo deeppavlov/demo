@@ -185,7 +185,7 @@ Kensington Palace said in a statement that the couple is “hugely grateful” f
         id: 'Open Data QA',
         examples: [
             {text1: 'Who is Ivan Pavlov?'},
-            {text1: 'What about sings Madonna?'},
+            {text1: 'What does Madonna sing about?'},
             {text1: 'When did Peter The Great die?'},
             {text1: 'Where can I buy some cocaine?'},
             {text1: 'Was Weinstein fired?'}
@@ -207,11 +207,10 @@ Kensington Palace said in a statement that the couple is “hugely grateful” f
     {
         id: 'Auto FAQ',
         examples: [
-            {text1: 'Who is Ivan Pavlov?'},
-            {text1: 'What about sings Madonna?'},
-            {text1: 'When did Peter The Great die?'},
-            {text1: 'Where can I buy some cocaine?'},
-            {text1: 'Was Weinstein fired?'}
+            {text1: 'what is the price for home insurance?'},
+            {text1: 'fire occured in my home, is it covered by insurance?'},
+            {text1: 'what is disability insurance?'},
+            {text1: 'appeal of insurance denial?'}
         ],
         url: baseURL + '/answer/ranking_en',
         about: 'Searches for similar questions and answers for them in an insurance dataset',
