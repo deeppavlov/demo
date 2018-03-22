@@ -323,6 +323,28 @@ of President Nicolas Maduro.'
             let res = `<blockquote class="blockquote">${t1}</blockquote>${((parseFloat(response) >= 0.5) ? '<span class="badge badge-danger">Insult</span>': '<span class="badge badge-success">Not Insult</span>')}`;
             return res;
         }
+    },
+    {
+        id: 'Open Data QA',
+        examples: [
+            {text1: 'Who is Ivan Pavlov?'},
+            {text1: 'What about sings Madonna?'},
+            {text1: 'When did Peter The Great die?'},
+            {text1: 'Where can I buy some cocaine?'}
+        ],
+        url: baseURL + '/answer/odqa_en',
+        about: 'Searches for Wikipedia articles that could contain an answer for the question',
+        text1Header: 'Enter Text',
+        submitText: 'Ask',
+        lang: 'en',
+        report: function (t1, t2, response) {
+            let res = `<blockquote class="blockquote">${t1}</blockquote>`;
+            res += response.map(function (name) {
+                let url = `https://en.wikipedia.org/wiki/${encodeURI(name.replace(/ /g, '_'))}`;
+                return `<a target="_blank" href="${url}">${url}</a>`
+            }).join('<br/>');
+            return res;
+        }
     }
 ];
 
