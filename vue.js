@@ -10,13 +10,13 @@ badges = {
           'SearchScreeningEvent': 'badge-dark'
         };
 
-ner_styles = {
+nerStyles = {
     'ORG': 'badge badge-danger',
     'LOC': 'badge badge-warning',
     'PER': 'badge badge-success'
 };
 
-ontonotes_classes = {
+ontonotesClasses = {
     "PERSON": "People, including fictional.",
     "NORP": "Nationalities or religious or political groups.",
     "FACILITY": "Buildings, airports, highways, bridges, etc.",
@@ -63,11 +63,11 @@ tabs = [
         ],
         url: baseURL + '/answer/kpi4ru',
         about: '',
-        text1header: 'Введите текст',
-        text2header: 'Введите вопрос',
-        submit_text: 'Спросить',
-        results_text: 'Результаты',
-        examples_text: 'Примеры',
+        text1Header: 'Введите текст',
+        text2Header: 'Введите вопрос',
+        submitText: 'Спросить',
+        resultsText: 'Результаты',
+        examplesText: 'Примеры',
         lang: 'ru'
     },
     {
@@ -84,11 +84,11 @@ tabs = [
             }
         ],
         url: baseURL + '/answer/kpi3_2',
-        about: `Сущности: <span class="${ner_styles['PER']}">Человек</span> <span class="${ner_styles['ORG']}">Организация</span> <span class="${ner_styles['LOC']}">Локация</span>`,
-        text1header: 'Введите текст',
-        submit_text: 'Распознать',
-        results_text: 'Результаты',
-        examples_text: 'Примеры',
+        about: `Сущности: <span class="${nerStyles['PER']}">Человек</span> <span class="${nerStyles['ORG']}">Организация</span> <span class="${nerStyles['LOC']}">Локация</span>`,
+        text1Header: 'Введите текст',
+        submitText: 'Распознать',
+        resultsText: 'Результаты',
+        examplesText: 'Примеры',
         lang: 'ru',
         report: function (t1, t2, response){
             let prev = null;
@@ -105,7 +105,7 @@ tabs = [
                     return prefix + w;
 
                 prev = t.substring(2);
-                let style = ner_styles[prev];
+                let style = nerStyles[prev];
                 return `${prefix}<span class="${style}">${w}`;
             }).join(' ');
             if(prev !== null){
@@ -177,8 +177,8 @@ Kensington Palace said in a statement that the couple is “hugely grateful” f
         ],
         url: baseURL + '/answer/kpi4',
         about: '',
-        text1header: 'Enter Text',
-        submit_text: 'Ask',
+        text1Header: 'Enter Text',
+        submitText: 'Ask',
         lang: 'en'
     },
     {
@@ -203,9 +203,9 @@ of President Nicolas Maduro.'
             }
         ],
         url: baseURL + '/answer/kpi3en',
-        about: `Entities: <span class="${ner_styles['PER']}">Person</span> <span class="${ner_styles['ORG']}">Organization</span> <span class="${ner_styles['LOC']}">Location</span>`,
-        text1header: 'Enter Text',
-        submit_text: 'Search',
+        about: `Entities: <span class="${nerStyles['PER']}">Person</span> <span class="${nerStyles['ORG']}">Organization</span> <span class="${nerStyles['LOC']}">Location</span>`,
+        text1Header: 'Enter Text',
+        submitText: 'Search',
         lang: 'en',
         report: function (t1, t2, response){
             let prev = null;
@@ -222,7 +222,7 @@ of President Nicolas Maduro.'
                     return prefix + w;
 
                 prev = t.substring(2);
-                let style = ner_styles[prev];
+                let style = nerStyles[prev];
                 return `${prefix}<span class="${style}">${w}`;
             }).join(' ');
             if(prev !== null){
@@ -254,8 +254,8 @@ of President Nicolas Maduro.'
         ],
         url: baseURL + '/answer/ner_en_ontonotes',
         about: `Hover on an entity to see its class`,
-        text1header: 'Enter Text',
-        submit_text: 'Search',
+        text1Header: 'Enter Text',
+        submitText: 'Search',
         lang: 'en',
         report: function (t1, t2, response){
             let prev = null;
@@ -272,8 +272,8 @@ of President Nicolas Maduro.'
                     return prefix + w;
 
                 prev = t.substring(2);
-                let style = ner_styles[prev];
-                return `${prefix}<span class="badge badge-info" data-toggle="tooltip" title="${ontonotes_classes[prev]}" style="cursor: help;">${w}`;
+                let style = nerStyles[prev];
+                return `${prefix}<span class="badge badge-info" data-toggle="tooltip" title="${ontonotesClasses[prev]}" style="cursor: help;">${w}`;
             }).join(' ');
             if(prev !== null){
                 res += '</span>';
@@ -294,8 +294,8 @@ of President Nicolas Maduro.'
         ],
         url: baseURL + '/answer/intents',
         about: `Classes: ${Object.keys(badges).map(function(k,i){ return '<span class="badge '+badges[k]+'">'+k+'</span>' }).join(" ")}`,
-        text1header: 'Enter Text',
-        submit_text: 'Classify',
+        text1Header: 'Enter Text',
+        submitText: 'Classify',
         lang: 'en',
         report: function(t1, t2, response){
           let res = `<blockquote class="blockquote">${t1}</blockquote><span class="badge ${badges[response]}">${response}</span>`;
@@ -316,8 +316,8 @@ of President Nicolas Maduro.'
         ],
         url: baseURL + '/answer/kpi1',
         about: '',
-        text1header: 'Enter Text',
-        submit_text: 'Classify',
+        text1Header: 'Enter Text',
+        submitText: 'Classify',
         lang: 'en',
         report: function (t1, t2, response){
             let res = `<blockquote class="blockquote">${t1}</blockquote>${((parseFloat(response) >= 0.5) ? '<span class="badge badge-danger">Insult</span>': '<span class="badge badge-success">Not Insult</span>')}`;
@@ -363,23 +363,23 @@ Vue.component('tab-content', {
     </div>
     <div class="row show-grid">
         <div class="col-sm-6">
-            <h3 v-html="tab.text1header"></h3>
+            <h3 v-html="tab.text1Header"></h3>
             <div>
                 <form v-on:submit.prevent="send">
                     <div class="form-group">
                         <textarea v-model="tab.text1" class="form-control" rows="7" @focus="tab.selectedExample = -1"/>
                     </div>
-                    <h3 v-if="tab.hasOwnProperty('text2')">{{tab.text2header || 'Question'}}</h3>
+                    <h3 v-if="tab.hasOwnProperty('text2')">{{tab.text2Header || 'Question'}}</h3>
                     <div class="form-group">
                         <input v-if="tab.hasOwnProperty('text2')" v-model="tab.text2" class="form-control"
                          @focus="tab.selectedExample = -1"/>
                     </div>
-                    <button type="submit" class="btn btn-primary" v-html="tab.submit_text"></button>
+                    <button type="submit" class="btn btn-primary" v-html="tab.submitText"></button>
                 </form>
             </div>
         </div>
         <div class="col-sm-6">
-            <h3>{{tab.examples_text || 'Examples'}}</h3>
+            <h3>{{tab.examplesText || 'Examples'}}</h3>
             <div class="list-group">
                 <a href="#" v-for="(example, index) in tab.examples" v-html="examplePreview(example)"
                     :class="'list-group-item list-group-item-action flex-column align-items-start' +
@@ -390,7 +390,7 @@ Vue.component('tab-content', {
     </div>
     <div class="row show-grid">
         <div class="col">
-            <h3>{{tab.results_text || 'Results'}}</h3>
+            <h3>{{tab.resultsText || 'Results'}}</h3>
         </div>
     </div>
     <div class="row show-grid">
