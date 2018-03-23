@@ -187,7 +187,7 @@ Kensington Palace said in a statement that the couple is “hugely grateful” f
             {text1: 'Who is Ivan Pavlov?'},
             {text1: 'What does Madonna sing about?'},
             {text1: 'When did Peter The Great die?'},
-            {text1: 'Where can I buy some cocaine?'},
+            {text1: 'Where can I buy some white powder?'},
             {text1: 'Was Weinstein fired?'}
         ],
         url: baseURL + '/answer/odqa_en',
