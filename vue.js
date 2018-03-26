@@ -304,9 +304,9 @@ Kensington Palace said in a statement that the couple is “hugely grateful” f
     {
         id: 'Insult detection',
         examples: [
-            {text1: 'Don\'t you have a terribly empty feeling - in your skull?'},
+            {text1: 'Your family tree must be a cactus because everybody on it is a prick'},
             {text1: 'Shit happens'},
-            {text1: 'You\'re so fat, you could sell shade'},
+            {text1: 'You\'re just too fat, man'},
             {text1: 'Money talks and bullshit walks'},
             {text1: 'You are stupid asshole'},
             {text1: 'I just fucked up'},
