@@ -21,3 +21,23 @@ div#reversed > div {
     border-color: lightgray;
     color: black;
 }
+
+.modal-backdrop {
+    background-color: white;
+}
+
+.loader {
+    margin: auto;
+    border: 6px solid #f3f3f3;
+    border-top: 6px solid #007bff;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 500ms linear infinite;
+    background-color: rgba(0, 0, 0, 0);
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}

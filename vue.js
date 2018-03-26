@@ -408,6 +408,8 @@ Vue.component('tab-content', {
                 text1: tab.text1.replace(/\)\./g, ') .'), //TODO: remove this dirty hack
                 text2: tab.text2
             };
+            $('#pleaseWaitDialog').modal({backdrop: 'static', keyboard: false, show: true});
+            let minWait = new Promise(resolve => setTimeout(resolve, 200));
             this.$http.post(this.tab.url, data).then(function (response) {
                 let res = '<div class="card w-100" style="margin:1em"><div class="card-body">';
                 res += tab.report(data.text1, data.text2, response.body);
@@ -423,6 +425,9 @@ Vue.component('tab-content', {
                 tab.results.push({show: false, data: res});
                 return Vue.nextTick();
             }).then(function () {
+                return minWait;
+            }).then(function () {
+                $('#pleaseWaitDialog').modal('hide');
                 tab.results[tab.results.length - 1].show = true;
             });
         },
