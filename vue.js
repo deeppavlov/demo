@@ -411,12 +411,13 @@ Vue.component('tab-content', {
             <div>
                 <form v-on:submit.prevent="send">
                     <div class="form-group">
-                        <textarea v-model="tab.text1" class="form-control" rows="7" @focus="tab.selectedExample = -1"/>
+                        <textarea v-model="tab.text1" class="form-control" rows="7" @focus="tab.selectedExample = -1"
+                         required="true"/>
                     </div>
                     <h3 v-if="tab.hasOwnProperty('text2')">{{tab.text2Header || 'Question'}}</h3>
                     <div class="form-group">
                         <input v-if="tab.hasOwnProperty('text2')" v-model="tab.text2" class="form-control"
-                         @focus="tab.selectedExample = -1"/>
+                         @focus="tab.selectedExample = -1" required="true"/>
                     </div>
                     <button type="submit" class="btn btn-primary" v-html="tab.submitText"></button>
                 </form>
