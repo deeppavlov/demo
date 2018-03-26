@@ -1,14 +1,14 @@
 baseURL = 'https://lnsigo.mipt.ru:6443';
 
 badges = {
-          'AddToPlaylist': 'badge-primary',
-          'BookRestaurant': 'badge-secondary',
-          'GetWeather': 'badge-success',
-          'PlayMusic': 'badge-danger',
-          'RateBook': 'badge-warning',
-          'SearchCreativeWork': 'badge-info',
-          'SearchScreeningEvent': 'badge-dark'
-        };
+    'AddToPlaylist': 'badge-primary',
+    'BookRestaurant': 'badge-secondary',
+    'GetWeather': 'badge-success',
+    'PlayMusic': 'badge-danger',
+    'RateBook': 'badge-warning',
+    'SearchCreativeWork': 'badge-info',
+    'SearchScreeningEvent': 'badge-dark'
+};
 
 nerStyles = {
     'ORG': 'badge badge-danger',
@@ -17,24 +17,25 @@ nerStyles = {
 };
 
 ontonotesClasses = {
-    "PERSON": "People, including fictional.",
-    "NORP": "Nationalities or religious or political groups.",
-    "FAC": "Buildings, airports, highways, bridges, etc.",
-    "ORG": "Companies, agencies, institutions, etc.",
-    "GPE": "Countries, cities, states.",
-    "LOC": "Non-GPE locations, mountain ranges, bodies of water.",
-    "PRODUCT": "Objects, vehicles, foods, etc. (Not services.)",
-    "EVENT": "Named hurricanes, battles, wars, sports events, etc.",
-    "WORK_OF_ART": "Titles of books, songs, etc.",
-    "LAW": "Named documents made into laws.",
-    "LANGUAGE": "Any named language.",
-    "DATE": "Absolute or relative dates or periods.",
-    "TIME": "Times smaller than a day.",
-    "PERCENT": "Percentage, including '%'.",
-    "MONEY": "Monetary values, including unit.",
-    "QUANTITY": "Measurements, as of weight or distance.",
-    "ORDINAL": "'first', 'second', etc.",
-    "CARDINAL": "Numerals that do not fall under another type."};
+    "PERSON": ["badge-primary", "People, including fictional."],
+    "NORP": ["badge-danger", "Nationalities or religious or political groups."],
+    "ORG": ["badge-info", "Companies, agencies, institutions, etc."],
+    "LOC": ["badge-success", "Non-GPE locations, mountain ranges, bodies of water."],
+    "GPE": ["badge-warning", "Countries, cities, states."],
+    "DATE": ["badge-dark", "Absolute or relative dates or periods."],
+    "MONEY": ["badge-secondary", "Monetary values, including unit."],
+    "FAC": ["badge-secondary", "Buildings, airports, highways, bridges, etc."],
+    "PRODUCT": ["badge-secondary", "Objects, vehicles, foods, etc. (Not services.)"],
+    "EVENT": ["badge-secondary", "Named hurricanes, battles, wars, sports events, etc."],
+    "WORK_OF_ART": ["badge-secondary", "Titles of books, songs, etc."],
+    "LAW": ["badge-secondary", "Named documents made into laws."],
+    "LANGUAGE": ["badge-secondary", "Any named language."],
+    "TIME": ["badge-secondary", "Times smaller than a day."],
+    "PERCENT": ["badge-secondary", "Percentage, including '%'."],
+    "QUANTITY": ["badge-secondary", "Measurements, as of weight or distance."],
+    "ORDINAL": ["badge-secondary", "'first', 'second', etc."],
+    "CARDINAL": ["badge-secondary", "Numerals that do not fall under another type."]
+};
 
 tabs = [
     {
@@ -90,25 +91,25 @@ tabs = [
         resultsText: 'Результаты',
         examplesText: 'Примеры',
         lang: 'ru',
-        report: function (t1, t2, response){
+        report: function (t1, t2, response) {
             let prev = null;
             let res = response.map(function (x) {
                 let w = x[0];
                 let t = x[1];
                 let prefix = '';
 
-                if(prev !== null && t !== `I-${prev}`){
+                if (prev !== null && t !== `I-${prev}`) {
                     prefix = '</span> ';
                     prev = null;
                 }
-                if(t === 'O' || t === `I-${prev}`)
+                if (t === 'O' || t === `I-${prev}`)
                     return prefix + w;
 
                 prev = t.substring(2);
                 let style = nerStyles[prev];
                 return `${prefix}<span class="${style}">${w}`;
             }).join(' ');
-            if(prev !== null){
+            if (prev !== null) {
                 res += '</span>';
             }
             return res;
@@ -181,29 +182,29 @@ Kensington Palace said in a statement that the couple is “hugely grateful” f
         submitText: 'Ask',
         lang: 'en'
     },
-    {
-        id: 'Open Data QA',
-        examples: [
-            {text1: 'Who is Ivan Pavlov?'},
-            {text1: 'What does Madonna sing about?'},
-            {text1: 'When did Peter The Great die?'},
-            {text1: 'Where can I buy some white powder?'},
-            {text1: 'Was Weinstein fired?'}
-        ],
-        url: baseURL + '/answer/odqa_en',
-        about: 'Searches for Wikipedia articles that could contain an answer for the question',
-        text1Header: 'Enter Text',
-        submitText: 'Ask',
-        lang: 'en',
-        report: function (t1, t2, response) {
-            let res = `<blockquote class="blockquote">${t1}</blockquote>`;
-            let data = response.map(function (name) {
-                let url = `https://en.wikipedia.org/wiki/${encodeURI(name.replace(/ /g, '_'))}`;
-                return `<li><a target="_blank" href="${url}">${url}</a></li>`
-            }).join('');
-            return `${res}<ol>${data}</ol>`;
-        }
-    },
+    // {
+    //     id: 'Open Data QA',
+    //     examples: [
+    //         {text1: 'Who is Ivan Pavlov?'},
+    //         {text1: 'What does Madonna sing about?'},
+    //         {text1: 'When did Peter The Great die?'},
+    //         {text1: 'Where can I buy some white powder?'},
+    //         {text1: 'Was Weinstein fired?'}
+    //     ],
+    //     url: baseURL + '/answer/odqa_en',
+    //     about: 'Searches for Wikipedia articles that could contain an answer for the question',
+    //     text1Header: 'Enter Text',
+    //     submitText: 'Ask',
+    //     lang: 'en',
+    //     report: function (t1, t2, response) {
+    //         let res = `<blockquote class="blockquote">${t1}</blockquote>`;
+    //         let data = response.map(function (name) {
+    //             let url = `https://en.wikipedia.org/wiki/${encodeURI(name.replace(/ /g, '_'))}`;
+    //             return `<li><a target="_blank" href="${url}">${url}</a></li>`
+    //         }).join('');
+    //         return `${res}<ol>${data}</ol>`;
+    //     }
+    // },
     {
         id: 'Auto FAQ',
         examples: [
@@ -228,57 +229,7 @@ Kensington Palace said in a statement that the couple is “hugely grateful” f
         }
     },
     {
-        id: '3 classes NER',
-        examples: [
-            {
-                text1: 'Australia’s Deputy Prime Minister Barnaby Joyce is perhaps best known for the Pistol and Boo affair -- when he threatened actor Johnny Depp with perjury over bringing his dogs into the country illegally. \
-But it’s a very different type of affair which is now engulfing the Deputy PM and leader of the Nationals Party.'
-            },
-            {
-                text1: 'The chief counsel for the US Immigration and Customs Enforcement Seattle field office was charged with stealing the \
-identities of seven people who were involved in immigration proceedings, according to court documents. Raphael A. Sanchez allegedly \
-devised a plan to defraud several financial institutions by using their identities to obtain money and property over a four-year period \
-between October 2013 to October 2017, according to the court documents filed Monday in the US District Court for the Western District of Washington. '
-            },
-            {
-                text1: 'The International Criminal Court is looking into allegations of excessive force and other abuses \
-by Venezuela’s government in response to sometimes deadly anti-regime protests, its prosecutor said Thursday. \
-The “preliminary examination“ by the Netherlands-based tribunal is the first step toward launching an investigation \
-into what ICC prosecutor Fatou Bensouda called allegations of “excessive force“ by state security forces against opponents \
-of President Nicolas Maduro.'
-            }
-        ],
-        url: baseURL + '/answer/kpi3en',
-        about: `Entities: <span class="${nerStyles['PER']}">Person</span> <span class="${nerStyles['ORG']}">Organization</span> <span class="${nerStyles['LOC']}">Location</span>`,
-        text1Header: 'Enter Text',
-        submitText: 'Search',
-        lang: 'en',
-        report: function (t1, t2, response){
-            let prev = null;
-            let res = response.map(function (x) {
-                let w = x[0];
-                let t = x[1];
-                let prefix = '';
-
-                if(prev !== null && t !== `I-${prev}`){
-                    prefix = '</span> ';
-                    prev = null;
-                }
-                if(t === 'O' || t === `I-${prev}`)
-                    return prefix + w;
-
-                prev = t.substring(2);
-                let style = nerStyles[prev];
-                return `${prefix}<span class="${style}">${w}`;
-            }).join(' ');
-            if(prev !== null){
-                res += '</span>';
-            }
-            return res;
-        }
-    },
-    {
-        id: '18 classes NER',
+        id: 'Entity recognition',
         examples: [
             {
                 text1: 'Computer Sciences Corp . , El Segundo , Calif . , said it is close to making final an agreement to buy Cleveland Consulting Associates from Saatchi & Saatchi'
@@ -297,29 +248,32 @@ of President Nicolas Maduro.'
             }
         ],
         url: baseURL + '/answer/ner_en_ontonotes',
-        about: `Hover over an entity to see its class`,
+        about: `Hover over an entity to see its class description<br/>Classes: ` +
+        Object.entries(ontonotesClasses).map(function([k, [class_name, about]]) {
+            return `<span class="badge ${class_name}" data-toggle="tooltip" title="${about}" style="cursor: help;">${k}</span>`
+        }).join(', '),
         text1Header: 'Enter Text',
         submitText: 'Search',
         lang: 'en',
-        report: function (t1, t2, response){
+        report: function (t1, t2, response) {
             let prev = null;
             let res = response.map(function (x) {
                 let w = x[0];
                 let t = x[1];
                 let prefix = '';
 
-                if(prev !== null && t !== `I-${prev}`){
+                if (prev !== null && t !== `I-${prev}`) {
                     prefix = '</span> ';
                     prev = null;
                 }
-                if(t === 'O' || t === `I-${prev}`)
+                if (t === 'O' || t === `I-${prev}`)
                     return prefix + w;
 
                 prev = t.substring(2);
-                let style = nerStyles[prev];
-                return `${prefix}<span class="badge badge-info" data-toggle="tooltip" title="${ontonotesClasses[prev]}" style="cursor: help;">${w}`;
+                let [class_name, about] = ontonotesClasses[prev];
+                return `${prefix}<span class="badge ${class_name}" data-toggle="tooltip" title="${about}" style="cursor: help;">${w}`;
             }).join(' ');
-            if(prev !== null){
+            if (prev !== null) {
                 res += '</span>';
             }
             return res;
@@ -337,13 +291,14 @@ of President Nicolas Maduro.'
             {text1: 'Check the showtimes for Wonder Woman in Paris'}
         ],
         url: baseURL + '/answer/intents',
-        about: `Classes: ${Object.keys(badges).map(function(k,i){ return '<span class="badge '+badges[k]+'">'+k+'</span>' }).join(" ")}`,
+        about: 'Classes: ' + Object.entries(badges).map(function ([k, v]) {
+            return `<span class="badge ${v}">${k}</span>`
+        }).join(" "),
         text1Header: 'Enter Text',
         submitText: 'Classify',
         lang: 'en',
-        report: function(t1, t2, response){
-            let res = `<blockquote class="blockquote">${t1}</blockquote><span class="badge ${badges[response]}">${response}</span>`;
-            return res;
+        report: function (t1, t2, response) {
+            return `<blockquote class="blockquote">${t1}</blockquote><span class="badge ${badges[response]}">${response}</span>`;
         }
     },
     {
@@ -363,8 +318,8 @@ of President Nicolas Maduro.'
         text1Header: 'Enter Text',
         submitText: 'Classify',
         lang: 'en',
-        report: function (t1, t2, response){
-            let res = `<blockquote class="blockquote">${t1}</blockquote>${((parseFloat(response) >= 0.5) ? '<span class="badge badge-danger">Insult</span>': '<span class="badge badge-success">Not Insult</span>')}`;
+        report: function (t1, t2, response) {
+            let res = `<blockquote class="blockquote">${t1}</blockquote>${((parseFloat(response) >= 0.5) ? '<span class="badge badge-danger">Insult</span>' : '<span class="badge badge-success">Not Insult</span>')}`;
             return res;
         }
     }
@@ -380,10 +335,10 @@ for (let i = 0; i < tabs.length; i++) {
     tab.results = [];
     tab.selectedExample = 0;
 
-    if (!tab.hasOwnProperty('report')){
+    if (!tab.hasOwnProperty('report')) {
         tab.report = function (t1, t2, response) {
             let res = `<blockquote class="blockquote">${t1}</blockquote>`;
-            if (t2){
+            if (t2) {
                 res += `<blockquote class="blockquote">${t2}</blockquote>`;
             }
             res += response;
@@ -471,11 +426,11 @@ Vue.component('tab-content', {
                 tab.results[tab.results.length - 1].show = true;
             });
         },
-        examplePreview(example){
+        examplePreview(example) {
             const maxLength = 100;
-            let shorten = (x) => (x.length > maxLength)?x.substring(0, maxLength) + '...':x;
+            let shorten = (x) => (x.length > maxLength) ? x.substring(0, maxLength) + '...' : x;
 
-            if (example.text2){
+            if (example.text2) {
                 return shorten(example.text2);
             }
             return shorten(example.text1);
@@ -506,7 +461,7 @@ new Vue({
         lang: 'en'
     },
     methods: {
-        langChange(){
+        langChange() {
             Vue.nextTick().then(function () {
                 $('#tabs li:first-child a').tab('show');
                 // alert(this.lang);
