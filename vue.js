@@ -364,15 +364,15 @@ Vue.component('tab-content', {
         <div class="col-sm-6">
             <h3 v-html="tab.text1Header"></h3>
             <div>
-                <form v-on:submit.prevent="send">
+                <form @submit.prevent="send">
                     <div class="form-group">
                         <textarea v-model="tab.text1" class="form-control" rows="7" @focus="tab.selectedExample = -1"
-                         required="true"/>
+                         @keydown="handleCtrlEnter($event)" required="true"/>
                     </div>
                     <h3 v-if="tab.hasOwnProperty('text2')">{{tab.text2Header || 'Question'}}</h3>
                     <div class="form-group">
                         <input v-if="tab.hasOwnProperty('text2')" v-model="tab.text2" class="form-control"
-                         @focus="tab.selectedExample = -1" required="true"/>
+                         @focus="tab.selectedExample = -1" @keydown="handleCtrlEnter($event)" required="true"/>
                     </div>
                     <button type="submit" class="btn btn-primary" v-html="tab.submitText"></button>
                 </form>
@@ -439,6 +439,11 @@ Vue.component('tab-content', {
                 return shorten(example.text2);
             }
             return shorten(example.text1);
+        },
+        handleCtrlEnter(e) {
+            if ((e.metaKey || e.ctrlKey) && e.keyCode == 13) {
+                this.send();
+            }
         }
     },
     computed: {
