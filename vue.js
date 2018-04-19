@@ -404,15 +404,25 @@ Vue.component('tab-content', {
     methods: {
         send() {
             let tab = this.tab;
+            let text1 = tab.text1;
+
+            text1 = text1.replace(/\)\./g, ') .'); //TODO: remove this dirty hack for NER
+
+            let decorated = text1;
+
+            if (tab.url == baseURL + '/answer/kpi4ru' && text1.length < 100){//TODO: remove this dirty hack for RU-SQUAD
+                decorated += ' ' + '#'.repeat(100-text1.length);
+            }
+
             let data = {
-                text1: tab.text1.replace(/\)\./g, ') .'), //TODO: remove this dirty hack
+                text1: decorated,
                 text2: tab.text2
             };
             $('#pleaseWaitDialog').modal({backdrop: 'static', keyboard: false, show: true});
             let minWait = new Promise(resolve => setTimeout(resolve, 200));
             this.$http.post(this.tab.url, data).then(function (response) {
                 let res = '<div class="card w-100" style="margin:1em"><div class="card-body">';
-                res += tab.report(data.text1, data.text2, response.body);
+                res += tab.report(text1, data.text2, response.body);
                 res += '</div></div>';
                 tab.results.push({show: false, data: res});
                 // return new Promise(resolve => setTimeout(resolve, 100));
