@@ -84,7 +84,7 @@ tabs = [
                 text1: 'Италия разместила на открытом рынке бонды на общую сумму 3.91 млрд евро . Спрос на бумаги был хорошим , размещение прошло по верхней границе диапазона , но доходность итальянских облигаций выросла . Рим продал бонды с нулевым купоном , которые будут погашены в 2014 г. на сумму 2.99 млрд евро . Доходность выросла до 4.712 % с 4.037 % на предыдущем аукционе . Еще 916 млн евро казне принесли обыкновенные бонды со сроком обращения 4 и 14 лет . Долговой процент по этим типам бумаг составил 5.2 % и 5.29 % соответственно . Главной причиной роста доходности стало решение Кипра направить европейским партнерам запрос о предоставлении финансовой помощи . Не готов рынок забыть и об испанских проблемах . После того как деньги из общеевропейской копилки решил позаимствовать и Мадрид , игроки все чаще говорят о том , что цепная реакция в еврозоне перекинется и на Италию . Напомним , что правительство Италии одобрило во вторник предоставление финансовой поддержки третьему по величине банку страны Banca Monte dei Paschi di Siena .'
             }
         ],
-        url: baseURL + '/answer/kpi3_2',
+        url: 'https://lnsigo.mipt.ru:7004/answer',
         about: `Сущности: <span class="${nerStyles['PER']}">Человек</span> <span class="${nerStyles['ORG']}">Организация</span> <span class="${nerStyles['LOC']}">Локация</span>`,
         text1Header: 'Введите текст',
         submitText: 'Распознать',
@@ -213,7 +213,7 @@ Kensington Palace said in a statement that the couple is “hugely grateful” f
             {text1: 'what is disability insurance?'},
             {text1: 'appeal of insurance denial?'}
         ],
-        url: baseURL + '/answer/ranking_en',
+        url: 'https://lnsigo.mipt.ru:7009/answer',
         about: 'Searches for similar questions and answers for them in an insurance dataset',
         text1Header: 'Enter Text',
         submitText: 'Ask',
@@ -247,7 +247,7 @@ Kensington Palace said in a statement that the couple is “hugely grateful” f
                 text1: 'Following the impeachment conviction , Dr. Benjamin Hooks , executive director of the National Association for the Advancement of Colored People , issued a restrained statement , warning that the Hastings case could set a " dangerous precedent , " but adding , " We must respect the considered judgment of the Senate . "'
             }
         ],
-        url: baseURL + '/answer/ner_en_ontonotes',
+        url: 'https://lnsigo.mipt.ru:7010/answer',
         about: `Hover over an entity to see its class description<br/>Classes: ` +
         Object.entries(ontonotesClasses).map(function([k, [class_name, about]]) {
             return `<span class="badge ${class_name}" data-toggle="tooltip" title="${about}" style="cursor: help;">${k}</span>`
@@ -337,11 +337,11 @@ for (let i = 0; i < tabs.length; i++) {
 
     if (!tab.hasOwnProperty('report')) {
         tab.report = function (t1, t2, response) {
-            let res = `<blockquote class="blockquote">${t1}</blockquote>`;
+            let res = `<div>${t1}</div>`;
             if (t2) {
-                res += `<blockquote class="blockquote">${t2}</blockquote>`;
+                res += `<div style="margin-top: 0.3em;">${t2}</div>`;
             }
-            res += response;
+            res += `<blockquote class="blockquote">${response}</blockquote>`;
 
             return res;
         }
