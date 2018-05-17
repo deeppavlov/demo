@@ -93,9 +93,9 @@ tabs = [
         lang: 'ru',
         report: function (t1, t2, response) {
             let prev = null;
-            let res = response.map(function (x) {
-                let w = x[0];
-                let t = x[1];
+            let [words, tags] = response;
+            let res = words.map(function (w, i) {
+                let t = tags[i];
                 let prefix = '';
 
                 if (prev !== null && t !== `I-${prev}`) {
@@ -220,7 +220,6 @@ Kensington Palace said in a statement that the couple is “hugely grateful” f
         lang: 'en',
         report: function (t1, t2, response) {
             let res = `<blockquote class="blockquote">${t1}</blockquote>`;
-            response = response[0];
             let data = response.contexts.map(function (context, i) {
                 return `<li><b>${context}?</b><br/>${response.responses[i]}</li>`
             });
@@ -257,9 +256,9 @@ Kensington Palace said in a statement that the couple is “hugely grateful” f
         lang: 'en',
         report: function (t1, t2, response) {
             let prev = null;
-            let res = response.map(function (x) {
-                let w = x[0];
-                let t = x[1];
+            let [words, tags] = response;
+            let res = words.map(function (w, i) {
+                let t = tags[i];
                 let prefix = '';
 
                 if (prev !== null && t !== `I-${prev}`) {
