@@ -339,9 +339,9 @@ for (let i = 0; i < tabs.length; i++) {
         tab.report = function (t1, t2, response) {
             let res = `<div>${t1}</div>`;
             if (t2) {
-                res += `<div style="margin-top: 0.3em;">${t2}</div>`;
+                res += `<div style="margin-top: 0.5em; border-top: 1px solid lightgrey;">${t2}</div>`;
             }
-            res += `<blockquote class="blockquote">${response}</blockquote>`;
+            res += `<blockquote class="blockquote" style="color: darkblue;">${response}</blockquote>`;
 
             return res;
         }
