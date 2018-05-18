@@ -84,7 +84,7 @@ tabs = [
                 text1: 'Италия разместила на открытом рынке бонды на общую сумму 3.91 млрд евро . Спрос на бумаги был хорошим , размещение прошло по верхней границе диапазона , но доходность итальянских облигаций выросла . Рим продал бонды с нулевым купоном , которые будут погашены в 2014 г. на сумму 2.99 млрд евро . Доходность выросла до 4.712 % с 4.037 % на предыдущем аукционе . Еще 916 млн евро казне принесли обыкновенные бонды со сроком обращения 4 и 14 лет . Долговой процент по этим типам бумаг составил 5.2 % и 5.29 % соответственно . Главной причиной роста доходности стало решение Кипра направить европейским партнерам запрос о предоставлении финансовой помощи . Не готов рынок забыть и об испанских проблемах . После того как деньги из общеевропейской копилки решил позаимствовать и Мадрид , игроки все чаще говорят о том , что цепная реакция в еврозоне перекинется и на Италию . Напомним , что правительство Италии одобрило во вторник предоставление финансовой поддержки третьему по величине банку страны Banca Monte dei Paschi di Siena .'
             }
         ],
-        url: 'https://lnsigo.mipt.ru:7004/answer',
+        url: baseURL + '/answer/kpi3_2',
         about: `Сущности: <span class="${nerStyles['PER']}">Человек</span> <span class="${nerStyles['ORG']}">Организация</span> <span class="${nerStyles['LOC']}">Локация</span>`,
         text1Header: 'Введите текст',
         submitText: 'Распознать',
@@ -93,9 +93,9 @@ tabs = [
         lang: 'ru',
         report: function (t1, t2, response) {
             let prev = null;
-            let [words, tags] = response;
-            let res = words.map(function (w, i) {
-                let t = tags[i];
+            let res = response.map(function (x) {
+                let w = x[0];
+                let t = x[1];
                 let prefix = '';
 
                 if (prev !== null && t !== `I-${prev}`) {
@@ -213,13 +213,14 @@ Kensington Palace said in a statement that the couple is “hugely grateful” f
             {text1: 'what is disability insurance?'},
             {text1: 'appeal of insurance denial?'}
         ],
-        url: 'https://lnsigo.mipt.ru:7009/answer',
+        url: baseURL + '/answer/ranking_en',
         about: 'Searches for similar questions and answers for them in an insurance dataset',
         text1Header: 'Enter Text',
         submitText: 'Ask',
         lang: 'en',
         report: function (t1, t2, response) {
             let res = `<blockquote class="blockquote">${t1}</blockquote>`;
+            response = response[0];
             let data = response.contexts.map(function (context, i) {
                 return `<li><b>${context}?</b><br/>${response.responses[i]}</li>`
             });
@@ -246,7 +247,7 @@ Kensington Palace said in a statement that the couple is “hugely grateful” f
                 text1: 'Following the impeachment conviction , Dr. Benjamin Hooks , executive director of the National Association for the Advancement of Colored People , issued a restrained statement , warning that the Hastings case could set a " dangerous precedent , " but adding , " We must respect the considered judgment of the Senate . "'
             }
         ],
-        url: 'https://lnsigo.mipt.ru:7010/answer',
+        url: baseURL + '/answer/kpi3en',
         about: `Hover over an entity to see its class description<br/>Classes: ` +
         Object.entries(ontonotesClasses).map(function([k, [class_name, about]]) {
             return `<span class="badge ${class_name}" data-toggle="tooltip" title="${about}" style="cursor: help;">${k}</span>`
@@ -256,9 +257,9 @@ Kensington Palace said in a statement that the couple is “hugely grateful” f
         lang: 'en',
         report: function (t1, t2, response) {
             let prev = null;
-            let [words, tags] = response;
-            let res = words.map(function (w, i) {
-                let t = tags[i];
+            let res = response.map(function (x) {
+                let w = x[0];
+                let t = x[1];
                 let prefix = '';
 
                 if (prev !== null && t !== `I-${prev}`) {
