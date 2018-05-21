@@ -388,21 +388,37 @@ Vue.component('tab-content', {
     }
 });
 
-new Vue({
+// console.dir([...new Set(tabs.map(t => t.lang))]);
+var langs = new Set(tabs.map(function (t) {
+    return t.lang;
+}));
+var hash = window.location.hash.replace('#', '');
+var lang = langs.has(hash) ? hash : 'en';
+
+var vue = new Vue({
     el: '#app',
     data: {
         tabs: tabs,
-        lang: 'en'
+        lang: lang
     },
     methods: {
         langChange: function langChange() {
+            var lang = this.lang;
             Vue.nextTick().then(function () {
                 $('#tabs li:first-child a').tab('show');
-                // alert(this.lang);
+                window.location.hash = lang;
             });
         }
     }
 });
 
 $('#tabs li:first-child a').tab('show');
+
+$(window).on('hashchange', function () {
+    var hash = window.location.hash.replace('#', '');
+    if (langs.has(hash)) {
+        vue.lang = hash;
+        vue.langChange();
+    }
+});
 //# sourceMappingURL=vue.js.map

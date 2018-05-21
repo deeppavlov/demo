@@ -473,21 +473,34 @@ Vue.component('tab-content', {
     }
 });
 
+// console.dir([...new Set(tabs.map(t => t.lang))]);
+let langs = new Set(tabs.map(t => t.lang));
+let hash = window.location.hash.replace('#', '');
+let lang = langs.has(hash)?hash:'en';
 
-new Vue({
+let vue = new Vue({
     el: '#app',
     data: {
         tabs,
-        lang: 'en'
+        lang
     },
     methods: {
         langChange() {
+            let lang = this.lang;
             Vue.nextTick().then(function () {
                 $('#tabs li:first-child a').tab('show');
-                // alert(this.lang);
+                window.location.hash = lang;
             })
         }
     }
 });
 
 $('#tabs li:first-child a').tab('show');
+
+$(window).on('hashchange', function () {
+    let hash = window.location.hash.replace('#', '');
+    if(langs.has(hash)) {
+        vue.lang = hash;
+        vue.langChange();
+    }
+});
