@@ -1,6 +1,6 @@
-baseURL = 'https://lnsigo.mipt.ru:6443';
+const baseURL = 'https://lnsigo.mipt.ru:6443';
 
-badges = {
+const badges = {
     'AddToPlaylist': 'badge-primary',
     'BookRestaurant': 'badge-secondary',
     'GetWeather': 'badge-success',
@@ -10,13 +10,13 @@ badges = {
     'SearchScreeningEvent': 'badge-dark'
 };
 
-nerStyles = {
+const nerStyles = {
     'ORG': 'badge badge-danger',
     'LOC': 'badge badge-warning',
     'PER': 'badge badge-success'
 };
 
-ontonotesClasses = {
+const ontonotesClasses = {
     "PERSON": ["badge-primary", "People, including fictional."],
     "NORP": ["badge-danger", "Nationalities or religious or political groups."],
     "ORG": ["badge-info", "Companies, agencies, institutions, etc."],
@@ -37,7 +37,7 @@ ontonotesClasses = {
     "CARDINAL": ["badge-secondary", "Numerals that do not fall under another type."]
 };
 
-tabs = [
+let tabs = [
     {
         id: 'Ответы на вопросы',
         examples: [
