@@ -388,7 +388,6 @@ Vue.component('tab-content', {
     }
 });
 
-// console.dir([...new Set(tabs.map(t => t.lang))]);
 var langs = new Set(tabs.map(function (t) {
     return t.lang;
 }));
@@ -421,4 +420,6 @@ $(window).on('hashchange', function () {
         vue.langChange();
     }
 });
+
+$('#app').css('visibility', 'visible');
 //# sourceMappingURL=vue.js.map

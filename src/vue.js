@@ -473,7 +473,6 @@ Vue.component('tab-content', {
     }
 });
 
-// console.dir([...new Set(tabs.map(t => t.lang))]);
 let langs = new Set(tabs.map(t => t.lang));
 let hash = window.location.hash.replace('#', '');
 let lang = langs.has(hash)?hash:'en';
@@ -504,3 +503,5 @@ $(window).on('hashchange', function () {
         vue.langChange();
     }
 });
+
+$('#app').css('visibility', 'visible');
