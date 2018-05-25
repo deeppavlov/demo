@@ -297,11 +297,11 @@ for (var i = 0; i < tabs.length; i++) {
 
     if (!tab.hasOwnProperty('report')) {
         tab.report = function (t1, t2, response) {
-            var res = '<div>' + t1 + '</div>';
+            var res = '<blockquote class="blockquote" style="color: darkblue;">' + response + '</blockquote>';
             if (t2) {
-                res += '<div style="margin-top: 0.5em; border-top: 1px solid lightgrey;">' + t2 + '</div>';
+                res += '<div style="margin-bottom: 0.5em; padding-bottom: 0.5em; border-bottom: 1px solid lightgrey;">' + t2 + '</div>';
             }
-            res += '<blockquote class="blockquote" style="color: darkblue;">' + response + '</blockquote>';
+            res += '<div>' + t1 + '</div>';
 
             return res;
         };
