@@ -215,7 +215,7 @@ Kensington Palace said in a statement that the couple is “hugely grateful” f
     }, {
         text1: 'Following the impeachment conviction , Dr. Benjamin Hooks , executive director of the National Association for the Advancement of Colored People , issued a restrained statement , warning that the Hastings case could set a " dangerous precedent , " but adding , " We must respect the considered judgment of the Senate . "'
     }],
-    url: baseURL + '/answer/kpi3en',
+    url: baseURL + '/answer/ner_en_ontonotes',
     about: 'Hover over an entity to see its class description<br/>Classes: ' + Object.entries(ontonotesClasses).map(function (_ref) {
         var _ref2 = _slicedToArray(_ref, 2),
             k = _ref2[0],
