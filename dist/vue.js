@@ -147,24 +147,6 @@ var tabs = [{
         return res;
     }
 }, {
-    id: 'ODQA',
-    examples: [{
-        text1: 'What caused the Lynmouth floods?'
-    }, {
-        text1: 'Who is Darth Wader\' son?'
-    }, {
-        text1: 'When is the Bastille Day?'
-    }, {
-        text1: 'Where did guinea pigs originate?'
-    }, {
-        text1: 'What is the name of Joan Jett\'s band?'
-    }],
-    url: 'https://7011.lnsigo.mipt.ru/answer',
-    about: '',
-    text1Header: 'Введите вопрос',
-    submitText: 'Ask',
-    lang: 'en'
-}, {
     id: 'QA',
     examples: [{
         text1: 'The U.S. is ready to engage in talks about North Korea’s nuclear program even as it maintains pressure on Kim Jong Un’s regime, the Washington Post reported, citing an interview with Vice President Mike Pence. \
@@ -221,6 +203,24 @@ Kensington Palace said in a statement that the couple is “hugely grateful” f
     submitText: 'Ask',
     lang: 'en',
     report: squadReport
+}, {
+    id: 'ODQA',
+    examples: [{
+        text1: 'What caused the Lynmouth floods?'
+    }, {
+        text1: 'Who is Darth Wader\' son?'
+    }, {
+        text1: 'When is the Bastille Day?'
+    }, {
+        text1: 'Where did guinea pigs originate?'
+    }, {
+        text1: 'What is the name of Joan Jett\'s band?'
+    }],
+    url: 'https://7011.lnsigo.mipt.ru/answer',
+    about: '',
+    text1Header: 'Введите вопрос',
+    submitText: 'Ask',
+    lang: 'en'
 }, {
     id: 'Auto FAQ',
     examples: [{ text1: 'what is the price for home insurance?' }, { text1: 'fire occured in my home, is it covered by insurance?' }, { text1: 'what is disability insurance?' }, { text1: 'appeal of insurance denial?' }],
