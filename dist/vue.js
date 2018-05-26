@@ -206,15 +206,15 @@ Kensington Palace said in a statement that the couple is “hugely grateful” f
 }, {
     id: 'ODQA',
     examples: [{
-        text1: 'What caused the Lynmouth floods?'
+        text1: 'When did the Lynmouth floods happen?'
     }, {
-        text1: 'Who is Darth Wader\' son?'
+        text1: 'Who piloted the original Gundam?'
     }, {
         text1: 'When is the Bastille Day?'
     }, {
         text1: 'Where did guinea pigs originate?'
     }, {
-        text1: 'What is the name of Joan Jett\'s band?'
+        text1: 'What is Joan Jett\'s birth name?'
     }],
     url: 'https://7011.lnsigo.mipt.ru/answer',
     about: '',
@@ -455,4 +455,3 @@ $(window).on('hashchange', function () {
 });
 
 $('#app').css('visibility', 'visible');
-//# sourceMappingURL=vue.js.map
