@@ -335,7 +335,7 @@ Kensington Palace said in a statement that the couple is “hugely grateful” f
             {text1: 'Give 6 stars to Of Mice and Men'},
             {text1: 'Check the showtimes for Wonder Woman in Paris'}
         ],
-        url: 'https://lnsigo.mipt.ru:6443/answer/intents',
+        url: 'https://7007.lnsigo.mipt.ru/answer',
         about: 'Classes: ' + Object.entries(badges).map(function ([k, v]) {
             return `<span class="badge ${v}">${k}</span>`
         }).join(" "),
@@ -343,6 +343,7 @@ Kensington Palace said in a statement that the couple is “hugely grateful” f
         submitText: 'Classify',
         lang: 'en',
         report: function (t1, t2, response) {
+            response = response[0];
             return `<blockquote class="blockquote">${t1}</blockquote><span class="badge ${badges[response]}">${response}</span>`;
         }
     },

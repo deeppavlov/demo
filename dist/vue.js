@@ -296,7 +296,7 @@ Kensington Palace said in a statement that the couple is “hugely grateful” f
 }, {
     id: 'Intent classification',
     examples: [{ text1: 'Show me the forecast for my upcoming weekend' }, { text1: 'Find me the I, Robot television show' }, { text1: 'What is the cheapest restaurant between Balthazar and Lombardi\'s?' }, { text1: 'Add Diamonds to my roadtrip playlist' }, { text1: 'Play the last track from Beyoncé off Spotify' }, { text1: 'Give 6 stars to Of Mice and Men' }, { text1: 'Check the showtimes for Wonder Woman in Paris' }],
-    url: 'https://lnsigo.mipt.ru:6443/answer/intents',
+    url: 'https://7007.lnsigo.mipt.ru/answer',
     about: 'Classes: ' + Object.entries(badges).map(function (_ref3) {
         var _ref4 = _slicedToArray(_ref3, 2),
             k = _ref4[0],
@@ -308,6 +308,7 @@ Kensington Palace said in a statement that the couple is “hugely grateful” f
     submitText: 'Classify',
     lang: 'en',
     report: function report(t1, t2, response) {
+        response = response[0];
         return '<blockquote class="blockquote">' + t1 + '</blockquote><span class="badge ' + badges[response] + '">' + response + '</span>';
     }
 }, {
