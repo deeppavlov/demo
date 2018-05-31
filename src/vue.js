@@ -340,11 +340,11 @@ Kensington Palace said in a statement that the couple is “hugely grateful” f
         examples: [
             {text1: 'Show me the forecast for my upcoming weekend'},
             {text1: 'Find me the I, Robot television show'},
-            {text1: 'What is the cheapest restaurant between Balthazar and Lombardi\'s?'},
+            {text1: 'Can I get some Russian cuisine at a restaurant with Shari and I?'},
             {text1: 'Add Diamonds to my roadtrip playlist'},
             {text1: 'Play the last track from Beyoncé off Spotify'},
             {text1: 'Give 6 stars to Of Mice and Men'},
-            {text1: 'Check the showtimes for Wonder Woman in Paris'}
+            {text1: 'Tell me what movies are showing at 7am at the closest movie house'}
         ],
         url: 'https://7007.lnsigo.mipt.ru/answer',
         about: 'Classes: ' + Object.entries(intentsClasses).map(function ([k, v]) {
@@ -364,8 +364,7 @@ Kensington Palace said in a statement that the couple is “hugely grateful” f
             {text1: 'Money talks and bullshit walks'},
             {text1: 'You are stupid asshole'},
             {text1: 'I just fucked up'},
-            {text1: 'Your house is so dirty you have to wipe your feet before you go outside'},
-            {text1: 'Moby Dick is a fictional sperm whale'}
+            {text1: 'Your house is so dirty you have to wipe your feet before you go outside'}
         ],
         url: 'https://7006.lnsigo.mipt.ru/answer',
         about: '',
