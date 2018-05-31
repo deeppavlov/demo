@@ -11,7 +11,7 @@ const badges = {
     'Not Insult': 'badge-success'
 };
 
-const nerStyles = {
+const ruNerStyles = {
     'ORG': 'badge badge-danger',
     'LOC': 'badge badge-warning',
     'PER': 'badge badge-success'
@@ -137,7 +137,7 @@ let tabs = [
             }
         ],
         url: 'https://7004.lnsigo.mipt.ru/answer',
-        about: `Сущности: <span class="${nerStyles['PER']}">Человек</span> <span class="${nerStyles['ORG']}">Организация</span> <span class="${nerStyles['LOC']}">Локация</span>`,
+        about: `Сущности: <span class="${ruNerStyles['PER']}">Человек</span> <span class="${ruNerStyles['ORG']}">Организация</span> <span class="${ruNerStyles['LOC']}">Локация</span>`,
         text1Header: 'Введите текст',
         submitText: 'Распознать',
         resultsText: 'Результаты',
@@ -158,7 +158,7 @@ let tabs = [
                     return prefix + w;
 
                 prev = t.substring(2);
-                let style = nerStyles[prev];
+                let style = ruNerStyles[prev];
                 return `${prefix}<span class="${style}">${w}`;
             }).join(' ');
             if (prev !== null) {
