@@ -2,18 +2,20 @@
 
 var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"]) _i["return"](); } finally { if (_d) throw _e; } } return _arr; } return function (arr, i) { if (Array.isArray(arr)) { return arr; } else if (Symbol.iterator in Object(arr)) { return sliceIterator(arr, i); } else { throw new TypeError("Invalid attempt to destructure non-iterable instance"); } }; }();
 
-var badges = {
+var intentsClasses = {
     'AddToPlaylist': 'badge-primary',
     'BookRestaurant': 'badge-secondary',
     'GetWeather': 'badge-success',
     'PlayMusic': 'badge-danger',
     'RateBook': 'badge-warning',
     'SearchCreativeWork': 'badge-info',
-    'SearchScreeningEvent': 'badge-dark',
+    'SearchScreeningEvent': 'badge-dark'
+};
 
+var badges = Object.assign({
     'Insult': 'badge-danger',
     'Not Insult': 'badge-success'
-};
+}, intentsClasses);
 
 var ruNerStyles = {
     'ORG': 'badge badge-danger',
@@ -311,7 +313,7 @@ Kensington Palace said in a statement that the couple is “hugely grateful” f
     id: 'Intent classification',
     examples: [{ text1: 'Show me the forecast for my upcoming weekend' }, { text1: 'Find me the I, Robot television show' }, { text1: 'What is the cheapest restaurant between Balthazar and Lombardi\'s?' }, { text1: 'Add Diamonds to my roadtrip playlist' }, { text1: 'Play the last track from Beyoncé off Spotify' }, { text1: 'Give 6 stars to Of Mice and Men' }, { text1: 'Check the showtimes for Wonder Woman in Paris' }],
     url: 'https://7007.lnsigo.mipt.ru/answer',
-    about: 'Classes: ' + Object.entries(badges).map(function (_ref3) {
+    about: 'Classes: ' + Object.entries(intentsClasses).map(function (_ref3) {
         var _ref4 = _slicedToArray(_ref3, 2),
             k = _ref4[0],
             v = _ref4[1];

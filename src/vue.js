@@ -1,15 +1,17 @@
-const badges = {
+const intentsClasses = {
     'AddToPlaylist': 'badge-primary',
     'BookRestaurant': 'badge-secondary',
     'GetWeather': 'badge-success',
     'PlayMusic': 'badge-danger',
     'RateBook': 'badge-warning',
     'SearchCreativeWork': 'badge-info',
-    'SearchScreeningEvent': 'badge-dark',
+    'SearchScreeningEvent': 'badge-dark'
+};
 
+const badges = Object.assign({
     'Insult': 'badge-danger',
     'Not Insult': 'badge-success'
-};
+}, intentsClasses);
 
 const ruNerStyles = {
     'ORG': 'badge badge-danger',
@@ -345,7 +347,7 @@ Kensington Palace said in a statement that the couple is “hugely grateful” f
             {text1: 'Check the showtimes for Wonder Woman in Paris'}
         ],
         url: 'https://7007.lnsigo.mipt.ru/answer',
-        about: 'Classes: ' + Object.entries(badges).map(function ([k, v]) {
+        about: 'Classes: ' + Object.entries(intentsClasses).map(function ([k, v]) {
             return `<span class="badge ${v}">${k}</span>`
         }).join(" "),
         text1Header: 'Enter Text',
