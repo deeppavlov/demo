@@ -5,7 +5,10 @@ const badges = {
     'PlayMusic': 'badge-danger',
     'RateBook': 'badge-warning',
     'SearchCreativeWork': 'badge-info',
-    'SearchScreeningEvent': 'badge-dark'
+    'SearchScreeningEvent': 'badge-dark',
+
+    'Insult': 'badge-danger',
+    'Not Insult': 'badge-success'
 };
 
 const nerStyles = {
@@ -44,6 +47,12 @@ function squadReport(t1, t2, response) {
     res += `<div>${t1}</div>`;
 
     return res;
+}
+
+function classifiersReport(t1, t2, response) {
+    let [tags, scores] = response;
+    tags = tags.map(tag => `<span class="badge ${badges[tag]}">${tag}</span>`);
+    return `<blockquote class="blockquote">${t1}</blockquote>${tags}`;
 }
 
 let tabs = [
@@ -342,10 +351,7 @@ Kensington Palace said in a statement that the couple is “hugely grateful” f
         text1Header: 'Enter Text',
         submitText: 'Classify',
         lang: 'en',
-        report: function (t1, t2, response) {
-            response = response[0];
-            return `<blockquote class="blockquote">${t1}</blockquote><span class="badge ${badges[response]}">${response}</span>`;
-        }
+        report: classifiersReport
     },
     {
         id: 'Insult detection',
@@ -359,15 +365,12 @@ Kensington Palace said in a statement that the couple is “hugely grateful” f
             {text1: 'Your house is so dirty you have to wipe your feet before you go outside'},
             {text1: 'Moby Dick is a fictional sperm whale'}
         ],
-        url: 'https://7006.lnsigo.mipt.ru/answer/kpi1',
+        url: 'https://7006.lnsigo.mipt.ru/answer',
         about: '',
         text1Header: 'Enter Text',
         submitText: 'Classify',
         lang: 'en',
-        report: function (t1, t2, response) {
-            let res = `<blockquote class="blockquote">${t1}</blockquote>${((parseFloat(response) >= 0.5) ? '<span class="badge badge-danger">Insult</span>' : '<span class="badge badge-success">Not Insult</span>')}`;
-            return res;
-        }
+        report: classifiersReport
     }
 ];
 

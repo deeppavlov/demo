@@ -9,7 +9,10 @@ var badges = {
     'PlayMusic': 'badge-danger',
     'RateBook': 'badge-warning',
     'SearchCreativeWork': 'badge-info',
-    'SearchScreeningEvent': 'badge-dark'
+    'SearchScreeningEvent': 'badge-dark',
+
+    'Insult': 'badge-danger',
+    'Not Insult': 'badge-success'
 };
 
 var nerStyles = {
@@ -51,6 +54,17 @@ function squadReport(t1, t2, response) {
     res += '<div>' + t1 + '</div>';
 
     return res;
+}
+
+function classifiersReport(t1, t2, response) {
+    var _response2 = _slicedToArray(response, 2),
+        tags = _response2[0],
+        scores = _response2[1];
+
+    tags = tags.map(function (tag) {
+        return '<span class="badge ' + badges[tag] + '">' + tag + '</span>';
+    });
+    return '<blockquote class="blockquote">' + t1 + '</blockquote>' + tags;
 }
 
 var tabs = [{
@@ -123,9 +137,9 @@ var tabs = [{
     report: function report(t1, t2, response) {
         var prev = null;
 
-        var _response2 = _slicedToArray(response, 2),
-            words = _response2[0],
-            tags = _response2[1];
+        var _response3 = _slicedToArray(response, 2),
+            words = _response3[0],
+            tags = _response3[1];
 
         var res = words.map(function (w, i) {
             var t = tags[i];
@@ -266,9 +280,9 @@ Kensington Palace said in a statement that the couple is “hugely grateful” f
     report: function report(t1, t2, response) {
         var prev = null;
 
-        var _response3 = _slicedToArray(response, 2),
-            words = _response3[0],
-            tags = _response3[1];
+        var _response4 = _slicedToArray(response, 2),
+            words = _response4[0],
+            tags = _response4[1];
 
         var res = words.map(function (w, i) {
             var t = tags[i];
@@ -307,22 +321,16 @@ Kensington Palace said in a statement that the couple is “hugely grateful” f
     text1Header: 'Enter Text',
     submitText: 'Classify',
     lang: 'en',
-    report: function report(t1, t2, response) {
-        response = response[0];
-        return '<blockquote class="blockquote">' + t1 + '</blockquote><span class="badge ' + badges[response] + '">' + response + '</span>';
-    }
+    report: classifiersReport
 }, {
     id: 'Insult detection',
     examples: [{ text1: 'Your family tree must be a cactus because everybody on it is a prick' }, { text1: 'Shit happens' }, { text1: 'You\'re just too fat, man' }, { text1: 'Money talks and bullshit walks' }, { text1: 'You are stupid asshole' }, { text1: 'I just fucked up' }, { text1: 'Your house is so dirty you have to wipe your feet before you go outside' }, { text1: 'Moby Dick is a fictional sperm whale' }],
-    url: 'https://7006.lnsigo.mipt.ru/answer/kpi1',
+    url: 'https://7006.lnsigo.mipt.ru/answer',
     about: '',
     text1Header: 'Enter Text',
     submitText: 'Classify',
     lang: 'en',
-    report: function report(t1, t2, response) {
-        var res = '<blockquote class="blockquote">' + t1 + '</blockquote>' + (parseFloat(response) >= 0.5 ? '<span class="badge badge-danger">Insult</span>' : '<span class="badge badge-success">Not Insult</span>');
-        return res;
-    }
+    report: classifiersReport
 }];
 
 for (var i = 0; i < tabs.length; i++) {
@@ -456,3 +464,4 @@ $(window).on('hashchange', function () {
 });
 
 $('#app').css('visibility', 'visible');
+//# sourceMappingURL=vue.js.map
