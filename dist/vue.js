@@ -436,7 +436,8 @@ var langs = new Set(tabs.map(function (t) {
     return t.lang;
 }));
 var hash = window.location.hash.replace('#', '');
-var lang = langs.has(hash) ? hash : 'en';
+var browserLang = navigator.language.substr(0, 2);
+var lang = langs.has(hash) ? hash : langs.has(browserLang) ? browserLang : 'en';
 
 var vue = new Vue({
     el: '#app',
