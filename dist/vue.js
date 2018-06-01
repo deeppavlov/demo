@@ -234,7 +234,7 @@ Kensington Palace said in a statement that the couple is “hugely grateful” f
     }],
     url: 'https://7011.lnsigo.mipt.ru/answer',
     about: '',
-    text1Header: 'Введите вопрос',
+    text1Header: 'Question',
     submitText: 'Ask',
     lang: 'en'
 }, {
