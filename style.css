@@ -6,7 +6,8 @@
 }
 
 div#reversed {
-    position: absolute;
+    /*position: absolute;*/
+    min-height: 3em;
     -webkit-transform: scaleY(-1);
     transform: scaleY(-1);
 }
