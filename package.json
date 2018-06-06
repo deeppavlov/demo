@@ -1,0 +1,32 @@
+{
+  "name": "ipavlov-demo",
+  "version": "1.0.0",
+  "description": "demo for deeppavlov models",
+  "files": ["index.html", "favicon.ico", "style.css", "src/", "dist/"],
+  "scripts": {
+    "build": "babel src --out-dir dist --presets=env; cp node_modules/babel-polyfill/dist/polyfill.min.js dist/babel-polyfill.min.js",
+    "watch": "babel --watch src --out-dir dist --presets=env"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/deepmipt/demo.git"
+  },
+  "keywords": [
+    "ipavlov",
+    "deeppavlov",
+    "ai",
+    "nlp",
+    "ml",
+    "chatbot"
+  ],
+  "bugs": {
+    "url": "https://github.com/deepmipt/demo/issues"
+  },
+  "homepage": "https://demo.ipavlov.ai",
+  "dependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-env": "^1.7.0"
+  },
+  "license": "UNLICENSED"
+}
