@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
 <head>
 
@@ -64,7 +65,7 @@
                 <div class="tab-content">
                     <div role="tabpanel" v-for="(tab, index) in tabs"
                          class="tab-pane fade" :id="tab.id">
-                        <tab-content :tab="tab"/>
+                        <tab-content :tab="tab"></tab-content>
                     </div>
                 </div>
                 <div style="margin: 3em auto; text-align: center;">
@@ -76,7 +77,6 @@
                     </div>
                     <div style="margin: 2em auto 0; text-align: center;">
                             <img src="https://ipavlov.ai/logo_idecide.png" style="width: 26em;">
-                        </a>
                     </div>
                 </div>
             </div>

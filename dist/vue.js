@@ -436,7 +436,7 @@ var langs = new Set(tabs.map(function (t) {
     return t.lang;
 }));
 var hash = window.location.hash.replace('#', '');
-var browserLang = navigator.language.substr(0, 2);
+var browserLang = (navigator.language || navigator.userLanguage).substr(0, 2);
 var lang = langs.has(hash) ? hash : langs.has(browserLang) ? browserLang : 'en';
 
 var vue = new Vue({
@@ -467,4 +467,3 @@ $(window).on('hashchange', function () {
 });
 
 $('#app').css('visibility', 'visible');
-//# sourceMappingURL=vue.js.map

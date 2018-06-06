@@ -520,7 +520,7 @@ Vue.component('tab-content', {
 
 let langs = new Set(tabs.map(t => t.lang));
 let hash = window.location.hash.replace('#', '');
-let browserLang = navigator.language.substr(0, 2);
+let browserLang = (navigator.language || navigator.userLanguage).substr(0, 2);
 let lang = langs.has(hash)?hash:(langs.has(browserLang)?browserLang:'en');
 
 let vue = new Vue({
