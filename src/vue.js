@@ -170,7 +170,7 @@ let tabs = [
         }
     },
     {
-        id: 'QA',
+        id: 'Text QA',
         examples: [
             {
                 text1: 'The U.S. is ready to engage in talks about North Korea’s nuclear program even as it maintains pressure on Kim Jong Un’s regime, the Washington Post reported, citing an interview with Vice President Mike Pence. \
@@ -191,25 +191,40 @@ Pence and South Korea’s President Moon Jae-in agreed on a post-Olympics strate
                 text2: 'Where is the Winter Olympic Games in 2018?'
             },
             {
-                text1: 'New York’s attorney general on Sunday filed a lawsuit against disgraced Hollywood movie producer Harvey Weinstein and the Weinstein Co. following an investigation into allegations of sexual misconduct. \
-“As alleged in our complaint, The Weinstein Company repeatedly broke New York law by failing to protect its employees from pervasive sexual harassment, intimidation, and discrimination,” state Attorney General Eric Schneiderman said in court papers. \
-Schneiderman launched a civil rights probe into the New York City-based company in October after The New York Times and The New Yorker exposed allegations of sexual assault and harassment spanning decades. \
-Scores of women, including well-known actresses, have come forward with stories of forced sexual encounters. Weinstein was fired by the film company he founded with his brother Robert and expelled from Hollywood’s movie academy.',
-                text2: 'How long sexual harassment was taking place?'
+                text1: 'The most basic method of checking the primality of a given integer n is called trial division.' +
+                ' This routine consists of dividing n by each integer m that is greater than 1 and less than or' +
+                ' equal to the square root of n. If the result of any of these divisions is an integer, then n' +
+                ' is not a prime, otherwise it is a prime. Indeed, if  is composite (with a and b ≠ 1) then one' +
+                ' of the factors a or b is necessarily at most . For example, for , the trial divisions are' +
+                ' by m = 2, 3, 4, 5, and 6. None of these numbers divides 37, so 37 is prime. This routine' +
+                ' can be implemented more efficiently if a complete list of primes up to  is known—then trial divisions' +
+                ' need to be checked only for those m that are prime. For example, to check the primality of 37,' +
+                ' only three divisions are necessary (m = 2, 3, and 5), given that 4 and 6 are composite.',
+                text2: 'How many divisions are required to verify the primality of the number 37?'
             },
             {
-                text1: 'New York’s attorney general on Sunday filed a lawsuit against disgraced Hollywood movie producer Harvey Weinstein and the Weinstein Co. following an investigation into allegations of sexual misconduct. \
-“As alleged in our complaint, The Weinstein Company repeatedly broke New York law by failing to protect its employees from pervasive sexual harassment, intimidation, and discrimination,” state Attorney General Eric Schneiderman said in court papers. \
-Schneiderman launched a civil rights probe into the New York City-based company in October after The New York Times and The New Yorker exposed allegations of sexual assault and harassment spanning decades. \
-Scores of women, including well-known actresses, have come forward with stories of forced sexual encounters. Weinstein was fired by the film company he founded with his brother Robert and expelled from Hollywood’s movie academy.',
-                text2: 'Was Weinstein fired?'
+                text1: 'The most basic method of checking the primality of a given integer n is called trial division.' +
+                ' This routine consists of dividing n by each integer m that is greater than 1 and less than or' +
+                ' equal to the square root of n. If the result of any of these divisions is an integer, then n' +
+                ' is not a prime, otherwise it is a prime. Indeed, if  is composite (with a and b ≠ 1) then one' +
+                ' of the factors a or b is necessarily at most . For example, for , the trial divisions are' +
+                ' by m = 2, 3, 4, 5, and 6. None of these numbers divides 37, so 37 is prime. This routine' +
+                ' can be implemented more efficiently if a complete list of primes up to  is known—then trial divisions' +
+                ' need to be checked only for those m that are prime. For example, to check the primality of 37,' +
+                ' only three divisions are necessary (m = 2, 3, and 5), given that 4 and 6 are composite.',
+                text2: 'Trial division involves dividing n by every integer m greater than what?'
             },
             {
-                text1: 'New York’s attorney general on Sunday filed a lawsuit against disgraced Hollywood movie producer Harvey Weinstein and the Weinstein Co. following an investigation into allegations of sexual misconduct. \
-“As alleged in our complaint, The Weinstein Company repeatedly broke New York law by failing to protect its employees from pervasive sexual harassment, intimidation, and discrimination,” state Attorney General Eric Schneiderman said in court papers. \
-Schneiderman launched a civil rights probe into the New York City-based company in October after The New York Times and The New Yorker exposed allegations of sexual assault and harassment spanning decades. \
-Scores of women, including well-known actresses, have come forward with stories of forced sexual encounters. Weinstein was fired by the film company he founded with his brother Robert and expelled from Hollywood’s movie academy.',
-                text2: 'Why Weinstein is being sued?'
+                text1: 'The most basic method of checking the primality of a given integer n is called trial division.' +
+                ' This routine consists of dividing n by each integer m that is greater than 1 and less than or' +
+                ' equal to the square root of n. If the result of any of these divisions is an integer, then n' +
+                ' is not a prime, otherwise it is a prime. Indeed, if  is composite (with a and b ≠ 1) then one' +
+                ' of the factors a or b is necessarily at most . For example, for , the trial divisions are' +
+                ' by m = 2, 3, 4, 5, and 6. None of these numbers divides 37, so 37 is prime. This routine' +
+                ' can be implemented more efficiently if a complete list of primes up to  is known—then trial divisions' +
+                ' need to be checked only for those m that are prime. For example, to check the primality of 37,' +
+                ' only three divisions are necessary (m = 2, 3, and 5), given that 4 and 6 are composite.',
+                text2: 'What must the integer m be less than or equal to when performing trial division?'
             },
             {
                 text1: 'Prince Harry and fiancee American actress Meghan Markle have released more details about their May 19 wedding, revealing that the event will include a carriage ride through Windsor so they can share the big day with the public. \
