@@ -459,7 +459,7 @@ Vue.component('tab-content', {
         </div>
     </div>
     <div class="row show-grid">
-        <div id="reversed" class="col">
+        <div :id="'reversed-' + tab.id" class="reversed col">
             <transition name="fade" v-for="result in tab.results">
                 <div class="row" v-show="result.show" v-html="result.data"></div>
             </transition>
@@ -499,6 +499,18 @@ Vue.component('tab-content', {
             }).then(function () {
                 $('#pleaseWaitDialog').modal('hide');
                 tab.results[tab.results.length - 1].show = true;
+                return Vue.nextTick();
+            }).then(function () {
+                let el = $(`div[id='reversed-${tab.id}'] > div`).last();
+                if((el.offset().top < $(document).scrollTop()) ||
+                    (el.offset().top + el.height() > $(document).scrollTop() + $(window).height())) {
+                    let scrollTop = el.height() > $(window).height()?
+                        el.offset().top:
+                        el.offset().top - $(window).height() + el.height();
+                    $('html, body').animate({
+                        scrollTop
+                    }, 700);
+                }
             });
         },
         examplePreview(example) {

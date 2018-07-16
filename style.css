@@ -5,13 +5,13 @@
     opacity: 0;
 }
 
-div#reversed {
+div.reversed {
     /*position: absolute;*/
     min-height: 3em;
     -webkit-transform: scaleY(-1);
     transform: scaleY(-1);
 }
-div#reversed > div {
+div.reversed > div {
     display: block;
     -webkit-transform: scaleY(-1);
     transform: scaleY(-1);
