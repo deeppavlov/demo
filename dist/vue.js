@@ -213,6 +213,8 @@ Kensington Palace said in a statement that the couple is “hugely grateful” f
 }, {
     id: 'ODQA',
     examples: [{
+        text1: 'What does computational linguistics study?'
+    }, {
         text1: 'When did the Lynmouth floods happen?'
     }, {
         text1: 'Who piloted the original Gundam?'
@@ -220,8 +222,6 @@ Kensington Palace said in a statement that the couple is “hugely grateful” f
         text1: 'When is the Bastille Day?'
     }, {
         text1: 'Where did guinea pigs originate?'
-    }, {
-        text1: 'What is Joan Jett\'s birth name?'
     }],
     url: 'https://7011.lnsigo.mipt.ru/answer',
     about: '',
