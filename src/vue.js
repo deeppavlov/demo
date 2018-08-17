@@ -272,7 +272,7 @@ Kensington Palace said in a statement that the couple is “hugely grateful” f
             }
         ],
         url: 'https://7011.lnsigo.mipt.ru/answer',
-        about: '',
+        about: 'Open Domain Question Answering',
         text1Header: 'Question',
         submitText: 'Ask',
         lang: 'en'
@@ -411,6 +411,21 @@ for (let i = 0; i < tabs.length; i++) {
             return res;
         }
     }
+
+    if (!tab.hasOwnProperty('send')){
+        tab.send = function () {
+            let self = this;
+
+            let payload = {
+                text1: self.text1,
+                text2: self.text2
+            };
+
+            return Vue.http.post(self.url, payload).then(function (response) {
+                return self.report(payload.text1, payload.text2, response.body);
+            });
+        }
+    }
 }
 
 
@@ -469,22 +484,14 @@ Vue.component('tab-content', {
     methods: {
         send() {
             let tab = this.tab;
-            let text1 = tab.text1;
-
-            let decorated = text1;
-
-            let data = {
-                text1: decorated,
-                text2: tab.text2
-            };
             $('#pleaseWaitDialog').modal({backdrop: 'static', keyboard: false, show: true});
             let minWait = new Promise(resolve => setTimeout(resolve, 200));
-            this.$http.post(this.tab.url, data).then(function (response) {
+
+            tab.send().then(function (report) {
                 let res = '<div class="card w-100" style="margin:1em"><div class="card-body">';
-                res += tab.report(text1, data.text2, response.body);
+                res += report;
                 res += '</div></div>';
                 tab.results.push({show: false, data: res});
-                // return new Promise(resolve => setTimeout(resolve, 100));
                 return Vue.nextTick();
             }).then(function () {
                 return minWait;

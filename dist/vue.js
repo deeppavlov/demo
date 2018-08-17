@@ -224,7 +224,7 @@ Kensington Palace said in a statement that the couple is “hugely grateful” f
         text1: 'Where did guinea pigs originate?'
     }],
     url: 'https://7011.lnsigo.mipt.ru/answer',
-    about: '',
+    about: 'Open Domain Question Answering',
     text1Header: 'Question',
     submitText: 'Ask',
     lang: 'en'
@@ -347,6 +347,21 @@ for (var i = 0; i < tabs.length; i++) {
             return res;
         };
     }
+
+    if (!tab.hasOwnProperty('send')) {
+        tab.send = function () {
+            var self = this;
+
+            var payload = {
+                text1: self.text1,
+                text2: self.text2
+            };
+
+            return Vue.http.post(self.url, payload).then(function (response) {
+                return self.report(payload.text1, payload.text2, response.body);
+            });
+        };
+    }
 }
 
 Vue.component('tab-content', {
@@ -355,24 +370,16 @@ Vue.component('tab-content', {
     methods: {
         send: function send() {
             var tab = this.tab;
-            var text1 = tab.text1;
-
-            var decorated = text1;
-
-            var data = {
-                text1: decorated,
-                text2: tab.text2
-            };
             $('#pleaseWaitDialog').modal({ backdrop: 'static', keyboard: false, show: true });
             var minWait = new Promise(function (resolve) {
                 return setTimeout(resolve, 200);
             });
-            this.$http.post(this.tab.url, data).then(function (response) {
+
+            tab.send().then(function (report) {
                 var res = '<div class="card w-100" style="margin:1em"><div class="card-body">';
-                res += tab.report(text1, data.text2, response.body);
+                res += report;
                 res += '</div></div>';
                 tab.results.push({ show: false, data: res });
-                // return new Promise(resolve => setTimeout(resolve, 100));
                 return Vue.nextTick();
             }).then(function () {
                 return minWait;
