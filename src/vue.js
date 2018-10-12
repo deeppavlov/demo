@@ -57,6 +57,19 @@ function classifiersReport(t1, t2, response) {
     return `<blockquote class="blockquote">${t1}</blockquote>${tags}`;
 }
 
+function batchSend() {
+    let self = this;
+
+    let payload = {
+        text1: [self.text1],
+        text2: [self.text2]
+    };
+
+    return Vue.http.post(self.url, payload).then(function (response) {
+        return self.report(payload.text1[0], payload.text2[0], response.body[0]);
+    });
+}
+
 let tabs = [
     {
         id: 'Ответы на вопросы по тексту',
@@ -145,6 +158,7 @@ let tabs = [
         resultsText: 'Результаты',
         examplesText: 'Примеры',
         lang: 'ru',
+        send: batchSend,
         report: function (t1, t2, response) {
             let prev = null;
             let [words, tags] = response;
@@ -326,6 +340,7 @@ Kensington Palace said in a statement that the couple is “hugely grateful” f
         text1Header: 'Enter Text',
         submitText: 'Search',
         lang: 'en',
+        send: batchSend,
         report: function (t1, t2, response) {
             let prev = null;
             let [words, tags] = response;
