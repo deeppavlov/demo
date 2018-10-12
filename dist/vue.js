@@ -69,16 +69,16 @@ function classifiersReport(t1, t2, response) {
     return '<blockquote class="blockquote">' + t1 + '</blockquote>' + tags;
 }
 
-function batchSend() {
+function singleSend() {
     var self = this;
 
     var payload = {
-        text1: [self.text1],
-        text2: [self.text2]
+        text1: self.text1,
+        text2: self.text2
     };
 
     return Vue.http.post(self.url, payload).then(function (response) {
-        return self.report(payload.text1[0], payload.text2[0], response.body[0]);
+        return self.report(payload.text1, payload.text2, response.body);
     });
 }
 
@@ -108,7 +108,6 @@ var tabs = [{
     resultsText: 'Результаты',
     examplesText: 'Примеры',
     lang: 'ru',
-    send: batchSend,
     report: squadReport
 }, {
     id: 'Ответы на вопросы',
@@ -133,7 +132,8 @@ var tabs = [{
     submitText: 'Спросить',
     resultsText: 'Результаты',
     examplesText: 'Примеры',
-    lang: 'ru'
+    lang: 'ru',
+    send: singleSend
 }, {
     id: 'Распознавание именованных сущностей',
     examples: [{
@@ -150,7 +150,6 @@ var tabs = [{
     resultsText: 'Результаты',
     examplesText: 'Примеры',
     lang: 'ru',
-    send: batchSend,
     report: function report(t1, t2, response) {
         var prev = null;
 
@@ -224,7 +223,6 @@ Kensington Palace said in a statement that the couple is “hugely grateful” f
     text1Header: 'Enter Text',
     submitText: 'Ask',
     lang: 'en',
-    send: batchSend,
     report: squadReport
 }, {
     id: 'ODQA',
@@ -243,7 +241,8 @@ Kensington Palace said in a statement that the couple is “hugely grateful” f
     about: 'Open Domain Question Answering',
     text1Header: 'Question',
     submitText: 'Ask',
-    lang: 'en'
+    lang: 'en',
+    send: singleSend
 }, {
     id: 'Auto FAQ',
     examples: [{ text1: 'what is the price for home insurance?' }, { text1: 'fire occured in my home, is it covered by insurance?' }, { text1: 'what is disability insurance?' }, { text1: 'appeal of insurance denial?' }],
@@ -254,8 +253,8 @@ Kensington Palace said in a statement that the couple is “hugely grateful” f
     lang: 'en',
     report: function report(t1, t2, response) {
         var res = '<blockquote class="blockquote">' + t1 + '</blockquote>';
-        var data = response.contexts.map(function (context, i) {
-            return '<li><b>' + context + '?</b><br/>' + response.responses[i] + '</li>';
+        var data = response.map(function (text) {
+            return '<li>' + text + '</li>';
         });
         res += '<ul>' + data.join('') + '</ul>';
         return res;
@@ -286,7 +285,6 @@ Kensington Palace said in a statement that the couple is “hugely grateful” f
     text1Header: 'Enter Text',
     submitText: 'Search',
     lang: 'en',
-    send: batchSend,
     report: function report(t1, t2, response) {
         var prev = null;
 
@@ -370,12 +368,12 @@ for (var i = 0; i < tabs.length; i++) {
             var self = this;
 
             var payload = {
-                text1: self.text1,
-                text2: self.text2
+                text1: [self.text1],
+                text2: [self.text2]
             };
 
             return Vue.http.post(self.url, payload).then(function (response) {
-                return self.report(payload.text1, payload.text2, response.body);
+                return self.report(payload.text1[0], payload.text2[0], response.body[0]);
             });
         };
     }

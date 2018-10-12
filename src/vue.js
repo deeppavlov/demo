@@ -57,16 +57,16 @@ function classifiersReport(t1, t2, response) {
     return `<blockquote class="blockquote">${t1}</blockquote>${tags}`;
 }
 
-function batchSend() {
+function singleSend() {
     let self = this;
 
     let payload = {
-        text1: [self.text1],
-        text2: [self.text2]
+        text1: self.text1,
+        text2: self.text2
     };
 
     return Vue.http.post(self.url, payload).then(function (response) {
-        return self.report(payload.text1[0], payload.text2[0], response.body[0]);
+        return self.report(payload.text1, payload.text2, response.body);
     });
 }
 
@@ -103,7 +103,6 @@ let tabs = [
         resultsText: 'Результаты',
         examplesText: 'Примеры',
         lang: 'ru',
-        send: batchSend,
         report: squadReport
     },
     {
@@ -137,7 +136,8 @@ let tabs = [
         submitText: 'Спросить',
         resultsText: 'Результаты',
         examplesText: 'Примеры',
-        lang: 'ru'
+        lang: 'ru',
+        send: singleSend
     },
     {
         id: 'Распознавание именованных сущностей',
@@ -159,7 +159,6 @@ let tabs = [
         resultsText: 'Результаты',
         examplesText: 'Примеры',
         lang: 'ru',
-        send: batchSend,
         report: function (t1, t2, response) {
             let prev = null;
             let [words, tags] = response;
@@ -265,7 +264,6 @@ Kensington Palace said in a statement that the couple is “hugely grateful” f
         text1Header: 'Enter Text',
         submitText: 'Ask',
         lang: 'en',
-        send: batchSend,
         report: squadReport
     },
     {
@@ -291,7 +289,8 @@ Kensington Palace said in a statement that the couple is “hugely grateful” f
         about: 'Open Domain Question Answering',
         text1Header: 'Question',
         submitText: 'Ask',
-        lang: 'en'
+        lang: 'en',
+        send: singleSend
     },
     {
         id: 'Auto FAQ',
@@ -308,8 +307,8 @@ Kensington Palace said in a statement that the couple is “hugely grateful” f
         lang: 'en',
         report: function (t1, t2, response) {
             let res = `<blockquote class="blockquote">${t1}</blockquote>`;
-            let data = response.contexts.map(function (context, i) {
-                return `<li><b>${context}?</b><br/>${response.responses[i]}</li>`
+            let data = response.map(function (text) {
+                return `<li>${text}</li>`
             });
             res += `<ul>${data.join('')}</ul>`;
             return res;
@@ -342,7 +341,6 @@ Kensington Palace said in a statement that the couple is “hugely grateful” f
         text1Header: 'Enter Text',
         submitText: 'Search',
         lang: 'en',
-        send: batchSend,
         report: function (t1, t2, response) {
             let prev = null;
             let [words, tags] = response;
@@ -434,12 +432,12 @@ for (let i = 0; i < tabs.length; i++) {
             let self = this;
 
             let payload = {
-                text1: self.text1,
-                text2: self.text2
+                text1: [self.text1],
+                text2: [self.text2]
             };
 
             return Vue.http.post(self.url, payload).then(function (response) {
-                return self.report(payload.text1, payload.text2, response.body);
+                return self.report(payload.text1[0], payload.text2[0], response.body[0]);
             });
         }
     }
