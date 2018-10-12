@@ -108,6 +108,7 @@ var tabs = [{
     resultsText: 'Результаты',
     examplesText: 'Примеры',
     lang: 'ru',
+    send: batchSend,
     report: squadReport
 }, {
     id: 'Ответы на вопросы',
@@ -223,6 +224,7 @@ Kensington Palace said in a statement that the couple is “hugely grateful” f
     text1Header: 'Enter Text',
     submitText: 'Ask',
     lang: 'en',
+    send: batchSend,
     report: squadReport
 }, {
     id: 'ODQA',
