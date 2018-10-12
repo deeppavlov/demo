@@ -69,19 +69,6 @@ function classifiersReport(t1, t2, response) {
     return '<blockquote class="blockquote">' + t1 + '</blockquote>' + tags;
 }
 
-function singleSend() {
-    var self = this;
-
-    var payload = {
-        text1: self.text1,
-        text2: self.text2
-    };
-
-    return Vue.http.post(self.url, payload).then(function (response) {
-        return self.report(payload.text1, payload.text2, response.body);
-    });
-}
-
 var tabs = [{
     id: 'Ответы на вопросы по тексту',
     examples: [{
@@ -132,8 +119,7 @@ var tabs = [{
     submitText: 'Спросить',
     resultsText: 'Результаты',
     examplesText: 'Примеры',
-    lang: 'ru',
-    send: singleSend
+    lang: 'ru'
 }, {
     id: 'Распознавание именованных сущностей',
     examples: [{
@@ -241,8 +227,7 @@ Kensington Palace said in a statement that the couple is “hugely grateful” f
     about: 'Open Domain Question Answering',
     text1Header: 'Question',
     submitText: 'Ask',
-    lang: 'en',
-    send: singleSend
+    lang: 'en'
 }, {
     id: 'Auto FAQ',
     examples: [{ text1: 'what is the price for home insurance?' }, { text1: 'fire occured in my home, is it covered by insurance?' }, { text1: 'what is disability insurance?' }, { text1: 'appeal of insurance denial?' }],

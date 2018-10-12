@@ -57,19 +57,6 @@ function classifiersReport(t1, t2, response) {
     return `<blockquote class="blockquote">${t1}</blockquote>${tags}`;
 }
 
-function singleSend() {
-    let self = this;
-
-    let payload = {
-        text1: self.text1,
-        text2: self.text2
-    };
-
-    return Vue.http.post(self.url, payload).then(function (response) {
-        return self.report(payload.text1, payload.text2, response.body);
-    });
-}
-
 let tabs = [
     {
         id: 'Ответы на вопросы по тексту',
@@ -136,8 +123,7 @@ let tabs = [
         submitText: 'Спросить',
         resultsText: 'Результаты',
         examplesText: 'Примеры',
-        lang: 'ru',
-        send: singleSend
+        lang: 'ru'
     },
     {
         id: 'Распознавание именованных сущностей',
@@ -289,8 +275,7 @@ Kensington Palace said in a statement that the couple is “hugely grateful” f
         about: 'Open Domain Question Answering',
         text1Header: 'Question',
         submitText: 'Ask',
-        lang: 'en',
-        send: singleSend
+        lang: 'en'
     },
     {
         id: 'Auto FAQ',
