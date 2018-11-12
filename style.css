@@ -42,3 +42,19 @@ div.reversed > div {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
 }
+
+span.code {
+    font-family: SFMono-Regular,Consolas,Liberation Mono,Menlo,Courier,monospace;
+    color: dimgray;
+    background-color: #f6f8fa;
+    padding: 3px;
+    font-size: 1rem;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+a:hover > span.code {
+    color: darkgray;
+}

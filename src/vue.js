@@ -84,6 +84,7 @@ let tabs = [
         ],
         url: 'https://7005.lnsigo.mipt.ru/answer',
         about: '',
+        docker: 'deeppavlov/squad_ru',
         text1Header: 'Введите текст',
         text2Header: 'Введите вопрос',
         submitText: 'Спросить',
@@ -119,6 +120,7 @@ let tabs = [
         ],
         url: 'https://7012.lnsigo.mipt.ru/answer',
         about: '',
+        docker: 'deeppavlov/odqa_ru',
         text1Header: 'Введите вопрос',
         submitText: 'Спросить',
         resultsText: 'Результаты',
@@ -140,6 +142,7 @@ let tabs = [
         ],
         url: 'https://7004.lnsigo.mipt.ru/answer',
         about: `Сущности: <span class="${ruNerStyles['PER']}">Человек</span> <span class="${ruNerStyles['ORG']}">Организация</span> <span class="${ruNerStyles['LOC']}">Локация</span>`,
+        docker: 'deeppavlov/ner_ru',
         text1Header: 'Введите текст',
         submitText: 'Распознать',
         resultsText: 'Результаты',
@@ -247,6 +250,7 @@ Kensington Palace said in a statement that the couple is “hugely grateful” f
         ],
         url: 'https://7008.lnsigo.mipt.ru/answer',
         about: 'Question Answering',
+        docker: 'deeppavlov/squad_en',
         text1Header: 'Enter Text',
         submitText: 'Ask',
         lang: 'en',
@@ -273,6 +277,7 @@ Kensington Palace said in a statement that the couple is “hugely grateful” f
         ],
         url: 'https://7011.lnsigo.mipt.ru/answer',
         about: 'Open Domain Question Answering',
+        docker: 'deeppavlov/odqa_ru',
         text1Header: 'Question',
         submitText: 'Ask',
         lang: 'en'
@@ -287,6 +292,7 @@ Kensington Palace said in a statement that the couple is “hugely grateful” f
         ],
         url: 'https://7009.lnsigo.mipt.ru/answer',
         about: 'Searches for similar questions and answers for them in an insurance dataset',
+        docker: 'deeppavlov/ranking_en',
         text1Header: 'Enter Text',
         submitText: 'Ask',
         lang: 'en',
@@ -323,6 +329,7 @@ Kensington Palace said in a statement that the couple is “hugely grateful” f
         Object.entries(ontonotesClasses).map(function([k, [class_name, about]]) {
             return `<span class="badge ${class_name}" data-toggle="tooltip" title="${about}" style="cursor: help;">${k}</span>`
         }).join(', '),
+        docker: 'deeppavlov/ner_en',
         text1Header: 'Enter Text',
         submitText: 'Search',
         lang: 'en',
@@ -365,6 +372,7 @@ Kensington Palace said in a statement that the couple is “hugely grateful” f
         about: 'Classes: ' + Object.entries(intentsClasses).map(function ([k, v]) {
             return `<span class="badge ${v}">${k}</span>`
         }).join(" "),
+        docker: 'deeppavlov/intents_en',
         text1Header: 'Enter Text',
         submitText: 'Classify',
         lang: 'en',
@@ -383,6 +391,7 @@ Kensington Palace said in a statement that the couple is “hugely grateful” f
         ],
         url: 'https://7006.lnsigo.mipt.ru/answer',
         about: '',
+        docker: 'deeppavlov/insults_en',
         text1Header: 'Enter Text',
         submitText: 'Classify',
         lang: 'en',
@@ -437,6 +446,9 @@ Vue.component('tab-content', {
         <div class="col">
             <blockquote class="blockquote">
                 <p v-html="tab.about"></p>
+                <p><a :href="\`https://hub.docker.com/r/\${tab.docker}\`">
+                    <img src="img/docker-logo.svg" height="20px"/> <span class="code">docker pull {{tab.docker}}</span>
+                </a></p>
             </blockquote>
         </div>
     </div>

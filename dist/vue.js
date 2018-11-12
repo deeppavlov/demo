@@ -89,6 +89,7 @@ var tabs = [{
     }],
     url: 'https://7005.lnsigo.mipt.ru/answer',
     about: '',
+    docker: 'deeppavlov/squad_ru',
     text1Header: 'Введите текст',
     text2Header: 'Введите вопрос',
     submitText: 'Спросить',
@@ -115,6 +116,7 @@ var tabs = [{
     }],
     url: 'https://7012.lnsigo.mipt.ru/answer',
     about: '',
+    docker: 'deeppavlov/odqa_ru',
     text1Header: 'Введите вопрос',
     submitText: 'Спросить',
     resultsText: 'Результаты',
@@ -131,6 +133,7 @@ var tabs = [{
     }],
     url: 'https://7004.lnsigo.mipt.ru/answer',
     about: '\u0421\u0443\u0449\u043D\u043E\u0441\u0442\u0438: <span class="' + ruNerStyles['PER'] + '">\u0427\u0435\u043B\u043E\u0432\u0435\u043A</span> <span class="' + ruNerStyles['ORG'] + '">\u041E\u0440\u0433\u0430\u043D\u0438\u0437\u0430\u0446\u0438\u044F</span> <span class="' + ruNerStyles['LOC'] + '">\u041B\u043E\u043A\u0430\u0446\u0438\u044F</span>',
+    docker: 'deeppavlov/ner_ru',
     text1Header: 'Введите текст',
     submitText: 'Распознать',
     resultsText: 'Результаты',
@@ -206,6 +209,7 @@ Kensington Palace said in a statement that the couple is “hugely grateful” f
     }],
     url: 'https://7008.lnsigo.mipt.ru/answer',
     about: 'Question Answering',
+    docker: 'deeppavlov/squad_en',
     text1Header: 'Enter Text',
     submitText: 'Ask',
     lang: 'en',
@@ -225,6 +229,7 @@ Kensington Palace said in a statement that the couple is “hugely grateful” f
     }],
     url: 'https://7011.lnsigo.mipt.ru/answer',
     about: 'Open Domain Question Answering',
+    docker: 'deeppavlov/odqa_ru',
     text1Header: 'Question',
     submitText: 'Ask',
     lang: 'en'
@@ -233,6 +238,7 @@ Kensington Palace said in a statement that the couple is “hugely grateful” f
     examples: [{ text1: 'what is the price for home insurance?' }, { text1: 'fire occured in my home, is it covered by insurance?' }, { text1: 'what is disability insurance?' }, { text1: 'appeal of insurance denial?' }],
     url: 'https://7009.lnsigo.mipt.ru/answer',
     about: 'Searches for similar questions and answers for them in an insurance dataset',
+    docker: 'deeppavlov/ranking_en',
     text1Header: 'Enter Text',
     submitText: 'Ask',
     lang: 'en',
@@ -267,6 +273,7 @@ Kensington Palace said in a statement that the couple is “hugely grateful” f
 
         return '<span class="badge ' + class_name + '" data-toggle="tooltip" title="' + about + '" style="cursor: help;">' + k + '</span>';
     }).join(', '),
+    docker: 'deeppavlov/ner_en',
     text1Header: 'Enter Text',
     submitText: 'Search',
     lang: 'en',
@@ -311,6 +318,7 @@ Kensington Palace said in a statement that the couple is “hugely grateful” f
 
         return '<span class="badge ' + v + '">' + k + '</span>';
     }).join(" "),
+    docker: 'deeppavlov/intents_en',
     text1Header: 'Enter Text',
     submitText: 'Classify',
     lang: 'en',
@@ -320,6 +328,7 @@ Kensington Palace said in a statement that the couple is “hugely grateful” f
     examples: [{ text1: 'Your family tree must be a cactus because everybody on it is a prick' }, { text1: 'Shit happens' }, { text1: 'You\'re just too fat, man' }, { text1: 'Money talks and bullshit walks' }, { text1: 'You are stupid asshole' }, { text1: 'I just fucked up' }, { text1: 'Your house is so dirty you have to wipe your feet before you go outside' }],
     url: 'https://7006.lnsigo.mipt.ru/answer',
     about: '',
+    docker: 'deeppavlov/insults_en',
     text1Header: 'Enter Text',
     submitText: 'Classify',
     lang: 'en',
@@ -366,7 +375,7 @@ for (var i = 0; i < tabs.length; i++) {
 
 Vue.component('tab-content', {
     props: ['tab'],
-    template: '\n<div>\n    <div class="row show-grid" style="margin-top:2em">\n        <div class="col">\n            <blockquote class="blockquote">\n                <p v-html="tab.about"></p>\n            </blockquote>\n        </div>\n    </div>\n    <div class="row show-grid">\n        <div class="col-sm-6">\n            <h3 v-html="tab.text1Header"></h3>\n            <div>\n                <form @submit.prevent="send">\n                    <div class="form-group">\n                        <textarea v-model="tab.text1" class="form-control" rows="7" @focus="tab.selectedExample = -1"\n                         @keydown="handleCtrlEnter($event)" required="true"/>\n                    </div>\n                    <h3 v-if="tab.hasOwnProperty(\'text2\')">{{tab.text2Header || \'Question\'}}</h3>\n                    <div class="form-group">\n                        <input v-if="tab.hasOwnProperty(\'text2\')" v-model="tab.text2" class="form-control"\n                         @focus="tab.selectedExample = -1" @keydown="handleCtrlEnter($event)" required="true"/>\n                    </div>\n                    <button type="submit" class="btn btn-primary" v-html="tab.submitText"></button>\n                </form>\n            </div>\n        </div>\n        <div class="col-sm-6">\n            <h3>{{tab.examplesText || \'Examples\'}}</h3>\n            <div class="list-group">\n                <a href="#" v-for="(example, index) in tab.examples" v-html="examplePreview(example)"\n                    :class="\'list-group-item list-group-item-action flex-column align-items-start\' +\n                     (selected===index?\' active\':\'\')"\n                    @click.prevent="selected = index"></a>\n            </div>\n        </div>\n    </div>\n    <div class="row show-grid">\n        <div class="col">\n            <h3>{{tab.resultsText || \'Results\'}}</h3>\n        </div>\n    </div>\n    <div class="row show-grid">\n        <div :id="\'reversed-\' + tab.id" class="reversed col">\n            <transition name="fade" v-for="result in tab.results">\n                <div class="row" v-show="result.show" v-html="result.data"></div>\n            </transition>\n        </div>\n    </div>\n</div>',
+    template: '\n<div>\n    <div class="row show-grid" style="margin-top:2em">\n        <div class="col">\n            <blockquote class="blockquote">\n                <p v-html="tab.about"></p>\n                <p><a :href="`https://hub.docker.com/r/${tab.docker}`">\n                    <img src="img/docker-logo.svg" height="20px"/> <span class="code">docker pull {{tab.docker}}</span>\n                </a></p>\n            </blockquote>\n        </div>\n    </div>\n    <div class="row show-grid">\n        <div class="col-sm-6">\n            <h3 v-html="tab.text1Header"></h3>\n            <div>\n                <form @submit.prevent="send">\n                    <div class="form-group">\n                        <textarea v-model="tab.text1" class="form-control" rows="7" @focus="tab.selectedExample = -1"\n                         @keydown="handleCtrlEnter($event)" required="true"/>\n                    </div>\n                    <h3 v-if="tab.hasOwnProperty(\'text2\')">{{tab.text2Header || \'Question\'}}</h3>\n                    <div class="form-group">\n                        <input v-if="tab.hasOwnProperty(\'text2\')" v-model="tab.text2" class="form-control"\n                         @focus="tab.selectedExample = -1" @keydown="handleCtrlEnter($event)" required="true"/>\n                    </div>\n                    <button type="submit" class="btn btn-primary" v-html="tab.submitText"></button>\n                </form>\n            </div>\n        </div>\n        <div class="col-sm-6">\n            <h3>{{tab.examplesText || \'Examples\'}}</h3>\n            <div class="list-group">\n                <a href="#" v-for="(example, index) in tab.examples" v-html="examplePreview(example)"\n                    :class="\'list-group-item list-group-item-action flex-column align-items-start\' +\n                     (selected===index?\' active\':\'\')"\n                    @click.prevent="selected = index"></a>\n            </div>\n        </div>\n    </div>\n    <div class="row show-grid">\n        <div class="col">\n            <h3>{{tab.resultsText || \'Results\'}}</h3>\n        </div>\n    </div>\n    <div class="row show-grid">\n        <div :id="\'reversed-\' + tab.id" class="reversed col">\n            <transition name="fade" v-for="result in tab.results">\n                <div class="row" v-show="result.show" v-html="result.data"></div>\n            </transition>\n        </div>\n    </div>\n</div>',
     methods: {
         send: function send() {
             var tab = this.tab;
