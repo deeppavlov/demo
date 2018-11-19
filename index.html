@@ -12,6 +12,9 @@
           integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="./style.css">
 
+    <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.css" />
+
+
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"
             integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
             crossorigin="anonymous"></script>
@@ -24,6 +27,29 @@
 
     <script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vue-resource/1.3.6/vue-resource.min.js"></script>
+
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.js"></script>
+    <script>
+        window.addEventListener("load", function(){
+            window.cookieconsent.initialise({
+                "palette": {
+                    "popup": {
+                        "background": "#237afc"
+                    },
+                    "button": {
+                        "background": "#fff",
+                        "text": "#237afc"
+                    }
+                },
+                "showLink": false,
+                "position": "bottom-right",
+                "content": {
+                    "message": "This website uses cookies. By continuing to use this site, you accept our use of cookies.",
+                    "dismiss": "ACCEPT &amp; CLOSE"
+                }
+            })});
+    </script>
 </head>
 <body lang="en">
 <div class="modal" id="pleaseWaitDialog" tabindex="-1" role="dialog" aria-hidden="true">
