@@ -298,7 +298,7 @@ Kensington Palace said in a statement that the couple is “hugely grateful” f
         lang: 'en',
         report: function (t1, t2, response) {
             let res = `<blockquote class="blockquote">${t1}</blockquote>`;
-            let data = response.map(function (text) {
+            let data = response[0].map(function (text) {
                 return `<li>${text}</li>`
             });
             res += `<ul>${data.join('')}</ul>`;
