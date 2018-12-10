@@ -40,9 +40,39 @@ const ontonotesClasses = {
     "CARDINAL": ["badge-secondary", "Numerals that do not fall under another type."]
 };
 
+const refusal = {
+    "ru": "Не знаю",
+    "en": "I don't know"
+};
+
+function escapeHTML(text) {
+    let div = document.createElement('div');
+    div.innerText = text;
+    return div.innerHTML;
+}
+
+function defaultReport(t1, t2, response){
+    let res;
+    response = response[0];
+    if (response !== "")
+        res = `<blockquote class="blockquote" style="color: darkblue;">${escapeHTML(response)}</blockquote>`;
+    else
+        res = `<blockquote class="blockquote" style="color: indianred;">${refusal[vue.lang]}</blockquote>`;
+    if (t2) {
+        res += `<div style="margin-bottom: 0.5em; padding-bottom: 0.5em; border-bottom: 1px solid lightgrey;">${t2}</div>`;
+    }
+    res += `<div>${t1}</div>`;
+
+    return res;
+}
+
 function squadReport(t1, t2, response) {
     let [answer, startIndex] = response;
-    let res = `<blockquote class="blockquote" style="color: darkblue;">${answer}</blockquote>`;
+    return defaultReport(t1, t2, [answer]);
+}
+
+function f1(t1, t2, response){
+    let res = `<blockquote class="blockquote" style="color: darkblue;">${response}</blockquote>`;
     if (t2) {
         res += `<div style="margin-bottom: 0.5em; padding-bottom: 0.5em; border-bottom: 1px solid lightgrey;">${t2}</div>`;
     }
@@ -266,7 +296,7 @@ Kensington Palace said in a statement that the couple is “hugely grateful” f
                 text1: 'When did the Lynmouth floods happen?'
             },
             {
-                text1: 'Who piloted the original Gundam?'
+                text1: "What was Char Aznable's nickname?"
             },
             {
                 text1: 'When is the Bastille Day?'
@@ -277,7 +307,7 @@ Kensington Palace said in a statement that the couple is “hugely grateful” f
         ],
         url: 'https://7011.lnsigo.mipt.ru/answer',
         about: 'Open Domain Question Answering',
-        docker: 'deeppavlov/odqa_ru',
+        docker: 'deeppavlov/odqa_en',
         text1Header: 'Question',
         submitText: 'Ask',
         lang: 'en'
@@ -410,15 +440,7 @@ for (let i = 0; i < tabs.length; i++) {
     tab.selectedExample = 0;
 
     if (!tab.hasOwnProperty('report')) {
-        tab.report = function (t1, t2, response) {
-            let res = `<blockquote class="blockquote" style="color: darkblue;">${response}</blockquote>`;
-            if (t2) {
-                res += `<div style="margin-bottom: 0.5em; padding-bottom: 0.5em; border-bottom: 1px solid lightgrey;">${t2}</div>`;
-            }
-            res += `<div>${t1}</div>`;
-
-            return res;
-        }
+        tab.report = defaultReport
     }
 
     if (!tab.hasOwnProperty('send')){
