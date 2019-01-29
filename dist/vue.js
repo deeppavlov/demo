@@ -254,23 +254,12 @@ Kensington Palace said in a statement that the couple is “hugely grateful” f
     }, {
         text1: 'Where did guinea pigs originate?'
     }],
-    url: 'https://7027.lnsigo.mipt.ru/odqa',
+    url: 'https://7011.lnsigo.mipt.ru/answer',
     about: 'Open Domain Question Answering',
     docker: 'deeppavlov/odqa_en',
     text1Header: 'Question',
     submitText: 'Ask',
-    lang: 'en',
-    send: function send() {
-        var self = this;
-
-        var payload = {
-            context: [self.text1]
-        };
-
-        return Vue.http.post(self.url, payload).then(function (response) {
-            return self.report(payload.context[0], null, response.body[0]);
-        });
-    }
+    lang: 'en'
 }, {
     id: 'Auto FAQ',
     examples: [{ text1: 'what is the price for home insurance?' }, { text1: 'fire occured in my home, is it covered by insurance?' }, { text1: 'what is disability insurance?' }, { text1: 'appeal of insurance denial?' }],
