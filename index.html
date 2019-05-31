@@ -77,7 +77,7 @@
                 <ul class="nav nav-pills nav-fill" id="tabs">
                     <li class="nav-item" v-for="(tab, index) in tabs" v-if="tab.lang===lang">
                         <a class="nav-link" :href="'#' + tab.id" role="tab"
-                           data-toggle="tab">{{tab.id}}</a>
+                           data-toggle="tab">{{tab.name || tab.id}}</a>
                     </li>
                     <li> </li>
                     <li>
@@ -89,6 +89,10 @@
                             <label :class="(lang==='en')?'btn btn-primary':'btn btn-secondary'">
                                 <input type="radio" name="lang" id="langEn" value="en" autocomplete="off"
                                        v-model="lang" @change="langChange"> En
+                            </label>
+                            <label :class="(lang==='multiLang')?'btn btn-primary':'btn btn-secondary'">
+                                <input type="radio" name="lang" id="langMulti" value="multiLang" autocomplete="off"
+                                       v-model="lang" @change="langChange"> Multi-lang
                             </label>
                         </div>
                     </li>

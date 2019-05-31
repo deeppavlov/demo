@@ -46,7 +46,8 @@ var ontonotesClasses = {
 
 var refusal = {
     "ru": "Не знаю",
-    "en": "I don't know"
+    "en": "I don't know",
+    "multiLang": "I don't know"
 };
 
 function escapeHTML(text) {
@@ -75,6 +76,37 @@ function squadReport(t1, t2, response) {
     return defaultReport(t1, t2, [answer]);
 }
 
+function ontonotesReport(t1, t2, response) {
+    var prev = null;
+
+    var _response2 = _slicedToArray(response, 2),
+        words = _response2[0],
+        tags = _response2[1];
+
+    var res = words.map(function (w, i) {
+        var t = tags[i];
+        var prefix = '';
+
+        if (prev !== null && t !== 'I-' + prev) {
+            prefix = '</span> ';
+            prev = null;
+        }
+        if (t === 'O' || t === 'I-' + prev) return prefix + w;
+
+        prev = t.substring(2);
+
+        var _ontonotesClasses$pre = _slicedToArray(ontonotesClasses[prev], 2),
+            class_name = _ontonotesClasses$pre[0],
+            about = _ontonotesClasses$pre[1];
+
+        return prefix + '<span class="badge ' + class_name + '" data-toggle="tooltip" title="' + about + '" style="cursor: help;">' + w;
+    }).join(' ');
+    if (prev !== null) {
+        res += '</span>';
+    }
+    return res;
+}
+
 function f1(t1, t2, response) {
     var res = '<blockquote class="blockquote" style="color: darkblue;">' + response + '</blockquote>';
     if (t2) {
@@ -86,9 +118,9 @@ function f1(t1, t2, response) {
 }
 
 function classifiersReport(t1, t2, response) {
-    var _response2 = _slicedToArray(response, 2),
-        tags = _response2[0],
-        scores = _response2[1];
+    var _response3 = _slicedToArray(response, 2),
+        tags = _response3[0],
+        scores = _response3[1];
 
     tags = tags.map(function (tag) {
         return '<span class="badge ' + badges[tag] + '">' + tag + '</span>';
@@ -167,9 +199,9 @@ var tabs = [{
     report: function report(t1, t2, response) {
         var prev = null;
 
-        var _response3 = _slicedToArray(response, 2),
-            words = _response3[0],
-            tags = _response3[1];
+        var _response4 = _slicedToArray(response, 2),
+            words = _response4[0],
+            tags = _response4[1];
 
         var res = words.map(function (w, i) {
             var t = tags[i];
@@ -302,36 +334,7 @@ Kensington Palace said in a statement that the couple is “hugely grateful” f
     text1Header: 'Enter Text',
     submitText: 'Search',
     lang: 'en',
-    report: function report(t1, t2, response) {
-        var prev = null;
-
-        var _response4 = _slicedToArray(response, 2),
-            words = _response4[0],
-            tags = _response4[1];
-
-        var res = words.map(function (w, i) {
-            var t = tags[i];
-            var prefix = '';
-
-            if (prev !== null && t !== 'I-' + prev) {
-                prefix = '</span> ';
-                prev = null;
-            }
-            if (t === 'O' || t === 'I-' + prev) return prefix + w;
-
-            prev = t.substring(2);
-
-            var _ontonotesClasses$pre = _slicedToArray(ontonotesClasses[prev], 2),
-                class_name = _ontonotesClasses$pre[0],
-                about = _ontonotesClasses$pre[1];
-
-            return prefix + '<span class="badge ' + class_name + '" data-toggle="tooltip" title="' + about + '" style="cursor: help;">' + w;
-        }).join(' ');
-        if (prev !== null) {
-            res += '</span>';
-        }
-        return res;
-    }
+    report: ontonotesReport
 }, {
     id: 'Intent classification',
     examples: [{ text1: 'Show me the forecast for my upcoming weekend' }, { text1: 'Find me the I, Robot television show' }, { text1: 'Can I get some Russian cuisine at a restaurant with Shari and I?' }, { text1: 'Add Diamonds to my roadtrip playlist' }, { text1: 'Play the last track from Beyoncé off Spotify' }, { text1: 'Give 6 stars to Of Mice and Men' }, { text1: 'Tell me what movies are showing at 7am at the closest movie house' }],
@@ -358,6 +361,51 @@ Kensington Palace said in a statement that the couple is “hugely grateful” f
     submitText: 'Classify',
     lang: 'en',
     report: classifiersReport
+},
+//     {
+//         id: 'Text QA ml',
+//         name: 'Text QA',
+//         examples: [
+//             {
+//                 text1: 'The U.S. is ready to engage in talks about North Korea’s nuclear program even as it maintains pressure on Kim Jong Un’s regime, the Washington Post reported, citing an interview with Vice President Mike Pence. \
+// Pence and South Korea’s President Moon Jae-in agreed on a post-Olympics strategy during conversations at the Winter Olympics in the South Korean resort of Pyeongchang that Pence dubbed “maximum pressure and engagement at the same time.” Pence spoke in an interview on his way home from the Winter Olympics. \
+// “The point is, no pressure comes off until they are actually doing something that the alliance believes represents a meaningful step toward denuclearization,” the Post quoted Pence as saying. “So the maximum pressure campaign is going to continue and intensify. But if you want to talk, we’ll talk.”',
+//                 text2: 'What country is under the pressure?'
+//             }
+//         ],
+//         url: 'https://7008.lnsigo.mipt.ru/answer',
+//         about: 'Question Answering',
+//         docker: 'deeppavlov/squad_en',
+//         text1Header: 'Enter Text',
+//         submitText: 'Ask',
+//         lang: 'multiLang',
+//         report: squadReport
+//     },
+{
+    id: 'Entity recognition ml',
+    name: 'Entity recognition',
+    examples: [{
+        text1: 'Curling World Championship will be held in Antananarivo'
+    }, {
+        text1: 'Mistrzostwa Świata w Curlingu odbędą się w Antananarivo'
+    }, {
+        text1: 'Чемпионат мира по кёрлингу пройдёт в Антананариву'
+    }],
+    url: 'https://7013.lnsigo.mipt.ru/answer',
+    about: 'Hover over an entity to see its class description<br/>Classes: ' + Object.entries(ontonotesClasses).map(function (_ref5) {
+        var _ref6 = _slicedToArray(_ref5, 2),
+            k = _ref6[0],
+            _ref6$ = _slicedToArray(_ref6[1], 2),
+            class_name = _ref6$[0],
+            about = _ref6$[1];
+
+        return '<span class="badge ' + class_name + '" data-toggle="tooltip" title="' + about + '" style="cursor: help;">' + k + '</span>';
+    }).join(', '),
+    // docker: 'deeppavlov/ner_en',
+    text1Header: 'Enter Text',
+    submitText: 'Search',
+    lang: 'multiLang',
+    report: ontonotesReport
 }];
 
 for (var i = 0; i < tabs.length; i++) {
@@ -392,7 +440,7 @@ for (var i = 0; i < tabs.length; i++) {
 
 Vue.component('tab-content', {
     props: ['tab'],
-    template: '\n<div>\n    <div class="row show-grid" style="margin-top:2em">\n        <div class="col">\n            <blockquote class="blockquote">\n                <p v-html="tab.about"></p>\n                <p><a :href="`https://hub.docker.com/r/${tab.docker}`">\n                    <img src="img/docker-logo.svg" height="20px"/> <span class="code">docker pull {{tab.docker}}</span>\n                </a></p>\n            </blockquote>\n        </div>\n    </div>\n    <div class="row show-grid">\n        <div class="col-sm-6">\n            <h3 v-html="tab.text1Header"></h3>\n            <div>\n                <form @submit.prevent="send">\n                    <div class="form-group">\n                        <textarea v-model="tab.text1" class="form-control" rows="7" @focus="tab.selectedExample = -1"\n                         @keydown="handleCtrlEnter($event)" required="true"/>\n                    </div>\n                    <h3 v-if="tab.hasOwnProperty(\'text2\')">{{tab.text2Header || \'Question\'}}</h3>\n                    <div class="form-group">\n                        <input v-if="tab.hasOwnProperty(\'text2\')" v-model="tab.text2" class="form-control"\n                         @focus="tab.selectedExample = -1" @keydown="handleCtrlEnter($event)" required="true"/>\n                    </div>\n                    <button type="submit" class="btn btn-primary" v-html="tab.submitText"></button>\n                </form>\n            </div>\n        </div>\n        <div class="col-sm-6">\n            <h3>{{tab.examplesText || \'Examples\'}}</h3>\n            <div class="list-group">\n                <a href="#" v-for="(example, index) in tab.examples" v-html="examplePreview(example)"\n                    :class="\'list-group-item list-group-item-action flex-column align-items-start\' +\n                     (selected===index?\' active\':\'\')"\n                    @click.prevent="selected = index"></a>\n            </div>\n        </div>\n    </div>\n    <div class="row show-grid">\n        <div class="col">\n            <h3>{{tab.resultsText || \'Results\'}}</h3>\n        </div>\n    </div>\n    <div class="row show-grid">\n        <div :id="\'reversed-\' + tab.id" class="reversed col">\n            <transition name="fade" v-for="result in tab.results">\n                <div class="row" v-show="result.show" v-html="result.data"></div>\n            </transition>\n        </div>\n    </div>\n</div>',
+    template: '\n<div>\n    <div class="row show-grid" style="margin-top:2em">\n        <div class="col">\n            <blockquote class="blockquote">\n                <p v-html="tab.about"></p>\n                <p v-if="tab.docker"><a :href="`https://hub.docker.com/r/${tab.docker}`">\n                    <img src="img/docker-logo.svg" height="20px"/> <span class="code">docker pull {{tab.docker}}</span>\n                </a></p>\n            </blockquote>\n        </div>\n    </div>\n    <div class="row show-grid">\n        <div class="col-sm-6">\n            <h3 v-html="tab.text1Header"></h3>\n            <div>\n                <form @submit.prevent="send">\n                    <div class="form-group">\n                        <textarea v-model="tab.text1" class="form-control" rows="7" @focus="tab.selectedExample = -1"\n                         @keydown="handleCtrlEnter($event)" required="true"/>\n                    </div>\n                    <h3 v-if="tab.hasOwnProperty(\'text2\')">{{tab.text2Header || \'Question\'}}</h3>\n                    <div class="form-group">\n                        <input v-if="tab.hasOwnProperty(\'text2\')" v-model="tab.text2" class="form-control"\n                         @focus="tab.selectedExample = -1" @keydown="handleCtrlEnter($event)" required="true"/>\n                    </div>\n                    <button type="submit" class="btn btn-primary" v-html="tab.submitText"></button>\n                </form>\n            </div>\n        </div>\n        <div class="col-sm-6">\n            <h3>{{tab.examplesText || \'Examples\'}}</h3>\n            <div class="list-group">\n                <a href="#" v-for="(example, index) in tab.examples" v-html="examplePreview(example)"\n                    :class="\'list-group-item list-group-item-action flex-column align-items-start\' +\n                     (selected===index?\' active\':\'\')"\n                    @click.prevent="selected = index"></a>\n            </div>\n        </div>\n    </div>\n    <div class="row show-grid">\n        <div class="col">\n            <h3>{{tab.resultsText || \'Results\'}}</h3>\n        </div>\n    </div>\n    <div class="row show-grid">\n        <div :id="\'reversed-\' + tab.id" class="reversed col">\n            <transition name="fade" v-for="result in tab.results">\n                <div class="row" v-show="result.show" v-html="result.data"></div>\n            </transition>\n        </div>\n    </div>\n</div>',
     methods: {
         send: function send() {
             var tab = this.tab;

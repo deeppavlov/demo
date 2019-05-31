@@ -42,7 +42,8 @@ const ontonotesClasses = {
 
 const refusal = {
     "ru": "Не знаю",
-    "en": "I don't know"
+    "en": "I don't know",
+    "multiLang": "I don't know"
 };
 
 function escapeHTML(text) {
@@ -69,6 +70,30 @@ function defaultReport(t1, t2, response){
 function squadReport(t1, t2, response) {
     let [answer, startIndex] = response;
     return defaultReport(t1, t2, [answer]);
+}
+
+function ontonotesReport(t1, t2, response) {
+    let prev = null;
+    let [words, tags] = response;
+    let res = words.map(function (w, i) {
+        let t = tags[i];
+        let prefix = '';
+
+        if (prev !== null && t !== `I-${prev}`) {
+            prefix = '</span> ';
+            prev = null;
+        }
+        if (t === 'O' || t === `I-${prev}`)
+            return prefix + w;
+
+        prev = t.substring(2);
+        let [class_name, about] = ontonotesClasses[prev];
+        return `${prefix}<span class="badge ${class_name}" data-toggle="tooltip" title="${about}" style="cursor: help;">${w}`;
+    }).join(' ');
+    if (prev !== null) {
+        res += '</span>';
+    }
+    return res;
 }
 
 function f1(t1, t2, response){
@@ -360,29 +385,7 @@ Kensington Palace said in a statement that the couple is “hugely grateful” f
         text1Header: 'Enter Text',
         submitText: 'Search',
         lang: 'en',
-        report: function (t1, t2, response) {
-            let prev = null;
-            let [words, tags] = response;
-            let res = words.map(function (w, i) {
-                let t = tags[i];
-                let prefix = '';
-
-                if (prev !== null && t !== `I-${prev}`) {
-                    prefix = '</span> ';
-                    prev = null;
-                }
-                if (t === 'O' || t === `I-${prev}`)
-                    return prefix + w;
-
-                prev = t.substring(2);
-                let [class_name, about] = ontonotesClasses[prev];
-                return `${prefix}<span class="badge ${class_name}" data-toggle="tooltip" title="${about}" style="cursor: help;">${w}`;
-            }).join(' ');
-            if (prev !== null) {
-                res += '</span>';
-            }
-            return res;
-        }
+        report: ontonotesReport
     },
     {
         id: 'Intent classification',
@@ -423,6 +426,50 @@ Kensington Palace said in a statement that the couple is “hugely grateful” f
         submitText: 'Classify',
         lang: 'en',
         report: classifiersReport
+    },
+//     {
+//         id: 'Text QA ml',
+//         name: 'Text QA',
+//         examples: [
+//             {
+//                 text1: 'The U.S. is ready to engage in talks about North Korea’s nuclear program even as it maintains pressure on Kim Jong Un’s regime, the Washington Post reported, citing an interview with Vice President Mike Pence. \
+// Pence and South Korea’s President Moon Jae-in agreed on a post-Olympics strategy during conversations at the Winter Olympics in the South Korean resort of Pyeongchang that Pence dubbed “maximum pressure and engagement at the same time.” Pence spoke in an interview on his way home from the Winter Olympics. \
+// “The point is, no pressure comes off until they are actually doing something that the alliance believes represents a meaningful step toward denuclearization,” the Post quoted Pence as saying. “So the maximum pressure campaign is going to continue and intensify. But if you want to talk, we’ll talk.”',
+//                 text2: 'What country is under the pressure?'
+//             }
+//         ],
+//         url: 'https://7008.lnsigo.mipt.ru/answer',
+//         about: 'Question Answering',
+//         docker: 'deeppavlov/squad_en',
+//         text1Header: 'Enter Text',
+//         submitText: 'Ask',
+//         lang: 'multiLang',
+//         report: squadReport
+//     },
+    {
+        id: 'Entity recognition ml',
+        name: 'Entity recognition',
+        examples: [
+            {
+                text1: 'Curling World Championship will be held in Antananarivo'
+            },
+            {
+                text1: 'Mistrzostwa Świata w Curlingu odbędą się w Antananarivo'
+            },
+            {
+                text1: 'Чемпионат мира по кёрлингу пройдёт в Антананариву'
+            }
+        ],
+        url: 'https://7013.lnsigo.mipt.ru/answer',
+        about: `Hover over an entity to see its class description<br/>Classes: ` +
+        Object.entries(ontonotesClasses).map(function([k, [class_name, about]]) {
+            return `<span class="badge ${class_name}" data-toggle="tooltip" title="${about}" style="cursor: help;">${k}</span>`
+        }).join(', '),
+        // docker: 'deeppavlov/ner_en',
+        text1Header: 'Enter Text',
+        submitText: 'Search',
+        lang: 'multiLang',
+        report: ontonotesReport
     }
 ];
 
@@ -465,7 +512,7 @@ Vue.component('tab-content', {
         <div class="col">
             <blockquote class="blockquote">
                 <p v-html="tab.about"></p>
-                <p><a :href="\`https://hub.docker.com/r/\${tab.docker}\`">
+                <p v-if="tab.docker"><a :href="\`https://hub.docker.com/r/\${tab.docker}\`">
                     <img src="img/docker-logo.svg" height="20px"/> <span class="code">docker pull {{tab.docker}}</span>
                 </a></p>
             </blockquote>
