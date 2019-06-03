@@ -465,7 +465,7 @@ Kensington Palace said in a statement that the couple is “hugely grateful” f
         Object.entries(ontonotesClasses).map(function([k, [class_name, about]]) {
             return `<span class="badge ${class_name}" data-toggle="tooltip" title="${about}" style="cursor: help;">${k}</span>`
         }).join(', '),
-        // docker: 'deeppavlov/ner_en',
+        docker: 'deeppavlov/ner_ml',
         text1Header: 'Enter Text',
         submitText: 'Search',
         lang: 'multiLang',
