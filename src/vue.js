@@ -438,7 +438,7 @@ Kensington Palace said in a statement that the couple is “hugely grateful” f
 //                 text2: 'What country is under the pressure?'
 //             }
 //         ],
-//         url: 'https://7008.lnsigo.mipt.ru/answer',
+//         url: 'https://7014.lnsigo.mipt.ru/answer',
 //         about: 'Question Answering',
 //         docker: 'deeppavlov/squad_en',
 //         text1Header: 'Enter Text',
@@ -451,13 +451,36 @@ Kensington Palace said in a statement that the couple is “hugely grateful” f
         name: 'Entity recognition',
         examples: [
             {
-                text1: 'Curling World Championship will be held in Antananarivo'
+                text1: `Icy conditions have swept across eastern Australia, bringing snow to areas as far north as subtropical Queensland.
+Australia's Bureau of Meteorology described it as a "rare" sight, noting the state had not experienced significant snowfall since 2015.
+Severe weather warnings have also been issued for a 1,000km (620 miles) stretch of coast which includes Sydney.
+Meteorologist Lachlan Stone said the snowfall in Queensland was an unusual occurrence in a state with a sub-tropical to tropical climate.`
+            },
+            // {
+            //     text1: 'Mistrzostwa Świata w Curlingu odbędą się w Antananarivo'
+            // },
+            {
+                text1: 'Члены Американской академии киноискусств решили присудить режиссеру Дэвиду Линчу почетную премию "Оскар" за выдающийся вклад в кинематограф, сообщается на сайте академии. ' +
+                    'Церемония награждения пройдет 27 октября в развлекательном комплексе Hollywood and Highland Center в Лос-Анджелесе (штат Калифорния, США).'
             },
             {
-                text1: 'Mistrzostwa Świata w Curlingu odbędą się w Antananarivo'
+                text1: `Після аномальної весни, що увійшла в десятку найтепліших за 139 років спостережень, літо теж починаєтся зі спеки.
+Про це повідомила синоптик Наталка Діденко на своїй сторінці в соцмережі Facebook.
+Так, у середу 5 червня Україна буде залишатися однією з найбільш спекотних країн Європи: завтра вдень очікується + 24 + 29 градусів, на Сході та Півдні +28 +33 градуси.
+За словами синоптика, у Франції, Великобританії і місцями навіть в Іспанії та Португалії в середу похолодає до + 10 + 15 градусів і пройдуть дощі.`
             },
             {
-                text1: 'Чемпионат мира по кёрлингу пройдёт в Антананариву'
+                text1: `Poznań liegt auf halbem Weg zwischen Warschau und Berlin – diese Städte waren wichtig für den Dirigenten und Komponisten Ignatz Waghalter, einen der Mitbegründer der Deutschen Oper in Berlin-Charlottenburg.
+Das Orchester der Philharmonie Poznań widmet sich jetzt bereits zum zweiten Mal der Musik dieses aus Deutschland vertriebenen Komponisten. Waghalter stammte aus einer jüdischen Warschauer Familie.`
+            },
+            {
+                text1: `Así ha calificado en un comunicado Jay Timmons, el consejero delegado de la Asociación de Manufacturas de EEUU, la amenaza de Donald Trump de empezar el 10 de junio a imponer aranceles del 5% a la importación de bienes mexicanos e irlos subiendo hasta el mes de octubre, cuando alcanzarían el 25%. En total, el 80% de las exportaciones mexicanas van a Estados Unidos.
+Según Gregory Daco, economista jefe de la consultora Oxford Economics, unos aranceles del 25% rebañarían al menos siete décimas de crecimiento de EEUU en 2020, hasta dejarlo en un minúsculo 1%. Para México las consecuencias podrían ser devastadoras, y el país quedaría sepultado en una recesión.`
+            },
+            {
+                text1: `Geçtiğimiz sezonun devre arasında Sassuolo’ya transfer olan Merih Demiral, gösterdiği performans sonrası İtalya Seria A’nın son şampiyonu Juventus’a transfer oldu.
+İtalyan gazeteci Gianluca Di Marzio,kişisel twitter hesabında Merih Demiral’ın Juventus’a transferinin sonuçlandığını ve Merih’in Juventus ile 5 yıllık sözleşme imzalayacağını söyledi.
+Juventus, Merih’in transferi için Sassuolo’ya 15 milyon euro bonservis bedeli ödeyeceğini açıkladı.`
             }
         ],
         url: 'https://7013.lnsigo.mipt.ru/answer',

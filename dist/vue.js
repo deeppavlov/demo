@@ -373,7 +373,7 @@ Kensington Palace said in a statement that the couple is “hugely grateful” f
 //                 text2: 'What country is under the pressure?'
 //             }
 //         ],
-//         url: 'https://7008.lnsigo.mipt.ru/answer',
+//         url: 'https://7014.lnsigo.mipt.ru/answer',
 //         about: 'Question Answering',
 //         docker: 'deeppavlov/squad_en',
 //         text1Header: 'Enter Text',
@@ -385,11 +385,21 @@ Kensington Palace said in a statement that the couple is “hugely grateful” f
     id: 'Entity recognition ml',
     name: 'Entity recognition',
     examples: [{
-        text1: 'Curling World Championship will be held in Antananarivo'
+        text1: 'Icy conditions have swept across eastern Australia, bringing snow to areas as far north as subtropical Queensland.\nAustralia\'s Bureau of Meteorology described it as a "rare" sight, noting the state had not experienced significant snowfall since 2015.\nSevere weather warnings have also been issued for a 1,000km (620 miles) stretch of coast which includes Sydney.\nMeteorologist Lachlan Stone said the snowfall in Queensland was an unusual occurrence in a state with a sub-tropical to tropical climate.'
+    },
+    // {
+    //     text1: 'Mistrzostwa Świata w Curlingu odbędą się w Antananarivo'
+    // },
+    {
+        text1: 'Члены Американской академии киноискусств решили присудить режиссеру Дэвиду Линчу почетную премию "Оскар" за выдающийся вклад в кинематограф, сообщается на сайте академии. ' + 'Церемония награждения пройдет 27 октября в развлекательном комплексе Hollywood and Highland Center в Лос-Анджелесе (штат Калифорния, США).'
     }, {
-        text1: 'Mistrzostwa Świata w Curlingu odbędą się w Antananarivo'
+        text1: '\u041F\u0456\u0441\u043B\u044F \u0430\u043D\u043E\u043C\u0430\u043B\u044C\u043D\u043E\u0457 \u0432\u0435\u0441\u043D\u0438, \u0449\u043E \u0443\u0432\u0456\u0439\u0448\u043B\u0430 \u0432 \u0434\u0435\u0441\u044F\u0442\u043A\u0443 \u043D\u0430\u0439\u0442\u0435\u043F\u043B\u0456\u0448\u0438\u0445 \u0437\u0430 139 \u0440\u043E\u043A\u0456\u0432 \u0441\u043F\u043E\u0441\u0442\u0435\u0440\u0435\u0436\u0435\u043D\u044C, \u043B\u0456\u0442\u043E \u0442\u0435\u0436 \u043F\u043E\u0447\u0438\u043D\u0430\u0454\u0442\u0441\u044F \u0437\u0456 \u0441\u043F\u0435\u043A\u0438.\n\u041F\u0440\u043E \u0446\u0435 \u043F\u043E\u0432\u0456\u0434\u043E\u043C\u0438\u043B\u0430 \u0441\u0438\u043D\u043E\u043F\u0442\u0438\u043A \u041D\u0430\u0442\u0430\u043B\u043A\u0430 \u0414\u0456\u0434\u0435\u043D\u043A\u043E \u043D\u0430 \u0441\u0432\u043E\u0457\u0439 \u0441\u0442\u043E\u0440\u0456\u043D\u0446\u0456 \u0432 \u0441\u043E\u0446\u043C\u0435\u0440\u0435\u0436\u0456 Facebook.\n\u0422\u0430\u043A, \u0443 \u0441\u0435\u0440\u0435\u0434\u0443 5 \u0447\u0435\u0440\u0432\u043D\u044F \u0423\u043A\u0440\u0430\u0457\u043D\u0430 \u0431\u0443\u0434\u0435 \u0437\u0430\u043B\u0438\u0448\u0430\u0442\u0438\u0441\u044F \u043E\u0434\u043D\u0456\u0454\u044E \u0437 \u043D\u0430\u0439\u0431\u0456\u043B\u044C\u0448 \u0441\u043F\u0435\u043A\u043E\u0442\u043D\u0438\u0445 \u043A\u0440\u0430\u0457\u043D \u0404\u0432\u0440\u043E\u043F\u0438: \u0437\u0430\u0432\u0442\u0440\u0430 \u0432\u0434\u0435\u043D\u044C \u043E\u0447\u0456\u043A\u0443\u0454\u0442\u044C\u0441\u044F + 24 + 29 \u0433\u0440\u0430\u0434\u0443\u0441\u0456\u0432, \u043D\u0430 \u0421\u0445\u043E\u0434\u0456 \u0442\u0430 \u041F\u0456\u0432\u0434\u043D\u0456 +28 +33 \u0433\u0440\u0430\u0434\u0443\u0441\u0438.\n\u0417\u0430 \u0441\u043B\u043E\u0432\u0430\u043C\u0438 \u0441\u0438\u043D\u043E\u043F\u0442\u0438\u043A\u0430, \u0443 \u0424\u0440\u0430\u043D\u0446\u0456\u0457, \u0412\u0435\u043B\u0438\u043A\u043E\u0431\u0440\u0438\u0442\u0430\u043D\u0456\u0457 \u0456 \u043C\u0456\u0441\u0446\u044F\u043C\u0438 \u043D\u0430\u0432\u0456\u0442\u044C \u0432 \u0406\u0441\u043F\u0430\u043D\u0456\u0457 \u0442\u0430 \u041F\u043E\u0440\u0442\u0443\u0433\u0430\u043B\u0456\u0457 \u0432 \u0441\u0435\u0440\u0435\u0434\u0443 \u043F\u043E\u0445\u043E\u043B\u043E\u0434\u0430\u0454 \u0434\u043E + 10 + 15 \u0433\u0440\u0430\u0434\u0443\u0441\u0456\u0432 \u0456 \u043F\u0440\u043E\u0439\u0434\u0443\u0442\u044C \u0434\u043E\u0449\u0456.'
     }, {
-        text1: 'Чемпионат мира по кёрлингу пройдёт в Антананариву'
+        text1: 'Pozna\u0144 liegt auf halbem Weg zwischen Warschau und Berlin \u2013 diese St\xE4dte waren wichtig f\xFCr den Dirigenten und Komponisten Ignatz Waghalter, einen der Mitbegr\xFCnder der Deutschen Oper in Berlin-Charlottenburg.\nDas Orchester der Philharmonie Pozna\u0144 widmet sich jetzt bereits zum zweiten Mal der Musik dieses aus Deutschland vertriebenen Komponisten. Waghalter stammte aus einer j\xFCdischen Warschauer Familie.'
+    }, {
+        text1: 'As\xED ha calificado en un comunicado Jay Timmons, el consejero delegado de la Asociaci\xF3n de Manufacturas de EEUU, la amenaza de Donald Trump de empezar el 10 de junio a imponer aranceles del 5% a la importaci\xF3n de bienes mexicanos e irlos subiendo hasta el mes de octubre, cuando alcanzar\xEDan el 25%. En total, el 80% de las exportaciones mexicanas van a Estados Unidos.\nSeg\xFAn Gregory Daco, economista jefe de la consultora Oxford Economics, unos aranceles del 25% reba\xF1ar\xEDan al menos siete d\xE9cimas de crecimiento de EEUU en 2020, hasta dejarlo en un min\xFAsculo 1%. Para M\xE9xico las consecuencias podr\xEDan ser devastadoras, y el pa\xEDs quedar\xEDa sepultado en una recesi\xF3n.'
+    }, {
+        text1: 'Ge\xE7ti\u011Fimiz sezonun devre aras\u0131nda Sassuolo\u2019ya transfer olan Merih Demiral, g\xF6sterdi\u011Fi performans sonras\u0131 \u0130talya Seria A\u2019n\u0131n son \u015Fampiyonu Juventus\u2019a transfer oldu.\n\u0130talyan gazeteci Gianluca Di Marzio,ki\u015Fisel twitter hesab\u0131nda Merih Demiral\u2019\u0131n Juventus\u2019a transferinin sonu\xE7land\u0131\u011F\u0131n\u0131 ve Merih\u2019in Juventus ile 5 y\u0131ll\u0131k s\xF6zle\u015Fme imzalayaca\u011F\u0131n\u0131 s\xF6yledi.\nJuventus, Merih\u2019in transferi i\xE7in Sassuolo\u2019ya 15 milyon euro bonservis bedeli \xF6deyece\u011Fini a\xE7\u0131klad\u0131.'
     }],
     url: 'https://7013.lnsigo.mipt.ru/answer',
     about: 'Hover over an entity to see its class description<br/>Classes: ' + Object.entries(ontonotesClasses).map(function (_ref5) {
