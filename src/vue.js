@@ -500,7 +500,8 @@ Rowlingin tarinaan perustuva näytelmä, Harry Potter ja kirottu lapsi, sai ensi
             }
         ],
         url: 'https://7014.lnsigo.mipt.ru/answer',
-        about: 'Question Answering',
+        about: 'Question Answering is a task to find an answer on a question in a given context (e.g, a paragraph from Wikipedia), where the answer to each question is a segment of the context. There are two models for this task in DeepPavlov: BERT-based and R-Net. Both models predict the answer start and end position in a given context. Models are trained on Stanford Question Answering Dataset for English language and at SDSJ Task B for Russian language. To learn more on architecture and implementation read our documentation: <a href="http://docs.deeppavlov.ai/en/master/components/squad.html">Docs</a> \
+        <br><br> The possible business application includes simple chatbots development for helpdesks and support optimization.',
         docker: 'deeppavlov/squad_en',
         text1Header: 'Enter Text',
         submitText: 'Ask',
