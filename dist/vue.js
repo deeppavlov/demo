@@ -372,35 +372,57 @@ Kensington Palace said in a statement that the couple is “hugely grateful” f
     submitText: 'Classify',
     lang: 'en',
     report: classifiersReport
-},
-//     {
-//         id: 'Text QA ml',
-//         name: 'Text QA',
-//         examples: [
-//             {
-//                 text1: 'The U.S. is ready to engage in talks about North Korea’s nuclear program even as it maintains pressure on Kim Jong Un’s regime, the Washington Post reported, citing an interview with Vice President Mike Pence. \
-// Pence and South Korea’s President Moon Jae-in agreed on a post-Olympics strategy during conversations at the Winter Olympics in the South Korean resort of Pyeongchang that Pence dubbed “maximum pressure and engagement at the same time.” Pence spoke in an interview on his way home from the Winter Olympics. \
-// “The point is, no pressure comes off until they are actually doing something that the alliance believes represents a meaningful step toward denuclearization,” the Post quoted Pence as saying. “So the maximum pressure campaign is going to continue and intensify. But if you want to talk, we’ll talk.”',
-//                 text2: 'What country is under the pressure?'
-//             }
-//         ],
-//         url: 'https://7008.lnsigo.mipt.ru/answer',
-//         about: 'Question Answering',
-//         docker: 'deeppavlov/squad_en',
-//         text1Header: 'Enter Text',
-//         submitText: 'Ask',
-//         lang: 'multiLang',
-//         report: squadReport
-//     },
-{
+}, {
+    id: 'Text QA ml',
+    name: 'Text QA',
+    examples: [{
+        text1: '\u0412\u043E\u043B\u043E\u0441\u044B \u0443 \u043C\u0435\u043D\u044F \u043D\u0430 \u0433\u0440\u0443\u0434\u0438 \u043E\u043A\u0440\u0430\u0441\u0438\u043B\u0438\u0441\u044C, \u043F\u043E\u0442\u043E\u043C\u0443 \u0447\u0442\u043E \u044F \u043F\u0440\u043E\u043B\u0438\u043B \u043D\u0430 \u043D\u0438\u0445 \u0440\u0430\u043A\u0435\u0442\u043D\u044B\u0439 \u043E\u043A\u0438\u0441\u043B\u0438\u0442\u0435\u043B\u044C. \u041B\u0435\u0442 \u043C\u043D\u0435 \u0434\u0432\u0430\u0434\u0446\u0430\u0442\u044C \u0434\u0435\u0432\u044F\u0442\u044C, \u0441\u043A\u043E\u0440\u043E \u044E\u0431\u0438\u043B\u0435\u0439. \u0410 \u0432 \u0430\u0440\u043C\u0438\u0438 \u044F \u043F\u043E\u0442\u043E\u043C\u0443, \u0447\u0442\u043E \u043C\u0435\u043D\u044F \u0436\u0435\u043D\u0430 \u0441 \u0442\u0451\u0449\u0435\u0439 \u0445\u043E\u0442\u0435\u043B\u0438 \u0432 \u0441\u0443\u043C\u0430\u0441\u0448\u0435\u0434\u0448\u0438\u0439 \u0434\u043E\u043C \u043E\u0442\u0434\u0430\u0442\u044C \u2014 \u0437\u0430 \u0443\u0431\u0435\u0436\u0434\u0435\u043D\u0438\u044F',
+        text2: 'Почему у тебя волосы на груди окрасились?'
+    }, {
+        text1: 'Sri Lanka was known from the beginning of British colonial rule as Ceylon (/s\u026A\u02C8l\u0252n/, US also /se\u026A\u02C8l\u0252n/).\nA nationalist political movement arose in the country in the early 20th century to obtain political independence, which was granted in 1948; the country became a republic and adopted its current name in 1972.\nSri Lanka\'s recent history has been marred by a 26-year civil war, which ended decisively when the Sri Lanka Armed Forces defeated the Liberation Tigers of Tamil Eelam (LTTE) in 2009.\nThe current constitution stipulates the political system as a republic and a unitary state governed by a semi-presidential system.\nIt has had a long history of international engagement, as a founding member of the South Asian Association for Regional Cooperation (SAARC), and a member of the United Nations, the Commonwealth of Nations, the G77, and the Non-Aligned Movement.\nAlong with the Maldives, Sri Lanka is one of only two South Asian countries rated "high" on the Human Development Index (HDI), with its HDI rating and per capita income the highest among South Asian nations.\nThe Sri Lankan constitution accords Buddhism the "foremost place", although it does not identify it as a state religion. Buddhism is given special privileges in the Sri Lankan constitution.',
+        text2: 'What is SAARC?'
+    }, {
+        text1: 'Su \xE1rea de distribuci\xF3n comprende casi toda Sudam\xE9rica al este de los Andes en las cuencas del r\xEDo Orinoco, del Amazonas y del R\xEDo de la Plata; cubriendo desde el este de Venezuela y la Guyana hasta Uruguay y el norte y centro de Argentina.\nPueden vivir en diferentes tipos de h\xE1bitat, pero muestran preferencia por algunos en concreto. Suelen encontrarse cerca de lagos, r\xEDos, marismas o manglares.\nTambi\xE9n necesitan un suelo firme para dormir, idealmente con una vegetaci\xF3n espesa que les sirve de protecci\xF3n.\nPara alimentarse no tienen problema en adentrarse por la sabana y herbazales.\nLa mayor densidad de poblaci\xF3n de carpinchos se encuentra en las extensas zonas h\xFAmedas de Sudam\xE9rica, como el Pantanal, o la regi\xF3n de los Llanos del norte del continente, ba\xF1ada por el r\xEDo Orinoco. Viven mayoritariamente en las llanuras, pero tambi\xE9n habitan en altitudes de hasta 1300 metros por sobre el nivel del mar.\nEn comparaci\xF3n con otras especies animales de Sudam\xE9rica, las capibaras toleran bastante bien los cambios de h\xE1bitat provocados por la actividad humana, y tambi\xE9n pueden sobrevivir en zonas transformadas en plantaciones o pastos.',
+        text2: '¿En qué países viven los capibaras?'
+    }, {
+        text1: 'Su \xE1rea de distribuci\xF3n comprende casi toda Sudam\xE9rica al este de los Andes en las cuencas del r\xEDo Orinoco, del Amazonas y del R\xEDo de la Plata; cubriendo desde el este de Venezuela y la Guyana hasta Uruguay y el norte y centro de Argentina.\nPueden vivir en diferentes tipos de h\xE1bitat, pero muestran preferencia por algunos en concreto. Suelen encontrarse cerca de lagos, r\xEDos, marismas o manglares.\nTambi\xE9n necesitan un suelo firme para dormir, idealmente con una vegetaci\xF3n espesa que les sirve de protecci\xF3n.\nPara alimentarse no tienen problema en adentrarse por la sabana y herbazales.\nLa mayor densidad de poblaci\xF3n de carpinchos se encuentra en las extensas zonas h\xFAmedas de Sudam\xE9rica, como el Pantanal, o la regi\xF3n de los Llanos del norte del continente, ba\xF1ada por el r\xEDo Orinoco. Viven mayoritariamente en las llanuras, pero tambi\xE9n habitan en altitudes de hasta 1300 metros por sobre el nivel del mar.\nEn comparaci\xF3n con otras especies animales de Sudam\xE9rica, las capibaras toleran bastante bien los cambios de h\xE1bitat provocados por la actividad humana, y tambi\xE9n pueden sobrevivir en zonas transformadas en plantaciones o pastos.',
+        text2: 'What countries do capybara live in?'
+    }, {
+        text1: 'Rosjanie zawsze odnosili wielkie sukcesy pod wzgl\u0119dem liczby utalentowanych sportowc\xF3w i ilo\u015Bci zdobytych medali na igrzyskach olimpijskich oraz w innych zawodach mi\u0119dzynarodowych.\nW przeci\u0105gu istnienia ZSRR radzieccy olimpijczycy zdobyli najwi\u0119ksz\u0105 liczb\u0119 medali na 14 spo\u015Br\xF3d 18 olimpiad.\nBior\u0105c pod uwag\u0119 ten fakt, mo\u017Cna stwierdzi\u0107, i\u017C Zwi\u0105zek Radziecki by\u0142 w owym czasie dominuj\u0105c\u0105 pot\u0119g\u0105 sportow\u0105.\nPocz\u0105wszy od Olimpiady Letniej w 1952 r. sportowcy radzieccy zawsze byli w pierwszej tr\xF3jce pod wzgl\u0119dem liczby zdobytych z\u0142otych medali. W 1980 r. Letnie Igrzyska Olimpijskie mia\u0142y miejsce w Moskwie, a w 2014 r. Zimowe Igrzyska odby\u0142y si\u0119 w Soczi.\n2 grudnia 2010 r. Komitet Wykonawczy FIFA powierzy\u0142 Rosji organizacj\u0119 mistrzostw \u015Bwiata w pi\u0142ce no\u017Cnej w 2018 r.',
+        text2: 'Gdzie odbyła się Olimpiada w 1980 roku?'
+    }, {
+        text1: 'Kirjasarjan ensimm\xE4inen osa Harry Potter ja viisasten kivi (engl. Harry Potter and the Philosopher\'s Stone) ilmestyi alkuper\xE4iskielell\xE4 vuonna 1997 ja sen viimeinen osa Harry Potter ja kuoleman varjelukset (engl. Harry Potter and the Deathly Hallows) vuonna 2007.\nEnsimm\xE4isen kirjan julkaisusta l\xE4htien kirjasarja on saanut suurta suosiota ymp\xE4ri maailmaa, ja se on ollut sek\xE4 arvostelu- ett\xE4 taloudellinen menestys. Kirjasarja on myynyt yli 500 miljoonaa kappaletta ja se on k\xE4\xE4nnetty yli 73 kielelle.\nSuomeksi Harry Potter -kirjasarjan kustansi Tammi ja sen k\xE4\xE4nsi Jaana Kapari-Jatta. Kirjasarja julkaistiin suomeksi vuosina 1998\u20132008.\nRowlingin tarinaan perustuva n\xE4ytelm\xE4, Harry Potter ja kirottu lapsi, sai ensi-iltansa Lontoossa 30. hein\xE4kuuta 2016, ja sen k\xE4sikirjoitus julkaistiin my\xF6hemmin kirjan muodossa.',
+        text2: 'Milloin kirjasarja julkaistiin suomeksi?'
+    }, {
+        text1: 'Kirjasarjan ensimm\xE4inen osa Harry Potter ja viisasten kivi (engl. Harry Potter and the Philosopher\'s Stone) ilmestyi alkuper\xE4iskielell\xE4 vuonna 1997 ja sen viimeinen osa Harry Potter ja kuoleman varjelukset (engl. Harry Potter and the Deathly Hallows) vuonna 2007.\nEnsimm\xE4isen kirjan julkaisusta l\xE4htien kirjasarja on saanut suurta suosiota ymp\xE4ri maailmaa, ja se on ollut sek\xE4 arvostelu- ett\xE4 taloudellinen menestys. Kirjasarja on myynyt yli 500 miljoonaa kappaletta ja se on k\xE4\xE4nnetty yli 73 kielelle.\nSuomeksi Harry Potter -kirjasarjan kustansi Tammi ja sen k\xE4\xE4nsi Jaana Kapari-Jatta. Kirjasarja julkaistiin suomeksi vuosina 1998\u20132008.\nRowlingin tarinaan perustuva n\xE4ytelm\xE4, Harry Potter ja kirottu lapsi, sai ensi-iltansa Lontoossa 30. hein\xE4kuuta 2016, ja sen k\xE4sikirjoitus julkaistiin my\xF6hemmin kirjan muodossa.',
+        text2: 'Как называется последняя книга про Гарри Поттера?'
+    }],
+    url: 'https://7014.lnsigo.mipt.ru/answer',
+    about: 'Question Answering',
+    docker: 'deeppavlov/squad_en',
+    text1Header: 'Enter Text',
+    submitText: 'Ask',
+    lang: 'multiLang',
+    report: squadReport
+}, {
     id: 'Entity recognition ml',
     name: 'Entity recognition',
     examples: [{
-        text1: 'Curling World Championship will be held in Antananarivo'
+        text1: 'Icy conditions have swept across eastern Australia, bringing snow to areas as far north as subtropical Queensland.\nAustralia\'s Bureau of Meteorology described it as a "rare" sight, noting the state had not experienced significant snowfall since 2015.\nSevere weather warnings have also been issued for a 1,000km (620 miles) stretch of coast which includes Sydney.\nMeteorologist Lachlan Stone said the snowfall in Queensland was an unusual occurrence in a state with a sub-tropical to tropical climate.'
+    },
+    // {
+    //     text1: 'Mistrzostwa Świata w Curlingu odbędą się w Antananarivo'
+    // },
+    {
+        text1: 'Члены Американской академии киноискусств решили присудить режиссеру Дэвиду Линчу почетную премию "Оскар" за выдающийся вклад в кинематограф, сообщается на сайте академии. ' + 'Церемония награждения пройдет 27 октября в развлекательном комплексе Hollywood and Highland Center в Лос-Анджелесе (штат Калифорния, США).'
     }, {
-        text1: 'Mistrzostwa Świata w Curlingu odbędą się w Antananarivo'
+        text1: '\u041F\u0456\u0441\u043B\u044F \u0430\u043D\u043E\u043C\u0430\u043B\u044C\u043D\u043E\u0457 \u0432\u0435\u0441\u043D\u0438, \u0449\u043E \u0443\u0432\u0456\u0439\u0448\u043B\u0430 \u0432 \u0434\u0435\u0441\u044F\u0442\u043A\u0443 \u043D\u0430\u0439\u0442\u0435\u043F\u043B\u0456\u0448\u0438\u0445 \u0437\u0430 139 \u0440\u043E\u043A\u0456\u0432 \u0441\u043F\u043E\u0441\u0442\u0435\u0440\u0435\u0436\u0435\u043D\u044C, \u043B\u0456\u0442\u043E \u0442\u0435\u0436 \u043F\u043E\u0447\u0438\u043D\u0430\u0454\u0442\u0441\u044F \u0437\u0456 \u0441\u043F\u0435\u043A\u0438.\n\u041F\u0440\u043E \u0446\u0435 \u043F\u043E\u0432\u0456\u0434\u043E\u043C\u0438\u043B\u0430 \u0441\u0438\u043D\u043E\u043F\u0442\u0438\u043A \u041D\u0430\u0442\u0430\u043B\u043A\u0430 \u0414\u0456\u0434\u0435\u043D\u043A\u043E \u043D\u0430 \u0441\u0432\u043E\u0457\u0439 \u0441\u0442\u043E\u0440\u0456\u043D\u0446\u0456 \u0432 \u0441\u043E\u0446\u043C\u0435\u0440\u0435\u0436\u0456 Facebook.\n\u0422\u0430\u043A, \u0443 \u0441\u0435\u0440\u0435\u0434\u0443 5 \u0447\u0435\u0440\u0432\u043D\u044F \u0423\u043A\u0440\u0430\u0457\u043D\u0430 \u0431\u0443\u0434\u0435 \u0437\u0430\u043B\u0438\u0448\u0430\u0442\u0438\u0441\u044F \u043E\u0434\u043D\u0456\u0454\u044E \u0437 \u043D\u0430\u0439\u0431\u0456\u043B\u044C\u0448 \u0441\u043F\u0435\u043A\u043E\u0442\u043D\u0438\u0445 \u043A\u0440\u0430\u0457\u043D \u0404\u0432\u0440\u043E\u043F\u0438: \u0437\u0430\u0432\u0442\u0440\u0430 \u0432\u0434\u0435\u043D\u044C \u043E\u0447\u0456\u043A\u0443\u0454\u0442\u044C\u0441\u044F + 24 + 29 \u0433\u0440\u0430\u0434\u0443\u0441\u0456\u0432, \u043D\u0430 \u0421\u0445\u043E\u0434\u0456 \u0442\u0430 \u041F\u0456\u0432\u0434\u043D\u0456 +28 +33 \u0433\u0440\u0430\u0434\u0443\u0441\u0438.\n\u0417\u0430 \u0441\u043B\u043E\u0432\u0430\u043C\u0438 \u0441\u0438\u043D\u043E\u043F\u0442\u0438\u043A\u0430, \u0443 \u0424\u0440\u0430\u043D\u0446\u0456\u0457, \u0412\u0435\u043B\u0438\u043A\u043E\u0431\u0440\u0438\u0442\u0430\u043D\u0456\u0457 \u0456 \u043C\u0456\u0441\u0446\u044F\u043C\u0438 \u043D\u0430\u0432\u0456\u0442\u044C \u0432 \u0406\u0441\u043F\u0430\u043D\u0456\u0457 \u0442\u0430 \u041F\u043E\u0440\u0442\u0443\u0433\u0430\u043B\u0456\u0457 \u0432 \u0441\u0435\u0440\u0435\u0434\u0443 \u043F\u043E\u0445\u043E\u043B\u043E\u0434\u0430\u0454 \u0434\u043E + 10 + 15 \u0433\u0440\u0430\u0434\u0443\u0441\u0456\u0432 \u0456 \u043F\u0440\u043E\u0439\u0434\u0443\u0442\u044C \u0434\u043E\u0449\u0456.'
     }, {
-        text1: 'Чемпионат мира по кёрлингу пройдёт в Антананариву'
+        text1: 'Pozna\u0144 liegt auf halbem Weg zwischen Warschau und Berlin \u2013 diese St\xE4dte waren wichtig f\xFCr den Dirigenten und Komponisten Ignatz Waghalter, einen der Mitbegr\xFCnder der Deutschen Oper in Berlin-Charlottenburg.\nDas Orchester der Philharmonie Pozna\u0144 widmet sich jetzt bereits zum zweiten Mal der Musik dieses aus Deutschland vertriebenen Komponisten. Waghalter stammte aus einer j\xFCdischen Warschauer Familie.'
+    }, {
+        text1: 'As\xED ha calificado en un comunicado Jay Timmons, el consejero delegado de la Asociaci\xF3n de Manufacturas de EEUU, la amenaza de Donald Trump de empezar el 10 de junio a imponer aranceles del 5% a la importaci\xF3n de bienes mexicanos e irlos subiendo hasta el mes de octubre, cuando alcanzar\xEDan el 25%. En total, el 80% de las exportaciones mexicanas van a Estados Unidos.\nSeg\xFAn Gregory Daco, economista jefe de la consultora Oxford Economics, unos aranceles del 25% reba\xF1ar\xEDan al menos siete d\xE9cimas de crecimiento de EEUU en 2020, hasta dejarlo en un min\xFAsculo 1%. Para M\xE9xico las consecuencias podr\xEDan ser devastadoras, y el pa\xEDs quedar\xEDa sepultado en una recesi\xF3n.'
+    }, {
+        text1: 'Ge\xE7ti\u011Fimiz sezonun devre aras\u0131nda Sassuolo\u2019ya transfer olan Merih Demiral, g\xF6sterdi\u011Fi performans sonras\u0131 \u0130talya Seria A\u2019n\u0131n son \u015Fampiyonu Juventus\u2019a transfer oldu.\n\u0130talyan gazeteci Gianluca Di Marzio,ki\u015Fisel twitter hesab\u0131nda Merih Demiral\u2019\u0131n Juventus\u2019a transferinin sonu\xE7land\u0131\u011F\u0131n\u0131 ve Merih\u2019in Juventus ile 5 y\u0131ll\u0131k s\xF6zle\u015Fme imzalayaca\u011F\u0131n\u0131 s\xF6yledi.\nJuventus, Merih\u2019in transferi i\xE7in Sassuolo\u2019ya 15 milyon euro bonservis bedeli \xF6deyece\u011Fini a\xE7\u0131klad\u0131.'
     }],
     url: 'https://7013.lnsigo.mipt.ru/answer',
     about: 'Named Entity Recognition (NER) is a task of finding and classifying tokens in text documents into predefined categories called tags, such as person names, quantity expressions, percentage expressions, names of locations, organizations, as well as expression of time, currency and others. NER task can be considered as a sequence labeling problem. \

@@ -440,37 +440,108 @@ Kensington Palace said in a statement that the couple is “hugely grateful” f
         lang: 'en',
         report: classifiersReport
     },
-//     {
-//         id: 'Text QA ml',
-//         name: 'Text QA',
-//         examples: [
-//             {
-//                 text1: 'The U.S. is ready to engage in talks about North Korea’s nuclear program even as it maintains pressure on Kim Jong Un’s regime, the Washington Post reported, citing an interview with Vice President Mike Pence. \
-// Pence and South Korea’s President Moon Jae-in agreed on a post-Olympics strategy during conversations at the Winter Olympics in the South Korean resort of Pyeongchang that Pence dubbed “maximum pressure and engagement at the same time.” Pence spoke in an interview on his way home from the Winter Olympics. \
-// “The point is, no pressure comes off until they are actually doing something that the alliance believes represents a meaningful step toward denuclearization,” the Post quoted Pence as saying. “So the maximum pressure campaign is going to continue and intensify. But if you want to talk, we’ll talk.”',
-//                 text2: 'What country is under the pressure?'
-//             }
-//         ],
-//         url: 'https://7008.lnsigo.mipt.ru/answer',
-//         about: 'Question Answering',
-//         docker: 'deeppavlov/squad_en',
-//         text1Header: 'Enter Text',
-//         submitText: 'Ask',
-//         lang: 'multiLang',
-//         report: squadReport
-//     },
+    {
+        id: 'Text QA ml',
+        name: 'Text QA',
+        examples: [
+            {
+                text1: `Волосы у меня на груди окрасились, потому что я пролил на них ракетный окислитель. Лет мне двадцать девять, скоро юбилей. А в армии я потому, что меня жена с тёщей хотели в сумасшедший дом отдать — за убеждения`,
+                text2: 'Почему у тебя волосы на груди окрасились?'
+            },
+            {
+                text1: `Sri Lanka was known from the beginning of British colonial rule as Ceylon (/sɪˈlɒn/, US also /seɪˈlɒn/).
+A nationalist political movement arose in the country in the early 20th century to obtain political independence, which was granted in 1948; the country became a republic and adopted its current name in 1972.
+Sri Lanka's recent history has been marred by a 26-year civil war, which ended decisively when the Sri Lanka Armed Forces defeated the Liberation Tigers of Tamil Eelam (LTTE) in 2009.
+The current constitution stipulates the political system as a republic and a unitary state governed by a semi-presidential system.
+It has had a long history of international engagement, as a founding member of the South Asian Association for Regional Cooperation (SAARC), and a member of the United Nations, the Commonwealth of Nations, the G77, and the Non-Aligned Movement.
+Along with the Maldives, Sri Lanka is one of only two South Asian countries rated "high" on the Human Development Index (HDI), with its HDI rating and per capita income the highest among South Asian nations.
+The Sri Lankan constitution accords Buddhism the "foremost place", although it does not identify it as a state religion. Buddhism is given special privileges in the Sri Lankan constitution.`,
+                text2: 'What is SAARC?'
+            },
+            {
+                text1: `Su área de distribución comprende casi toda Sudamérica al este de los Andes en las cuencas del río Orinoco, del Amazonas y del Río de la Plata; cubriendo desde el este de Venezuela y la Guyana hasta Uruguay y el norte y centro de Argentina.
+Pueden vivir en diferentes tipos de hábitat, pero muestran preferencia por algunos en concreto. Suelen encontrarse cerca de lagos, ríos, marismas o manglares.
+También necesitan un suelo firme para dormir, idealmente con una vegetación espesa que les sirve de protección.
+Para alimentarse no tienen problema en adentrarse por la sabana y herbazales.
+La mayor densidad de población de carpinchos se encuentra en las extensas zonas húmedas de Sudamérica, como el Pantanal, o la región de los Llanos del norte del continente, bañada por el río Orinoco. Viven mayoritariamente en las llanuras, pero también habitan en altitudes de hasta 1300 metros por sobre el nivel del mar.
+En comparación con otras especies animales de Sudamérica, las capibaras toleran bastante bien los cambios de hábitat provocados por la actividad humana, y también pueden sobrevivir en zonas transformadas en plantaciones o pastos.`,
+                text2: '¿En qué países viven los capibaras?'
+            },
+            {
+                text1: `Su área de distribución comprende casi toda Sudamérica al este de los Andes en las cuencas del río Orinoco, del Amazonas y del Río de la Plata; cubriendo desde el este de Venezuela y la Guyana hasta Uruguay y el norte y centro de Argentina.
+Pueden vivir en diferentes tipos de hábitat, pero muestran preferencia por algunos en concreto. Suelen encontrarse cerca de lagos, ríos, marismas o manglares.
+También necesitan un suelo firme para dormir, idealmente con una vegetación espesa que les sirve de protección.
+Para alimentarse no tienen problema en adentrarse por la sabana y herbazales.
+La mayor densidad de población de carpinchos se encuentra en las extensas zonas húmedas de Sudamérica, como el Pantanal, o la región de los Llanos del norte del continente, bañada por el río Orinoco. Viven mayoritariamente en las llanuras, pero también habitan en altitudes de hasta 1300 metros por sobre el nivel del mar.
+En comparación con otras especies animales de Sudamérica, las capibaras toleran bastante bien los cambios de hábitat provocados por la actividad humana, y también pueden sobrevivir en zonas transformadas en plantaciones o pastos.`,
+                text2: 'What countries do capybara live in?'
+            },
+            {
+                text1: `Rosjanie zawsze odnosili wielkie sukcesy pod względem liczby utalentowanych sportowców i ilości zdobytych medali na igrzyskach olimpijskich oraz w innych zawodach międzynarodowych.
+W przeciągu istnienia ZSRR radzieccy olimpijczycy zdobyli największą liczbę medali na 14 spośród 18 olimpiad.
+Biorąc pod uwagę ten fakt, można stwierdzić, iż Związek Radziecki był w owym czasie dominującą potęgą sportową.
+Począwszy od Olimpiady Letniej w 1952 r. sportowcy radzieccy zawsze byli w pierwszej trójce pod względem liczby zdobytych złotych medali. W 1980 r. Letnie Igrzyska Olimpijskie miały miejsce w Moskwie, a w 2014 r. Zimowe Igrzyska odbyły się w Soczi.
+2 grudnia 2010 r. Komitet Wykonawczy FIFA powierzył Rosji organizację mistrzostw świata w piłce nożnej w 2018 r.`,
+                text2: 'Gdzie odbyła się Olimpiada w 1980 roku?'
+            },
+            {
+                text1: `Kirjasarjan ensimmäinen osa Harry Potter ja viisasten kivi (engl. Harry Potter and the Philosopher's Stone) ilmestyi alkuperäiskielellä vuonna 1997 ja sen viimeinen osa Harry Potter ja kuoleman varjelukset (engl. Harry Potter and the Deathly Hallows) vuonna 2007.
+Ensimmäisen kirjan julkaisusta lähtien kirjasarja on saanut suurta suosiota ympäri maailmaa, ja se on ollut sekä arvostelu- että taloudellinen menestys. Kirjasarja on myynyt yli 500 miljoonaa kappaletta ja se on käännetty yli 73 kielelle.
+Suomeksi Harry Potter -kirjasarjan kustansi Tammi ja sen käänsi Jaana Kapari-Jatta. Kirjasarja julkaistiin suomeksi vuosina 1998–2008.
+Rowlingin tarinaan perustuva näytelmä, Harry Potter ja kirottu lapsi, sai ensi-iltansa Lontoossa 30. heinäkuuta 2016, ja sen käsikirjoitus julkaistiin myöhemmin kirjan muodossa.`,
+                text2: 'Milloin kirjasarja julkaistiin suomeksi?'
+            },
+            {
+                text1: `Kirjasarjan ensimmäinen osa Harry Potter ja viisasten kivi (engl. Harry Potter and the Philosopher's Stone) ilmestyi alkuperäiskielellä vuonna 1997 ja sen viimeinen osa Harry Potter ja kuoleman varjelukset (engl. Harry Potter and the Deathly Hallows) vuonna 2007.
+Ensimmäisen kirjan julkaisusta lähtien kirjasarja on saanut suurta suosiota ympäri maailmaa, ja se on ollut sekä arvostelu- että taloudellinen menestys. Kirjasarja on myynyt yli 500 miljoonaa kappaletta ja se on käännetty yli 73 kielelle.
+Suomeksi Harry Potter -kirjasarjan kustansi Tammi ja sen käänsi Jaana Kapari-Jatta. Kirjasarja julkaistiin suomeksi vuosina 1998–2008.
+Rowlingin tarinaan perustuva näytelmä, Harry Potter ja kirottu lapsi, sai ensi-iltansa Lontoossa 30. heinäkuuta 2016, ja sen käsikirjoitus julkaistiin myöhemmin kirjan muodossa.`,
+                text2: 'Как называется последняя книга про Гарри Поттера?'
+            }
+        ],
+        url: 'https://7014.lnsigo.mipt.ru/answer',
+        about: 'Question Answering',
+        docker: 'deeppavlov/squad_en',
+        text1Header: 'Enter Text',
+        submitText: 'Ask',
+        lang: 'multiLang',
+        report: squadReport
+    },
     {
         id: 'Entity recognition ml',
         name: 'Entity recognition',
         examples: [
             {
-                text1: 'Curling World Championship will be held in Antananarivo'
+                text1: `Icy conditions have swept across eastern Australia, bringing snow to areas as far north as subtropical Queensland.
+Australia's Bureau of Meteorology described it as a "rare" sight, noting the state had not experienced significant snowfall since 2015.
+Severe weather warnings have also been issued for a 1,000km (620 miles) stretch of coast which includes Sydney.
+Meteorologist Lachlan Stone said the snowfall in Queensland was an unusual occurrence in a state with a sub-tropical to tropical climate.`
+            },
+            // {
+            //     text1: 'Mistrzostwa Świata w Curlingu odbędą się w Antananarivo'
+            // },
+            {
+                text1: 'Члены Американской академии киноискусств решили присудить режиссеру Дэвиду Линчу почетную премию "Оскар" за выдающийся вклад в кинематограф, сообщается на сайте академии. ' +
+                    'Церемония награждения пройдет 27 октября в развлекательном комплексе Hollywood and Highland Center в Лос-Анджелесе (штат Калифорния, США).'
             },
             {
-                text1: 'Mistrzostwa Świata w Curlingu odbędą się w Antananarivo'
+                text1: `Після аномальної весни, що увійшла в десятку найтепліших за 139 років спостережень, літо теж починаєтся зі спеки.
+Про це повідомила синоптик Наталка Діденко на своїй сторінці в соцмережі Facebook.
+Так, у середу 5 червня Україна буде залишатися однією з найбільш спекотних країн Європи: завтра вдень очікується + 24 + 29 градусів, на Сході та Півдні +28 +33 градуси.
+За словами синоптика, у Франції, Великобританії і місцями навіть в Іспанії та Португалії в середу похолодає до + 10 + 15 градусів і пройдуть дощі.`
             },
             {
-                text1: 'Чемпионат мира по кёрлингу пройдёт в Антананариву'
+                text1: `Poznań liegt auf halbem Weg zwischen Warschau und Berlin – diese Städte waren wichtig für den Dirigenten und Komponisten Ignatz Waghalter, einen der Mitbegründer der Deutschen Oper in Berlin-Charlottenburg.
+Das Orchester der Philharmonie Poznań widmet sich jetzt bereits zum zweiten Mal der Musik dieses aus Deutschland vertriebenen Komponisten. Waghalter stammte aus einer jüdischen Warschauer Familie.`
+            },
+            {
+                text1: `Así ha calificado en un comunicado Jay Timmons, el consejero delegado de la Asociación de Manufacturas de EEUU, la amenaza de Donald Trump de empezar el 10 de junio a imponer aranceles del 5% a la importación de bienes mexicanos e irlos subiendo hasta el mes de octubre, cuando alcanzarían el 25%. En total, el 80% de las exportaciones mexicanas van a Estados Unidos.
+Según Gregory Daco, economista jefe de la consultora Oxford Economics, unos aranceles del 25% rebañarían al menos siete décimas de crecimiento de EEUU en 2020, hasta dejarlo en un minúsculo 1%. Para México las consecuencias podrían ser devastadoras, y el país quedaría sepultado en una recesión.`
+            },
+            {
+                text1: `Geçtiğimiz sezonun devre arasında Sassuolo’ya transfer olan Merih Demiral, gösterdiği performans sonrası İtalya Seria A’nın son şampiyonu Juventus’a transfer oldu.
+İtalyan gazeteci Gianluca Di Marzio,kişisel twitter hesabında Merih Demiral’ın Juventus’a transferinin sonuçlandığını ve Merih’in Juventus ile 5 yıllık sözleşme imzalayacağını söyledi.
+Juventus, Merih’in transferi için Sassuolo’ya 15 milyon euro bonservis bedeli ödeyeceğini açıkladı.`
             }
         ],
         url: 'https://7013.lnsigo.mipt.ru/answer',
