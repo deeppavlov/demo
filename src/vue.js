@@ -477,6 +477,13 @@ Ensimmäisen kirjan julkaisusta lähtien kirjasarja on saanut suurta suosiota ym
 Suomeksi Harry Potter -kirjasarjan kustansi Tammi ja sen käänsi Jaana Kapari-Jatta. Kirjasarja julkaistiin suomeksi vuosina 1998–2008.
 Rowlingin tarinaan perustuva näytelmä, Harry Potter ja kirottu lapsi, sai ensi-iltansa Lontoossa 30. heinäkuuta 2016, ja sen käsikirjoitus julkaistiin myöhemmin kirjan muodossa.`,
                 text2: 'Milloin kirjasarja julkaistiin suomeksi?'
+            },
+            {
+                text1: `Kirjasarjan ensimmäinen osa Harry Potter ja viisasten kivi (engl. Harry Potter and the Philosopher's Stone) ilmestyi alkuperäiskielellä vuonna 1997 ja sen viimeinen osa Harry Potter ja kuoleman varjelukset (engl. Harry Potter and the Deathly Hallows) vuonna 2007.
+Ensimmäisen kirjan julkaisusta lähtien kirjasarja on saanut suurta suosiota ympäri maailmaa, ja se on ollut sekä arvostelu- että taloudellinen menestys. Kirjasarja on myynyt yli 500 miljoonaa kappaletta ja se on käännetty yli 73 kielelle.
+Suomeksi Harry Potter -kirjasarjan kustansi Tammi ja sen käänsi Jaana Kapari-Jatta. Kirjasarja julkaistiin suomeksi vuosina 1998–2008.
+Rowlingin tarinaan perustuva näytelmä, Harry Potter ja kirottu lapsi, sai ensi-iltansa Lontoossa 30. heinäkuuta 2016, ja sen käsikirjoitus julkaistiin myöhemmin kirjan muodossa.`,
+                text2: 'Как называется последняя книга про Гарри Поттера?'
             }
         ],
         url: 'https://7014.lnsigo.mipt.ru/answer',
