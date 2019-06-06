@@ -470,6 +470,13 @@ Biorąc pod uwagę ten fakt, można stwierdzić, iż Związek Radziecki był w o
 Począwszy od Olimpiady Letniej w 1952 r. sportowcy radzieccy zawsze byli w pierwszej trójce pod względem liczby zdobytych złotych medali. W 1980 r. Letnie Igrzyska Olimpijskie miały miejsce w Moskwie, a w 2014 r. Zimowe Igrzyska odbyły się w Soczi.
 2 grudnia 2010 r. Komitet Wykonawczy FIFA powierzył Rosji organizację mistrzostw świata w piłce nożnej w 2018 r.`,
                 text2: 'Gdzie odbyła się Olimpiada w 1980 roku?'
+            },
+            {
+                text1: `Kirjasarjan ensimmäinen osa Harry Potter ja viisasten kivi (engl. Harry Potter and the Philosopher's Stone) ilmestyi alkuperäiskielellä vuonna 1997 ja sen viimeinen osa Harry Potter ja kuoleman varjelukset (engl. Harry Potter and the Deathly Hallows) vuonna 2007.
+Ensimmäisen kirjan julkaisusta lähtien kirjasarja on saanut suurta suosiota ympäri maailmaa, ja se on ollut sekä arvostelu- että taloudellinen menestys. Kirjasarja on myynyt yli 500 miljoonaa kappaletta ja se on käännetty yli 73 kielelle.
+Suomeksi Harry Potter -kirjasarjan kustansi Tammi ja sen käänsi Jaana Kapari-Jatta. Kirjasarja julkaistiin suomeksi vuosina 1998–2008.
+Rowlingin tarinaan perustuva näytelmä, Harry Potter ja kirottu lapsi, sai ensi-iltansa Lontoossa 30. heinäkuuta 2016, ja sen käsikirjoitus julkaistiin myöhemmin kirjan muodossa.`,
+                text2: 'Milloin kirjasarja julkaistiin suomeksi?'
             }
         ],
         url: 'https://7014.lnsigo.mipt.ru/answer',
