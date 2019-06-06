@@ -455,6 +455,15 @@ En comparación con otras especies animales de Sudamérica, las capibaras tolera
                 text2: '¿En qué países viven los capibaras?'
             },
             {
+                text1: `Su área de distribución comprende casi toda Sudamérica al este de los Andes en las cuencas del río Orinoco, del Amazonas y del Río de la Plata; cubriendo desde el este de Venezuela y la Guyana hasta Uruguay y el norte y centro de Argentina.
+Pueden vivir en diferentes tipos de hábitat, pero muestran preferencia por algunos en concreto. Suelen encontrarse cerca de lagos, ríos, marismas o manglares.
+También necesitan un suelo firme para dormir, idealmente con una vegetación espesa que les sirve de protección.
+Para alimentarse no tienen problema en adentrarse por la sabana y herbazales.
+La mayor densidad de población de carpinchos se encuentra en las extensas zonas húmedas de Sudamérica, como el Pantanal, o la región de los Llanos del norte del continente, bañada por el río Orinoco. Viven mayoritariamente en las llanuras, pero también habitan en altitudes de hasta 1300 metros por sobre el nivel del mar.
+En comparación con otras especies animales de Sudamérica, las capibaras toleran bastante bien los cambios de hábitat provocados por la actividad humana, y también pueden sobrevivir en zonas transformadas en plantaciones o pastos.`,
+                text2: 'What countries do capybara live in?'
+            },
+            {
                 text1: `Rosjanie zawsze odnosili wielkie sukcesy pod względem liczby utalentowanych sportowców i ilości zdobytych medali na igrzyskach olimpijskich oraz w innych zawodach międzynarodowych.
 W przeciągu istnienia ZSRR radzieccy olimpijczycy zdobyli największą liczbę medali na 14 spośród 18 olimpiad.
 Biorąc pod uwagę ten fakt, można stwierdzić, iż Związek Radziecki był w owym czasie dominującą potęgą sportową.
