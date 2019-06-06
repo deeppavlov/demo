@@ -74,13 +74,15 @@
         <div class="col">
             <div id="app" style="visibility: hidden;">
                 <!-- Nav tabs -->
-                <ul class="nav nav-pills nav-fill" id="tabs">
-                    <li class="nav-item" v-for="(tab, index) in tabs" v-if="tab.lang===lang">
-                        <a class="nav-link" :href="'#' + tab.id" role="tab"
-                           data-toggle="tab">{{tab.name || tab.id}}</a>
-                    </li>
-                    <li> </li>
-                    <li>
+                <div class="NavMenu">
+                    <ul class="nav nav-pills nav-fill" id="tabs">
+                        <li class="nav-item NavButton" v-for="(tab, index) in tabs" v-if="tab.lang===lang">
+                            <a class="nav-link" :href="'#' + tab.id" role="tab"
+                               data-toggle="tab">{{tab.name || tab.id}}</a>
+                        </li>
+                        <li> </li>
+                    </ul>
+                    <div>
                         <div class="btn-group btn-group-toggle">
                             <label :class="(lang==='ru')?'btn btn-primary':'btn btn-secondary'">
                                 <input type="radio" name="lang" id="langRu" value="ru" autocomplete="off"
@@ -95,8 +97,8 @@
                                        v-model="lang" @change="langChange"> Multi-lang
                             </label>
                         </div>
-                    </li>
-                </ul>
+                    </div>    
+                </div>
 
                 <!-- Tab panes -->
                 <div class="tab-content">
@@ -105,7 +107,7 @@
                         <tab-content :tab="tab"></tab-content>
                     </div>
                 </div>
-                <div style="margin: 3em auto; text-align: center;">
+                <!-- <div style="margin: 3em auto; text-align: center;">
                     <h3>Solution partners</h3>
                     <div style="margin: 2em auto 0; text-align: center;">
                         <img src="img/logo_idecide.png" style="width: 20em; margin: 0 1em;">
@@ -117,10 +119,15 @@
                         </a>
                     </div>
                 </div>
+                -->
             </div>
         </div>
     </div>
 </div>
+<footer class="footer">
+    <img src="DeepPavlov.png" alt="powered by DeepPavlov"/>
+    <a href="https://github.com/deepmipt">© deepmipt on GitHub.</a>
+</footer>
 <script src="dist/vue.js"></script>
 </body>
 </html>

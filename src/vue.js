@@ -301,7 +301,8 @@ Kensington Palace said in a statement that the couple is “hugely grateful” f
             }
         ],
         url: 'https://7008.lnsigo.mipt.ru/answer',
-        about: 'Question Answering',
+        about: 'Question Answering is a task to find an answer on a question in a given context (e.g, a paragraph from Wikipedia), where the answer to each question is a segment of the context. There are two models for this task in DeepPavlov: BERT-based and R-Net. Both models predict the answer start and end position in a given context. Models are trained on Stanford Question Answering Dataset for English language and at SDSJ Task B for Russian language. To learn more on architecture and implementation read our documentation: <a href="http://docs.deeppavlov.ai/en/master/components/squad.html">Docs</a> \
+        <br><br> The possible business application includes simple chatbots development for helpdesks and support optimization.',
         docker: 'deeppavlov/squad_en',
         text1Header: 'Enter Text',
         submitText: 'Ask',
@@ -328,14 +329,17 @@ Kensington Palace said in a statement that the couple is “hugely grateful” f
             }
         ],
         url: 'https://7011.lnsigo.mipt.ru/answer',
-        about: 'Open Domain Question Answering',
+        about: 'Open Domain Question Answering (ODQA) is a task to find an exact answer to any question in Wikipedia-like articles. The ODQA task combines the challenges of document retrieval (finding the relevant articles) with that of machine comprehension of text (identifying the answer span from those articles). \
+        <br><br>The architecture of ODQA skill is modular and consists of two models, a ranker and a reader. Our skill uses Wikipedia.org as a source of knowledge. Read our docs to <a href="http://docs.deeppavlov.ai/en/master/skills/odqa.html">learn more.</a>\
+        <br><br>ODQA business solutions provide chatbots answering user questions based on internal corporate documentation and are applied for HR and internal support needs.\
+        Check out our <a href="https://medium.com/deeppavlov/open-domain-question-answering-with-deeppavlov-c665d2ee4d65">tutorial</a> on this component.',
         docker: 'deeppavlov/odqa_en',
         text1Header: 'Question',
         submitText: 'Ask',
         lang: 'en'
     },
     {
-        id: 'Auto FAQ',
+        id: 'Ranking',
         examples: [
             {text1: 'what is the price for home insurance?'},
             {text1: 'fire occured in my home, is it covered by insurance?'},
@@ -343,7 +347,8 @@ Kensington Palace said in a statement that the couple is “hugely grateful” f
             {text1: 'appeal of insurance denial?'}
         ],
         url: 'https://7009.lnsigo.mipt.ru/answer',
-        about: 'Searches for similar questions and answers for them in an insurance dataset',
+        about: 'This library component solves the tasks of ranking and paraphrase identification based on semantic similarity which is trained with siamese neural networks. The trained network can retrieve the response closest semantically to a given context from some database or answer whether two sentences are paraphrases or not. It is possible to build automatic semantic FAQ systems with such neural architectures. <br><br> This demo stand represents such a FAQ system on insurance field. As an input it takes a collection of documents and a question, and as a result you get your collection ranged on relevance, then the best answer gets displayed. Our model was trained on <a href=”https://github.com/shuzi/insuranceQA”>InsuranceQA V1</a> dataset. \
+         <br> Read our <a href="http://docs.deeppavlov.ai/en/master/components/neural_ranking.html">documentation</a> to find out more on this task. ',
         docker: 'deeppavlov/ranking_en',
         text1Header: 'Enter Text',
         submitText: 'Ask',
@@ -377,7 +382,9 @@ Kensington Palace said in a statement that the couple is “hugely grateful” f
             }
         ],
         url: 'https://7010.lnsigo.mipt.ru/answer',
-        about: `Hover over an entity to see its class description<br/>Classes: ` +
+        about:  'Named Entity Recognition (NER) is a task of finding and classifying tokens in text documents into predefined categories called tags, such as person names, quantity expressions, percentage expressions, names of locations, organizations, as well as expression of time, currency and others. NER task can be considered as a sequence labeling problem. \
+        <br><br>Our NER models were trained on Ontonotes and Conll-2003 dataset for English language and on the Collection 3 dataset for Russian language. DeepPavlov also features a multilingual model that is available for 104 languages (English and Russian too). This model was trained on previously mentioned Ontonotes entities. We can recognize up to 19 entities. You can read all the details on models and implementation in our <a href="http://docs.deeppavlov.ai/en/master/components/ner.html">documentation.</a>' + 
+        `<br><br>Hover over an entity to see its class description<br/>Classes: ` +
         Object.entries(ontonotesClasses).map(function([k, [class_name, about]]) {
             return `<span class="badge ${class_name}" data-toggle="tooltip" title="${about}" style="cursor: help;">${k}</span>`
         }).join(', '),
@@ -399,7 +406,10 @@ Kensington Palace said in a statement that the couple is “hugely grateful” f
             {text1: 'Tell me what movies are showing at 7am at the closest movie house'}
         ],
         url: 'https://7007.lnsigo.mipt.ru/answer',
-        about: 'Classes: ' + Object.entries(intentsClasses).map(function ([k, v]) {
+        about: 'Intent classification is a task of classifying a text into one of predefined category. The given by a user text gets a single label. This demo displays a classificator for such the topics as a playlist managing, a restaurant booking, getting the weather info, and a search for movie. Check out our solutions based on Keras, BERT and Sklearn.\
+        <br><br>Learn more on the component in our <a href="http://docs.deeppavlov.ai/en/master/components/classifiers.html">documentation.</a>\
+        <br><br>This component helps solve various business problems such as ticketing and booking services, renting and scheduling, accepting orders, consulting and customer support (if you train our model on your data).' +
+        '<br><br>Classes: ' + Object.entries(intentsClasses).map(function ([k, v]) {
             return `<span class="badge ${v}">${k}</span>`
         }).join(" "),
         docker: 'deeppavlov/intents_en',
@@ -409,7 +419,7 @@ Kensington Palace said in a statement that the couple is “hugely grateful” f
         report: classifiersReport
     },
     {
-        id: 'Insult detection',
+        id: 'Sentiment analysis',
         examples: [
             {text1: 'Your family tree must be a cactus because everybody on it is a prick'},
             {text1: 'Shit happens'},
@@ -420,7 +430,10 @@ Kensington Palace said in a statement that the couple is “hugely grateful” f
             {text1: 'Your house is so dirty you have to wipe your feet before you go outside'}
         ],
         url: 'https://7006.lnsigo.mipt.ru/answer',
-        about: '',
+        about: 'Sentiment analysis (also known as opinion mining or emotion AI) refers to systematical identification, extraction and quantifying of affective states and subjective information. This task involves identifying a writer’s attitude toward a particular topic. This can be achieved by applying text classification. The classes, in this case, can be negative, neutral, and positive.\
+        <br><br>This demo displays a particular task of deciding if a sentence is insulting or not. Check out details in our  <a href="http://docs.deeppavlov.ai/en/master/intro/features.html#classification-component">documentation.</a>\
+        <br><br>Possible business tasks to solve are those from social media marketing and marketing in general: survey responses, reviews and comments moderation, opinion on brand estimation, and product performance evaluation.\
+        <br><br>Have a look at our <a href="https://towardsdatascience.com/the-bert-based-text-classification-models-of-deeppavlov-a85892f14d61">tutorial</a> on this component',
         docker: 'deeppavlov/insults_en',
         text1Header: 'Enter Text',
         submitText: 'Classify',
@@ -461,7 +474,9 @@ Kensington Palace said in a statement that the couple is “hugely grateful” f
             }
         ],
         url: 'https://7013.lnsigo.mipt.ru/answer',
-        about: `Hover over an entity to see its class description<br/>Classes: ` +
+        about: 'Named Entity Recognition (NER) is a task of finding and classifying tokens in text documents into predefined categories called tags, such as person names, quantity expressions, percentage expressions, names of locations, organizations, as well as expression of time, currency and others. NER task can be considered as a sequence labeling problem. \
+        <br><br>Our NER models were trained on Ontonotes and Conll-2003 dataset for English language and on the Collection 3 dataset for Russian language. DeepPavlov also features a multilingual model that is available for 104 languages (English and Russian too). This model was trained on previously mentioned Ontonotes entities. We can recognize up to 19 entities. You can read all the details on models and implementation in our <a href="http://docs.deeppavlov.ai/en/master/components/ner.html">documentation.</a>' + 
+        `<br><br>Hover over an entity to see its class description<br/>Classes: ` +
         Object.entries(ontonotesClasses).map(function([k, [class_name, about]]) {
             return `<span class="badge ${class_name}" data-toggle="tooltip" title="${about}" style="cursor: help;">${k}</span>`
         }).join(', '),
@@ -511,7 +526,7 @@ Vue.component('tab-content', {
     <div class="row show-grid" style="margin-top:2em">
         <div class="col">
             <blockquote class="blockquote">
-                <p v-html="tab.about"></p>
+                <p v-html="tab.about" class="about"></p>
                 <p v-if="tab.docker"><a :href="\`https://hub.docker.com/r/\${tab.docker}\`">
                     <img src="img/docker-logo.svg" height="20px"/> <span class="code">docker pull {{tab.docker}}</span>
                 </a></p>
@@ -519,7 +534,7 @@ Vue.component('tab-content', {
         </div>
     </div>
     <div class="row show-grid">
-        <div class="col-sm-6">
+        <div class="col-sm-8">
             <h3 v-html="tab.text1Header"></h3>
             <div>
                 <form @submit.prevent="send">
@@ -536,7 +551,7 @@ Vue.component('tab-content', {
                 </form>
             </div>
         </div>
-        <div class="col-sm-6">
+        <div class="col-sm-4">
             <h3>{{tab.examplesText || 'Examples'}}</h3>
             <div class="list-group">
                 <a href="#" v-for="(example, index) in tab.examples" v-html="examplePreview(example)"
@@ -546,12 +561,12 @@ Vue.component('tab-content', {
             </div>
         </div>
     </div>
-    <div class="row show-grid">
+    <div class="row show-grid results" v-if="tab.results.length > 0">
         <div class="col">
             <h3>{{tab.resultsText || 'Results'}}</h3>
         </div>
     </div>
-    <div class="row show-grid">
+    <div class="row show-grid answers">
         <div :id="'reversed-' + tab.id" class="reversed col">
             <transition name="fade" v-for="result in tab.results">
                 <div class="row" v-show="result.show" v-html="result.data"></div>
@@ -566,7 +581,7 @@ Vue.component('tab-content', {
             let minWait = new Promise(resolve => setTimeout(resolve, 200));
 
             tab.send().then(function (report) {
-                let res = '<div class="card w-100" style="margin:1em"><div class="card-body">';
+                let res = '<div class="card w-100"><div class="card-body">';
                 res += report;
                 res += '</div></div>';
                 tab.results.push({show: false, data: res});
@@ -576,7 +591,7 @@ Vue.component('tab-content', {
             }, function (response) {
                 console.dir(response);
                 console.log('ERROR!');
-                let res = '<div class="card w-100" style="margin:1em"><div class="card-body">';
+                let res = '<div class="card w-100"><div class="card-body">';
                 res += `<span style="color: red;">ERROR</span>`;
                 res += '</div></div>';
                 tab.results.push({show: false, data: res});

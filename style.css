@@ -1,3 +1,54 @@
+.about {
+    color: #666;
+    font-size: 1rem;
+    margin-top: 30px;
+    margin-bottom: 40px;
+}
+
+.footer {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+}
+
+.footer > img {
+    height: 50px;
+}
+
+.answers {
+    overflow-y: scroll;
+    max-height: 400px;
+    margin-top: 15px;
+    border-radius: .25rem;
+
+    margin-bottom: 100px;
+}
+.answers .row {
+    margin: 0 15px;
+}
+.answers .card {
+    margin: 1em 0;
+}
+
+.results {
+    margin-top: 20px;
+}
+
+.NavMenu {
+    display: flex;
+    justify-content: space-between;
+}
+.NavMenu > ul {
+    width: 100%;
+    margin-right: 15px;
+}
+
+.NavButton {
+    max-width: 40%;
+}
+
 .fade-enter-active {
     transition: opacity 1s;
 }
@@ -7,9 +58,10 @@
 
 div.reversed {
     /*position: absolute;*/
-    min-height: 3em;
+    min-height: 0;
     -webkit-transform: scaleY(-1);
     transform: scaleY(-1);
+    background: linear-gradient(#efefef, white);
 }
 div.reversed > div {
     display: block;
