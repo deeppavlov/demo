@@ -361,27 +361,30 @@ Kensington Palace said in a statement that the couple is “hugely grateful” f
     submitText: 'Classify',
     lang: 'en',
     report: classifiersReport
-},
-//     {
-//         id: 'Text QA ml',
-//         name: 'Text QA',
-//         examples: [
-//             {
-//                 text1: 'The U.S. is ready to engage in talks about North Korea’s nuclear program even as it maintains pressure on Kim Jong Un’s regime, the Washington Post reported, citing an interview with Vice President Mike Pence. \
-// Pence and South Korea’s President Moon Jae-in agreed on a post-Olympics strategy during conversations at the Winter Olympics in the South Korean resort of Pyeongchang that Pence dubbed “maximum pressure and engagement at the same time.” Pence spoke in an interview on his way home from the Winter Olympics. \
-// “The point is, no pressure comes off until they are actually doing something that the alliance believes represents a meaningful step toward denuclearization,” the Post quoted Pence as saying. “So the maximum pressure campaign is going to continue and intensify. But if you want to talk, we’ll talk.”',
-//                 text2: 'What country is under the pressure?'
-//             }
-//         ],
-//         url: 'https://7014.lnsigo.mipt.ru/answer',
-//         about: 'Question Answering',
-//         docker: 'deeppavlov/squad_en',
-//         text1Header: 'Enter Text',
-//         submitText: 'Ask',
-//         lang: 'multiLang',
-//         report: squadReport
-//     },
-{
+}, {
+    id: 'Text QA ml',
+    name: 'Text QA',
+    examples: [{
+        text1: '\u0412\u043E\u043B\u043E\u0441\u044B \u0443 \u043C\u0435\u043D\u044F \u043D\u0430 \u0433\u0440\u0443\u0434\u0438 \u043E\u043A\u0440\u0430\u0441\u0438\u043B\u0438\u0441\u044C, \u043F\u043E\u0442\u043E\u043C\u0443 \u0447\u0442\u043E \u044F \u043F\u0440\u043E\u043B\u0438\u043B \u043D\u0430 \u043D\u0438\u0445 \u0440\u0430\u043A\u0435\u0442\u043D\u044B\u0439 \u043E\u043A\u0438\u0441\u043B\u0438\u0442\u0435\u043B\u044C. \u041B\u0435\u0442 \u043C\u043D\u0435 \u0434\u0432\u0430\u0434\u0446\u0430\u0442\u044C \u0434\u0435\u0432\u044F\u0442\u044C, \u0441\u043A\u043E\u0440\u043E \u044E\u0431\u0438\u043B\u0435\u0439. \u0410 \u0432 \u0430\u0440\u043C\u0438\u0438 \u044F \u043F\u043E\u0442\u043E\u043C\u0443, \u0447\u0442\u043E \u043C\u0435\u043D\u044F \u0436\u0435\u043D\u0430 \u0441 \u0442\u0451\u0449\u0435\u0439 \u0445\u043E\u0442\u0435\u043B\u0438 \u0432 \u0441\u0443\u043C\u0430\u0441\u0448\u0435\u0434\u0448\u0438\u0439 \u0434\u043E\u043C \u043E\u0442\u0434\u0430\u0442\u044C \u2014 \u0437\u0430 \u0443\u0431\u0435\u0436\u0434\u0435\u043D\u0438\u044F',
+        text2: 'Почему у тебя волосы на груди окрасились?'
+    }, {
+        text1: 'Sri Lanka was known from the beginning of British colonial rule as Ceylon (/s\u026A\u02C8l\u0252n/, US also /se\u026A\u02C8l\u0252n/).\nA nationalist political movement arose in the country in the early 20th century to obtain political independence, which was granted in 1948; the country became a republic and adopted its current name in 1972.\nSri Lanka\'s recent history has been marred by a 26-year civil war, which ended decisively when the Sri Lanka Armed Forces defeated the Liberation Tigers of Tamil Eelam (LTTE) in 2009.\nThe current constitution stipulates the political system as a republic and a unitary state governed by a semi-presidential system.\nIt has had a long history of international engagement, as a founding member of the South Asian Association for Regional Cooperation (SAARC), and a member of the United Nations, the Commonwealth of Nations, the G77, and the Non-Aligned Movement.\nAlong with the Maldives, Sri Lanka is one of only two South Asian countries rated "high" on the Human Development Index (HDI), with its HDI rating and per capita income the highest among South Asian nations.\nThe Sri Lankan constitution accords Buddhism the "foremost place", although it does not identify it as a state religion. Buddhism is given special privileges in the Sri Lankan constitution.',
+        text2: 'What is SAARC?'
+    }, {
+        text1: 'Su \xE1rea de distribuci\xF3n comprende casi toda Sudam\xE9rica al este de los Andes en las cuencas del r\xEDo Orinoco, del Amazonas y del R\xEDo de la Plata; cubriendo desde el este de Venezuela y la Guyana hasta Uruguay y el norte y centro de Argentina.\nPueden vivir en diferentes tipos de h\xE1bitat, pero muestran preferencia por algunos en concreto. Suelen encontrarse cerca de lagos, r\xEDos, marismas o manglares.\nTambi\xE9n necesitan un suelo firme para dormir, idealmente con una vegetaci\xF3n espesa que les sirve de protecci\xF3n.\nPara alimentarse no tienen problema en adentrarse por la sabana y herbazales.\nLa mayor densidad de poblaci\xF3n de carpinchos se encuentra en las extensas zonas h\xFAmedas de Sudam\xE9rica, como el Pantanal, o la regi\xF3n de los Llanos del norte del continente, ba\xF1ada por el r\xEDo Orinoco. Viven mayoritariamente en las llanuras, pero tambi\xE9n habitan en altitudes de hasta 1300 metros por sobre el nivel del mar.\nEn comparaci\xF3n con otras especies animales de Sudam\xE9rica, las capibaras toleran bastante bien los cambios de h\xE1bitat provocados por la actividad humana, y tambi\xE9n pueden sobrevivir en zonas transformadas en plantaciones o pastos.',
+        text2: '¿En qué países viven los capibaras?'
+    }, {
+        text1: 'Rosjanie zawsze odnosili wielkie sukcesy pod wzgl\u0119dem liczby utalentowanych sportowc\xF3w i ilo\u015Bci zdobytych medali na igrzyskach olimpijskich oraz w innych zawodach mi\u0119dzynarodowych.\nW przeci\u0105gu istnienia ZSRR radzieccy olimpijczycy zdobyli najwi\u0119ksz\u0105 liczb\u0119 medali na 14 spo\u015Br\xF3d 18 olimpiad.\nBior\u0105c pod uwag\u0119 ten fakt, mo\u017Cna stwierdzi\u0107, i\u017C Zwi\u0105zek Radziecki by\u0142 w owym czasie dominuj\u0105c\u0105 pot\u0119g\u0105 sportow\u0105.\nPocz\u0105wszy od Olimpiady Letniej w 1952 r. sportowcy radzieccy zawsze byli w pierwszej tr\xF3jce pod wzgl\u0119dem liczby zdobytych z\u0142otych medali. W 1980 r. Letnie Igrzyska Olimpijskie mia\u0142y miejsce w Moskwie, a w 2014 r. Zimowe Igrzyska odby\u0142y si\u0119 w Soczi.\n2 grudnia 2010 r. Komitet Wykonawczy FIFA powierzy\u0142 Rosji organizacj\u0119 mistrzostw \u015Bwiata w pi\u0142ce no\u017Cnej w 2018 r.',
+        text2: 'Gdzie odbyła się Olimpiada w 1980 roku?'
+    }],
+    url: 'https://7014.lnsigo.mipt.ru/answer',
+    about: 'Question Answering',
+    docker: 'deeppavlov/squad_en',
+    text1Header: 'Enter Text',
+    submitText: 'Ask',
+    lang: 'multiLang',
+    report: squadReport
+}, {
     id: 'Entity recognition ml',
     name: 'Entity recognition',
     examples: [{

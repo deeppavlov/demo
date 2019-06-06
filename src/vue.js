@@ -427,25 +427,50 @@ Kensington Palace said in a statement that the couple is “hugely grateful” f
         lang: 'en',
         report: classifiersReport
     },
-//     {
-//         id: 'Text QA ml',
-//         name: 'Text QA',
-//         examples: [
-//             {
-//                 text1: 'The U.S. is ready to engage in talks about North Korea’s nuclear program even as it maintains pressure on Kim Jong Un’s regime, the Washington Post reported, citing an interview with Vice President Mike Pence. \
-// Pence and South Korea’s President Moon Jae-in agreed on a post-Olympics strategy during conversations at the Winter Olympics in the South Korean resort of Pyeongchang that Pence dubbed “maximum pressure and engagement at the same time.” Pence spoke in an interview on his way home from the Winter Olympics. \
-// “The point is, no pressure comes off until they are actually doing something that the alliance believes represents a meaningful step toward denuclearization,” the Post quoted Pence as saying. “So the maximum pressure campaign is going to continue and intensify. But if you want to talk, we’ll talk.”',
-//                 text2: 'What country is under the pressure?'
-//             }
-//         ],
-//         url: 'https://7014.lnsigo.mipt.ru/answer',
-//         about: 'Question Answering',
-//         docker: 'deeppavlov/squad_en',
-//         text1Header: 'Enter Text',
-//         submitText: 'Ask',
-//         lang: 'multiLang',
-//         report: squadReport
-//     },
+    {
+        id: 'Text QA ml',
+        name: 'Text QA',
+        examples: [
+            {
+                text1: `Волосы у меня на груди окрасились, потому что я пролил на них ракетный окислитель. Лет мне двадцать девять, скоро юбилей. А в армии я потому, что меня жена с тёщей хотели в сумасшедший дом отдать — за убеждения`,
+                text2: 'Почему у тебя волосы на груди окрасились?'
+            },
+            {
+                text1: `Sri Lanka was known from the beginning of British colonial rule as Ceylon (/sɪˈlɒn/, US also /seɪˈlɒn/).
+A nationalist political movement arose in the country in the early 20th century to obtain political independence, which was granted in 1948; the country became a republic and adopted its current name in 1972.
+Sri Lanka's recent history has been marred by a 26-year civil war, which ended decisively when the Sri Lanka Armed Forces defeated the Liberation Tigers of Tamil Eelam (LTTE) in 2009.
+The current constitution stipulates the political system as a republic and a unitary state governed by a semi-presidential system.
+It has had a long history of international engagement, as a founding member of the South Asian Association for Regional Cooperation (SAARC), and a member of the United Nations, the Commonwealth of Nations, the G77, and the Non-Aligned Movement.
+Along with the Maldives, Sri Lanka is one of only two South Asian countries rated "high" on the Human Development Index (HDI), with its HDI rating and per capita income the highest among South Asian nations.
+The Sri Lankan constitution accords Buddhism the "foremost place", although it does not identify it as a state religion. Buddhism is given special privileges in the Sri Lankan constitution.`,
+                text2: 'What is SAARC?'
+            },
+            {
+                text1: `Su área de distribución comprende casi toda Sudamérica al este de los Andes en las cuencas del río Orinoco, del Amazonas y del Río de la Plata; cubriendo desde el este de Venezuela y la Guyana hasta Uruguay y el norte y centro de Argentina.
+Pueden vivir en diferentes tipos de hábitat, pero muestran preferencia por algunos en concreto. Suelen encontrarse cerca de lagos, ríos, marismas o manglares.
+También necesitan un suelo firme para dormir, idealmente con una vegetación espesa que les sirve de protección.
+Para alimentarse no tienen problema en adentrarse por la sabana y herbazales.
+La mayor densidad de población de carpinchos se encuentra en las extensas zonas húmedas de Sudamérica, como el Pantanal, o la región de los Llanos del norte del continente, bañada por el río Orinoco. Viven mayoritariamente en las llanuras, pero también habitan en altitudes de hasta 1300 metros por sobre el nivel del mar.
+En comparación con otras especies animales de Sudamérica, las capibaras toleran bastante bien los cambios de hábitat provocados por la actividad humana, y también pueden sobrevivir en zonas transformadas en plantaciones o pastos.`,
+                text2: '¿En qué países viven los capibaras?'
+            },
+            {
+                text1: `Rosjanie zawsze odnosili wielkie sukcesy pod względem liczby utalentowanych sportowców i ilości zdobytych medali na igrzyskach olimpijskich oraz w innych zawodach międzynarodowych.
+W przeciągu istnienia ZSRR radzieccy olimpijczycy zdobyli największą liczbę medali na 14 spośród 18 olimpiad.
+Biorąc pod uwagę ten fakt, można stwierdzić, iż Związek Radziecki był w owym czasie dominującą potęgą sportową.
+Począwszy od Olimpiady Letniej w 1952 r. sportowcy radzieccy zawsze byli w pierwszej trójce pod względem liczby zdobytych złotych medali. W 1980 r. Letnie Igrzyska Olimpijskie miały miejsce w Moskwie, a w 2014 r. Zimowe Igrzyska odbyły się w Soczi.
+2 grudnia 2010 r. Komitet Wykonawczy FIFA powierzył Rosji organizację mistrzostw świata w piłce nożnej w 2018 r.`,
+                text2: 'Gdzie odbyła się Olimpiada w 1980 roku?'
+            }
+        ],
+        url: 'https://7014.lnsigo.mipt.ru/answer',
+        about: 'Question Answering',
+        docker: 'deeppavlov/squad_en',
+        text1Header: 'Enter Text',
+        submitText: 'Ask',
+        lang: 'multiLang',
+        report: squadReport
+    },
     {
         id: 'Entity recognition ml',
         name: 'Entity recognition',
