@@ -67,11 +67,11 @@
 <div class="container">
     <div class="row">
         <div class="col" align="center" style="margin:2em">
-            <a href="https://deeppavlov.ai"><img src="deeppavlov_title.png" width="50%"/></a>
+            <a href="https://deeppavlov.ai" id="DeepLink"><img src="deeppavlov_title.png" width="50%"/></a>
         </div>
     </div>
     <div class="row">
-        <div class="col">
+        <div class="col" id="AppContainer">
             <div id="app" style="visibility: hidden;">
                 <!-- Nav tabs -->
                 <div class="NavMenu">
@@ -80,7 +80,6 @@
                             <a class="nav-link" :href="'#' + tab.id" role="tab"
                                data-toggle="tab">{{tab.name || tab.id}}</a>
                         </li>
-                        <li> </li>
                     </ul>
                     <div>
                         <div class="btn-group btn-group-toggle">
@@ -124,9 +123,17 @@
         </div>
     </div>
 </div>
-<footer class="footer">
-    <img src="DeepPavlov.png" alt="powered by DeepPavlov"/>
-    <a href="https://github.com/deepmipt">© deepmipt on GitHub.</a>
+<footer class="container footer">
+    
+    <div class="contactUs">
+        <p>You can train this model on your own data, or we can do it for you, contact 
+        <a href="mailto:partner@ipavlov.ai">partner@ipavlov.ai</a></p>
+    </div>
+   
+    <a href="https://github.com/deepmipt">
+        <img src="DeepPavlov.png" alt="powered by DeepPavlov"/>
+        © deepmipt on GitHub
+    </a>
 </footer>
 <script src="dist/vue.js"></script>
 </body>

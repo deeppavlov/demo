@@ -431,9 +431,9 @@ Kensington Palace said in a statement that the couple is “hugely grateful” f
         ],
         url: 'https://7006.lnsigo.mipt.ru/answer',
         about: 'Sentiment analysis (also known as opinion mining or emotion AI) refers to systematical identification, extraction and quantifying of affective states and subjective information. This task involves identifying a writer’s attitude toward a particular topic. This can be achieved by applying text classification. The classes, in this case, can be negative, neutral, and positive.\
-        <br><br>This demo displays a particular task of deciding if a sentence is insulting or not. Check out details in our  <a href="http://docs.deeppavlov.ai/en/master/intro/features.html#classification-component">documentation.</a>\
         <br><br>Possible business tasks to solve are those from social media marketing and marketing in general: survey responses, reviews and comments moderation, opinion on brand estimation, and product performance evaluation.\
-        <br><br>Have a look at our <a href="https://towardsdatascience.com/the-bert-based-text-classification-models-of-deeppavlov-a85892f14d61">tutorial</a> on this component',
+        <br><br>This demo displays a particular task of deciding if a sentence is insulting or not. Check out details in our  <a href="http://docs.deeppavlov.ai/en/master/intro/features.html#classification-component">documentation.</a>\
+        <br><br>Have a look at our <a href="https://towardsdatascience.com/the-bert-based-text-classification-models-of-deeppavlov-a85892f14d61">tutorial</a> on this component.',
         docker: 'deeppavlov/insults_en',
         text1Header: 'Enter Text',
         submitText: 'Classify',
@@ -605,7 +605,7 @@ Vue.component('tab-content', {
             </blockquote>
         </div>
     </div>
-    <div class="row show-grid">
+    <div class="row show-grid" id="ExEnQu">
         <div class="col-sm-8">
             <h3 v-html="tab.text1Header"></h3>
             <div>

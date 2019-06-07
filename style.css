@@ -8,13 +8,31 @@
 .footer {
     display: flex;
     flex-flow: column;
-    justify-content: center;
-    align-items: center;
-    height: 100px;
+    justify-content: space-between;
+    align-items: flex-end;
+    height: 200px;
+    margin-top: -50px;
+    margin-bottom: 20px;
 }
 
-.footer > img {
-    height: 50px;
+.list-group > a {
+    font-size: 14px;
+}
+
+.contactUs {
+    font-size: 20px;
+    width: 50%;
+    margin-right: auto;
+}
+
+.footer img {
+    height: 20px;
+}
+.footer > a {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: flex-end;
 }
 
 .answers {
@@ -22,11 +40,11 @@
     max-height: 400px;
     margin-top: 15px;
     border-radius: .25rem;
-
+    font-size: 18px !important;
     margin-bottom: 100px;
 }
 .answers .row {
-    margin: 0 15px;
+    margin: 0;
 }
 .answers .card {
     margin: 1em 0;
@@ -109,4 +127,57 @@ a:hover {
 
 a:hover > span.code {
     color: darkgray;
+}
+
+@media only screen 
+and (min-device-width: 300px) 
+and (max-device-width: 450px) {
+    #tabs {
+        flex-flow: column;
+        flex-wrap: nowrap;
+    }
+    .NavButton {
+        max-width: 100%;
+    }
+    #ExEnQu {
+        flex-direction: column-reverse;
+    }
+    #ExEnQu > .col-sm-8 {
+        margin-top: 20px;
+    }
+
+    #AppContainer {
+        padding: 0;
+    }
+    .NavMenu {
+        background: #eee;
+        border-top: 1px solid #ddd;
+        border-bottom: 1px solid #ddd;
+        padding: 15px;
+        box-shadow: 0px 0px 10px rgba(0,0,0,0.5);
+        flex-flow: column-reverse;
+    }
+    .NavMenu > div {
+        margin-bottom: 20px;
+        width: 100%;
+    }
+
+    .NavMenu > div > .btn-group {
+        width: 100%;
+    }
+
+    .NavMenu > div > .btn-group > .btn {
+        flex-grow: 1;
+    }
+    .tab-content {
+        padding: 0 15px;
+        margin-top: -20px;
+    }
+    #DeepLink > img {
+        width: 100%;
+    }
+
+    .footer {
+        height: 230px;
+    }
 }
