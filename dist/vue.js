@@ -515,7 +515,8 @@ Vue.component('tab-content', {
             });
         },
         examplePreview: function examplePreview(example) {
-            var maxLength = 100;
+            var width = window.innerWidth > 0 ? window.innerWidth : screen.width;
+            var maxLength = width <= 450 ? 40 : 100;
             var shorten = function shorten(x) {
                 return x.length > maxLength ? x.substring(0, maxLength) + '...' : x;
             };

@@ -686,7 +686,8 @@ Vue.component('tab-content', {
             });
         },
         examplePreview(example) {
-            const maxLength = 100;
+            const width = (window.innerWidth > 0) ? window.innerWidth : screen.width;
+            const maxLength = width <= 450 ? 40 : 100;
             let shorten = (x) => (x.length > maxLength) ? x.substring(0, maxLength) + '...' : x;
 
             if (example.text2) {
