@@ -11,8 +11,9 @@
     justify-content: space-between;
     align-items: flex-end;
     height: 200px;
-    margin-top: -50px;
+    margin-top: -40px;
     margin-bottom: 20px;
+    z-index: 100;
 }
 
 .list-group > a {
