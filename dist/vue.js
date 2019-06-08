@@ -271,8 +271,7 @@ Kensington Palace said in a statement that the couple is “hugely grateful” f
         text2: 'Where is St. George’s Chapel located?'
     }],
     url: 'https://7008.lnsigo.mipt.ru/answer',
-    about: 'Question Answering is a task to find an answer on a question in a given context (e.g, a paragraph from Wikipedia), where the answer to each question is a segment of the context. There are two models for this task in DeepPavlov: BERT-based and R-Net. Both models predict the answer start and end position in a given context. Models are trained on Stanford Question Answering Dataset for English language and at SDSJ Task B for Russian language. To learn more on architecture and implementation read our documentation: <a href="http://docs.deeppavlov.ai/en/master/components/squad.html">Docs</a> \
-        <br><br> The possible business application includes simple chatbots development for helpdesks and support optimization.',
+    about: 'Question Answering component answers a question based on a given context (e.g, a paragraph of text), where the answer to the question is a segment of the context. This component allows you to answer questions based on your documentation. To learn more on implementation check out our <a href="http://docs.deeppavlov.ai/en/master/components/squad.html">documentation.</a>',
     docker: 'deeppavlov/squad_en',
     text1Header: 'Enter Text',
     submitText: 'Ask',
@@ -292,10 +291,7 @@ Kensington Palace said in a statement that the couple is “hugely grateful” f
         text1: 'Where did guinea pigs originate?'
     }],
     url: 'https://7011.lnsigo.mipt.ru/answer',
-    about: 'Open Domain Question Answering (ODQA) is a task to find an exact answer to any question in Wikipedia-like articles. The ODQA task combines the challenges of document retrieval (finding the relevant articles) with that of machine comprehension of text (identifying the answer span from those articles). \
-        <br><br>The architecture of ODQA skill is modular and consists of two models, a ranker and a reader. Our skill uses Wikipedia.org as a source of knowledge. Read our docs to <a href="http://docs.deeppavlov.ai/en/master/skills/odqa.html">learn more.</a>\
-        <br><br>ODQA business solutions provide chatbots answering user questions based on internal corporate documentation and are applied for HR and internal support needs.\
-        Check out our <a href="https://medium.com/deeppavlov/open-domain-question-answering-with-deeppavlov-c665d2ee4d65">tutorial</a> on this component.',
+    about: 'Open Domain Question Answering (ODQA) answers any question based on the document collection covering a wide range of topics. The ODQA task combines two challenges of document retrieval (finding the relevant articles) with that of machine comprehension of text (identifying the answer span from those articles). This component can be used to answer questions based on the company knowledge base. This demo uses entire Wikipedia as a knowledge-base. To learn more on implementation read our <a href="http://docs.deeppavlov.ai/en/master/skills/odqa.html">documentation</a> and check out our <a href="https://medium.com/deeppavlov/open-domain-question-answering-with-deeppavlov-c665d2ee4d65">tutorial</a> on this component.',
     docker: 'deeppavlov/odqa_en',
     text1Header: 'Question',
     submitText: 'Ask',
@@ -304,8 +300,7 @@ Kensington Palace said in a statement that the couple is “hugely grateful” f
     id: 'Ranking',
     examples: [{ text1: 'what is the price for home insurance?' }, { text1: 'fire occured in my home, is it covered by insurance?' }, { text1: 'what is disability insurance?' }, { text1: 'appeal of insurance denial?' }],
     url: 'https://7009.lnsigo.mipt.ru/answer',
-    about: 'This library component solves the tasks of ranking and paraphrase identification based on semantic similarity which is trained with siamese neural networks. The trained network can retrieve the response closest semantically to a given context from some database or answer whether two sentences are paraphrases or not. It is possible to build automatic semantic FAQ systems with such neural architectures. <br><br> This demo stand represents such a FAQ system on insurance field. As an input it takes a collection of documents and a question, and as a result you get your collection ranged on relevance, then the best answer gets displayed. Our model was trained on <a href=”https://github.com/shuzi/insuranceQA”>InsuranceQA V1</a> dataset. \
-         <br> Read our <a href="http://docs.deeppavlov.ai/en/master/components/neural_ranking.html">documentation</a> to find out more on this task. ',
+    about: 'The ranking component solves the tasks of ranking and paraphrases identification based on siamese neural networks with integrated semantic similarity measure. The component retrieves the semantically closest response from a set of predefined responses. This demo was trained on the <a href="https://github.com/shuzi/insuranceQA">InsuranceQA V1</a> dataset.',
     docker: 'deeppavlov/ranking_en',
     text1Header: 'Enter Text',
     submitText: 'Ask',
@@ -332,8 +327,7 @@ Kensington Palace said in a statement that the couple is “hugely grateful” f
         text1: 'Following the impeachment conviction , Dr. Benjamin Hooks , executive director of the National Association for the Advancement of Colored People , issued a restrained statement , warning that the Hastings case could set a " dangerous precedent , " but adding , " We must respect the considered judgment of the Senate . "'
     }],
     url: 'https://7010.lnsigo.mipt.ru/answer',
-    about: 'Named Entity Recognition (NER) is a task of finding and classifying tokens in text documents into predefined categories called tags, such as person names, quantity expressions, percentage expressions, names of locations, organizations, as well as expression of time, currency and others. NER task can be considered as a sequence labeling problem. \
-        <br><br>Our NER models were trained on Ontonotes and Conll-2003 dataset for English language and on the Collection 3 dataset for Russian language. DeepPavlov also features a multilingual model that is available for 104 languages (English and Russian too). This model was trained on previously mentioned Ontonotes entities. We can recognize up to 19 entities. You can read all the details on models and implementation in our <a href="http://docs.deeppavlov.ai/en/master/components/ner.html">documentation.</a>' + '<br><br>Hover over an entity to see its class description<br/>Classes: ' + Object.entries(ontonotesClasses).map(function (_ref) {
+    about: 'Named Entity Recognition (NER) classifies tokens in text into predefined categories (tags), such as person names, quantity expressions, percentage expressions, names of locations, organizations, as well as expression of time, currency and others. We can recognize up to 19 entities. DeepPavlov also features a multilingual model that is available for 104 languages. NER can be used as a knowledge extractor when you are interested in a piece of certain information in your text. To learn more on implementation read our <a href="http://docs.deeppavlov.ai/en/master/components/ner.html">documentation.</a>' + '<br><br>Hover over an entity to see its class description<br/>Classes: ' + Object.entries(ontonotesClasses).map(function (_ref) {
         var _ref2 = _slicedToArray(_ref, 2),
             k = _ref2[0],
             _ref2$ = _slicedToArray(_ref2[1], 2),
@@ -351,9 +345,7 @@ Kensington Palace said in a statement that the couple is “hugely grateful” f
     id: 'Intent classification',
     examples: [{ text1: 'Show me the forecast for my upcoming weekend' }, { text1: 'Find me the I, Robot television show' }, { text1: 'Can I get some Russian cuisine at a restaurant with Shari and I?' }, { text1: 'Add Diamonds to my roadtrip playlist' }, { text1: 'Play the last track from Beyoncé off Spotify' }, { text1: 'Give 6 stars to Of Mice and Men' }, { text1: 'Tell me what movies are showing at 7am at the closest movie house' }],
     url: 'https://7007.lnsigo.mipt.ru/answer',
-    about: 'Intent classification is a task of classifying a text into one of predefined category. The given by a user text gets a single label. This demo displays a classificator for such the topics as a playlist managing, a restaurant booking, getting the weather info, and a search for movie. Check out our solutions based on Keras, BERT and Sklearn.\
-        <br><br>Learn more on the component in our <a href="http://docs.deeppavlov.ai/en/master/components/classifiers.html">documentation.</a>\
-        <br><br>This component helps solve various business problems such as ticketing and booking services, renting and scheduling, accepting orders, consulting and customer support (if you train our model on your data).' + '<br><br>Classes: ' + Object.entries(intentsClasses).map(function (_ref3) {
+    about: 'Intent classification recognizes user intents based on her utterance. This demo was trained on the <a href="https://github.com/snipsco/nlu-benchmark/tree/master/2017-06-custom-intent-engines">SNIPS</a> dataset that focuses on seven intents **SearchCreativeWork**, **GetWeather**, **BookRestaurant** and others. This component solves various business problems such as ticketing and booking services, renting and scheduling, accepting orders, consulting and customer support. To learn more on implementation read our <a href="http://docs.deeppavlov.ai/en/master/components/classifiers.html">documentation</a> and check out our <a href="https://towardsdatascience.com/the-bert-based-text-classification-models-of-deeppavlov-a85892f14d61">tutorial.</a>' + '<br><br>Classes: ' + Object.entries(intentsClasses).map(function (_ref3) {
         var _ref4 = _slicedToArray(_ref3, 2),
             k = _ref4[0],
             v = _ref4[1];
@@ -366,13 +358,20 @@ Kensington Palace said in a statement that the couple is “hugely grateful” f
     lang: 'en',
     report: classifiersReport
 }, {
-    id: 'Sentiment analysis',
+    id: 'Sentiment Analysis',
+    examples: [{ text1: 'I like this game' }, { text1: 'I hate this TV show' }],
+    url: 'https://7015.lnsigo.mipt.ru/answer',
+    about: 'Sentiment analysis predicts a user’s attitude toward a particular topic based on a user\'s text. The classes are negative, neutral, and positive. This component can be used to determine the sentiments of product reviews, opinions and etc. To learn more on implementation read our <a href="http://docs.deeppavlov.ai/en/master/components/classifiers.html">documentation</a> and check out our <a href="https://towardsdatascience.com/the-bert-based-text-classification-models-of-deeppavlov-a85892f14d61">tutorial.</a>',
+    docker: 'deeppavlov/insults_en',
+    text1Header: 'Enter Text',
+    submitText: 'Classify',
+    lang: 'en',
+    report: classifiersReport
+}, {
+    id: 'Insult detection',
     examples: [{ text1: 'Your family tree must be a cactus because everybody on it is a prick' }, { text1: 'Shit happens' }, { text1: 'You\'re just too fat, man' }, { text1: 'Money talks and bullshit walks' }, { text1: 'You are stupid asshole' }, { text1: 'I just fucked up' }, { text1: 'Your house is so dirty you have to wipe your feet before you go outside' }],
     url: 'https://7006.lnsigo.mipt.ru/answer',
-    about: 'Sentiment analysis (also known as opinion mining or emotion AI) refers to systematical identification, extraction and quantifying of affective states and subjective information. This task involves identifying a writer’s attitude toward a particular topic. This can be achieved by applying text classification. The classes, in this case, can be negative, neutral, and positive.\
-        <br><br>Possible business tasks to solve are those from social media marketing and marketing in general: survey responses, reviews and comments moderation, opinion on brand estimation, and product performance evaluation.\
-        <br><br>This demo displays a particular task of deciding if a sentence is insulting or not. Check out details in our  <a href="http://docs.deeppavlov.ai/en/master/intro/features.html#classification-component">documentation.</a>\
-        <br><br>Have a look at our <a href="https://towardsdatascience.com/the-bert-based-text-classification-models-of-deeppavlov-a85892f14d61">tutorial</a> on this component.',
+    about: 'Insult detection predicts whether a comment posted during a public discussion is considered insulting to one of the participants. This component is the defense against spam and abuse in your business. To learn more on implementation read our <a href="docs.deeppavlov.ai/en/master/components/classifiers.html">documentation.</a>',
     docker: 'deeppavlov/insults_en',
     text1Header: 'Enter Text',
     submitText: 'Classify',
