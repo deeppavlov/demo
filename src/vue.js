@@ -139,8 +139,7 @@ let tabs = [
             }
         ],
         url: 'https://7005.lnsigo.mipt.ru/answer',
-        about: 'Question Answering - это задача поиска ответа на вопрос в известном контексте (например, в параграфе из Википедии). Здесь представлена модель на основе BERT, обученная на датасете SDSJ Task B. Больше информации о модели и ее применении читайте в <a href="http://docs.deeppavlov.ai/en/master/components/squad.html">документации.</a>\
-        <br><br>На основе компонента Context Question Answering можно собрать бизнес-решения для оптимизации работы справочных систем и служб поддержки клиентов.',
+        about: 'Ответы на вопросы по тексту (Text QA) - это задача поиска ответов на вопросы в известном контексте (например, в параграфе из Википедии). С помощью этого функционала можно искать ответы на вопросы по документации. Больше информации о модели и ее применении читайте в <a href="http://docs.deeppavlov.ai/en/master/components/squad.html">документации.</a>',
         docker: 'deeppavlov/squad_ru',
         text1Header: 'Введите текст',
         text2Header: 'Введите вопрос',
@@ -173,9 +172,8 @@ let tabs = [
             }
         ],
         url: 'https://7012.lnsigo.mipt.ru/answer',
-        about: 'Open Domain Question Answering (ODQA) - это задача поиска ответа на любой вопрос внутри коллекции документов, например, в Википедии. Решение задачи идет в два шага: сначала подбираются релевантные документы, затем в тексте каждого выбирается фраза, предположительно содержащая ответ, и наиболее подходящий отображается на экране. Представленный здесь скил ищет ответы в русскоязычной Википедии. Больше о компоненте и его использовании читайте в <a href="http://docs.deeppavlov.ai/en/master/skills/odqa.html">документации</a>.\
-        <br><br>Бизнес решения на основе ODQA - это, например, диалоговые ассистенты, отвечающие на вопросы по корпоративным базам знаний, справочной и технической документации. \
-        <br><br>Основы практического использования описано в нашем <a href="https://medium.com/deeppavlov/open-domain-question-answering-with-deeppavlov-c665d2ee4d65">туториале на Medium.</a>',
+        about: 'Open Domain Question Answering (ODQA) - это задача поиска ответа на любой вопрос внутри коллекции документов, например, в Википедии. Решение задачи идет в два шага: сначала подбираются релевантные документы, затем в тексте каждого выбирается фраза, предположительно содержащая ответ, и наиболее подходящий отображается на экране. Представленный здесь скил ищет ответы в русскоязычной Википедии. Бизнес решения на основе ODQA - это, например, диалоговые ассистенты, отвечающие на вопросы по корпоративным базам знаний, справочной и технической документации.\
+        <br><br> Основы практического использования описано в нашем туториале на <a href="https://medium.com/deeppavlov/open-domain-question-answering-with-deeppavlov-c665d2ee4d65">Medium</a> и в <a href="http://docs.deeppavlov.ai/en/master/skills/odqa.html">документации.</a>',
         docker: 'deeppavlov/odqa_ru',
         text1Header: 'Введите вопрос',
         submitText: 'Спросить',
@@ -230,6 +228,19 @@ let tabs = [
             }
             return res;
         }
+    },
+    {
+        id: 'Анализ тональности',
+        examples: [
+            {text1: 'Мне нравится этот телевизор.'},
+            {text1: 'Я не любл это ТВ шоу.'}
+        ],
+        url: 'https://7015.lnsigo.mipt.ru/answer',
+        about: 'Это задача для автоматизированного выявления в текстах эмоционально окрашенной лексики и эмоциональной оценки авторов (мнений) по отношению к объектам, речь о которых идёт в тексте. Этот компонент позволит вам оценить комментарии о вашем продукте или сервисе. Подробнее смотрите в нашем туториале на <a href="https://towardsdatascience.com/the-bert-based-text-classification-models-of-deeppavlov-a85892f14d61">Medium</a> и в <a href="http://docs.deeppavlov.ai/en/master/components/classifiers.html">документации.</a>',
+        text1Header: 'Введите текст',
+        submitText: 'Распознать',
+        lang: 'ru',
+        report: classifiersReport
     },
     {
         id: 'Text QA',
@@ -407,25 +418,11 @@ Kensington Palace said in a statement that the couple is “hugely grateful” f
             {text1: 'Tell me what movies are showing at 7am at the closest movie house'}
         ],
         url: 'https://7007.lnsigo.mipt.ru/answer',
-        about: 'Intent classification recognizes user intents based on her utterance. This demo was trained on the <a href="https://github.com/snipsco/nlu-benchmark/tree/master/2017-06-custom-intent-engines">SNIPS</a> dataset that focuses on seven intents **SearchCreativeWork**, **GetWeather**, **BookRestaurant** and others. This component solves various business problems such as ticketing and booking services, renting and scheduling, accepting orders, consulting and customer support. To learn more on implementation read our <a href="http://docs.deeppavlov.ai/en/master/components/classifiers.html">documentation</a> and check out our <a href="https://towardsdatascience.com/the-bert-based-text-classification-models-of-deeppavlov-a85892f14d61">tutorial.</a>' +
+        about: 'Intent classification recognizes user intents based on her utterance. This demo was trained on the <a href="https://github.com/snipsco/nlu-benchmark/tree/master/2017-06-custom-intent-engines">SNIPS</a> dataset that focuses on seven intents <b>SearchCreativeWork</b>, <b>GetWeather</b>, <b>BookRestaurant</b> and others. This component solves various business problems such as ticketing and booking services, renting and scheduling, accepting orders, consulting and customer support. To learn more on implementation read our <a href="http://docs.deeppavlov.ai/en/master/components/classifiers.html">documentation</a> and check out our <a href="https://towardsdatascience.com/the-bert-based-text-classification-models-of-deeppavlov-a85892f14d61">tutorial.</a>' +
         '<br><br>Classes: ' + Object.entries(intentsClasses).map(function ([k, v]) {
             return `<span class="badge ${v}">${k}</span>`
         }).join(" "),
         docker: 'deeppavlov/intents_en',
-        text1Header: 'Enter Text',
-        submitText: 'Classify',
-        lang: 'en',
-        report: classifiersReport
-    },
-    {
-        id: 'Sentiment Analysis',
-        examples: [
-            {text1: 'I like this game'},
-            {text1: 'I hate this TV show'}
-        ],
-        url: 'https://7015.lnsigo.mipt.ru/answer',
-        about: 'Sentiment analysis predicts a user’s attitude toward a particular topic based on a user\'s text. The classes are negative, neutral, and positive. This component can be used to determine the sentiments of product reviews, opinions and etc. To learn more on implementation read our <a href="http://docs.deeppavlov.ai/en/master/components/classifiers.html">documentation</a> and check out our <a href="https://towardsdatascience.com/the-bert-based-text-classification-models-of-deeppavlov-a85892f14d61">tutorial.</a>',
-        docker: 'deeppavlov/insults_en',
         text1Header: 'Enter Text',
         submitText: 'Classify',
         lang: 'en',
@@ -510,8 +507,7 @@ Rowlingin tarinaan perustuva näytelmä, Harry Potter ja kirottu lapsi, sai ensi
             }
         ],
         url: 'https://7014.lnsigo.mipt.ru/answer',
-        about: 'Question Answering is a task to find an answer on a question in a given context (e.g, a paragraph from Wikipedia), where the answer to each question is a segment of the context. There are two models for this task in DeepPavlov: BERT-based and R-Net. Both models predict the answer start and end position in a given context. Models are trained on Stanford Question Answering Dataset for English language and at SDSJ Task B for Russian language. To learn more on architecture and implementation read our documentation: <a href="http://docs.deeppavlov.ai/en/master/components/squad.html">Docs</a> \
-        <br><br> The possible business application includes simple chatbots development for helpdesks and support optimization.',
+        about: 'Question Answering component answers a question based on a given context (e.g, a paragraph of text), where the answer to the question is a segment of the context. This component allows you to answer questions based on your documentation. To learn more on implementation check out our <a href="http://docs.deeppavlov.ai/en/master/components/squad.html">documentation.</a>',
         docker: 'deeppavlov/squad_en',
         text1Header: 'Enter Text',
         submitText: 'Ask',
@@ -556,8 +552,7 @@ Juventus, Merih’in transferi için Sassuolo’ya 15 milyon euro bonservis bede
             }
         ],
         url: 'https://7013.lnsigo.mipt.ru/answer',
-        about: 'Named Entity Recognition (NER) is a task of finding and classifying tokens in text documents into predefined categories called tags, such as person names, quantity expressions, percentage expressions, names of locations, organizations, as well as expression of time, currency and others. NER task can be considered as a sequence labeling problem. \
-        <br><br>Our NER models were trained on Ontonotes and Conll-2003 dataset for English language and on the Collection 3 dataset for Russian language. DeepPavlov also features a multilingual model that is available for 104 languages (English and Russian too). This model was trained on previously mentioned Ontonotes entities. We can recognize up to 19 entities. You can read all the details on models and implementation in our <a href="http://docs.deeppavlov.ai/en/master/components/ner.html">documentation.</a>' + 
+        about: 'Named Entity Recognition (NER) classifies tokens in text into predefined categories (tags), such as person names, quantity expressions, percentage expressions, names of locations, organizations, as well as expression of time, currency and others. We can recognize up to 19 entities. DeepPavlov also features a multilingual model that is available for 104 languages. NER can be used as a knowledge extractor when you are interested in a piece of certain information in your text. To learn more on implementation read our <a href="http://docs.deeppavlov.ai/en/master/components/ner.html">documentation.</a>' + 
         `<br><br>Hover over an entity to see its class description<br/>Classes: ` +
         Object.entries(ontonotesClasses).map(function([k, [class_name, about]]) {
             return `<span class="badge ${class_name}" data-toggle="tooltip" title="${about}" style="cursor: help;">${k}</span>`
