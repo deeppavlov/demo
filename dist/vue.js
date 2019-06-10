@@ -186,7 +186,7 @@ var tabs = [{
     }],
     url: 'https://7004.lnsigo.mipt.ru/answer',
     about: 'NER (Named Entity Recognition) - компонент для распознавания именованных сущностей. Задача заключается в классификации токенов текста по известным категориям - тэгам: имена людей, количество, локации, организации, время и дата, цена и валюта, и т.п.\
-        <br><br>Здесь представлена модель, обученная на Collection 3 датасете для русского языка. В DeepPavlov так же представлена мультиязычная модель для 104 языков, обученная на датасете Ontonotes. Наши модели распознают до 19 сущностей. Больше о моделях и их использовании читайте в <a href="http://docs.deeppavlov.ai/en/master/components/ner.html">документации.</a>\
+        <br><br>Здесь представлена модель, обученная на Collection 3 датасете для русского языка. Во вкладке Multi-lang вы найдете мультиязычную модель для 104 языков, обученную на датасете Ontonotes. Наши модели распознают до 19 сущностей. Больше о моделях и их использовании читайте в <a href="http://docs.deeppavlov.ai/en/master/components/ner.html">документации.</a>\
         <br><br>NER - существенная часть любой диалоговой системы, которая необходима для извлечения машиной информации из текста.' + ('<br><br>\u0421\u0443\u0449\u043D\u043E\u0441\u0442\u0438: <span class="' + ruNerStyles['PER'] + '">\u0427\u0435\u043B\u043E\u0432\u0435\u043A</span> <span class="' + ruNerStyles['ORG'] + '">\u041E\u0440\u0433\u0430\u043D\u0438\u0437\u0430\u0446\u0438\u044F</span> <span class="' + ruNerStyles['LOC'] + '">\u041B\u043E\u043A\u0430\u0446\u0438\u044F</span>'),
     docker: 'deeppavlov/ner_ru',
     text1Header: 'Введите текст',
@@ -222,9 +222,9 @@ var tabs = [{
     }
 }, {
     id: 'Анализ тональности',
-    examples: [{ text1: 'Мне нравится этот телевизор.' }, { text1: 'Я не любл это ТВ шоу.' }],
+    examples: [{ text1: 'Мне нравится этот телевизор.' }, { text1: 'это плохое ТВ шоу' }],
     url: 'https://7015.lnsigo.mipt.ru/answer',
-    about: 'Это задача для автоматизированного выявления в текстах эмоционально окрашенной лексики и эмоциональной оценки авторов (мнений) по отношению к объектам, речь о которых идёт в тексте. Этот компонент позволит вам оценить комментарии о вашем продукте или сервисе. Подробнее смотрите в нашем туториале на <a href="https://towardsdatascience.com/the-bert-based-text-classification-models-of-deeppavlov-a85892f14d61">Medium</a> и в <a href="http://docs.deeppavlov.ai/en/master/components/classifiers.html">документации.</a>',
+    about: 'Анализ тональности - это задача для автоматизированного выявления в текстах эмоционально окрашенной лексики и эмоциональной оценки авторов (мнений) по отношению к объектам, речь о которых идёт в тексте. Этот компонент позволит вам оценить комментарии о вашем продукте или сервисе. Подробнее смотрите в нашем туториале на <a href="https://towardsdatascience.com/the-bert-based-text-classification-models-of-deeppavlov-a85892f14d61">Medium</a> и в <a href="http://docs.deeppavlov.ai/en/master/components/classifiers.html">документации.</a>',
     text1Header: 'Введите текст',
     submitText: 'Распознать',
     lang: 'ru',
@@ -272,7 +272,7 @@ Kensington Palace said in a statement that the couple is “hugely grateful” f
         text2: 'Where is St. George’s Chapel located?'
     }],
     url: 'https://7008.lnsigo.mipt.ru/answer',
-    about: 'Question Answering component answers a question based on a given context (e.g, a paragraph of text), where the answer to the question is a segment of the context. This component allows you to answer questions based on your documentation. To learn more on implementation check out our <a href="http://docs.deeppavlov.ai/en/master/components/squad.html">documentation.</a>',
+    about: 'The Question Answering component answers a question based on a given context (e.g, a paragraph of text), where the answer to the question is a segment of the context. This component allows you to answer questions based on your documentation. To learn more on implementation check out our <a href="http://docs.deeppavlov.ai/en/master/components/squad.html">documentation.</a>',
     docker: 'deeppavlov/squad_en',
     text1Header: 'Enter Text',
     submitText: 'Ask',
@@ -328,7 +328,7 @@ Kensington Palace said in a statement that the couple is “hugely grateful” f
         text1: 'Following the impeachment conviction , Dr. Benjamin Hooks , executive director of the National Association for the Advancement of Colored People , issued a restrained statement , warning that the Hastings case could set a " dangerous precedent , " but adding , " We must respect the considered judgment of the Senate . "'
     }],
     url: 'https://7010.lnsigo.mipt.ru/answer',
-    about: 'Named Entity Recognition (NER) classifies tokens in text into predefined categories (tags), such as person names, quantity expressions, percentage expressions, names of locations, organizations, as well as expression of time, currency and others. We can recognize up to 19 entities. DeepPavlov also features a multilingual model that is available for 104 languages. NER can be used as a knowledge extractor when you are interested in a piece of certain information in your text. To learn more on implementation read our <a href="http://docs.deeppavlov.ai/en/master/components/ner.html">documentation.</a>' + '<br><br>Hover over an entity to see its class description<br/>Classes: ' + Object.entries(ontonotesClasses).map(function (_ref) {
+    about: 'Named Entity Recognition (NER) classifies tokens in text into predefined categories (tags), such as person names, quantity expressions, percentage expressions, names of locations, organizations, as well as expression of time, currency and others. We can recognize up to 19 entities. NER can be used as a knowledge extractor when you are interested in a piece of certain information in your text. On Multi-lang tab you can find a multilingual model that supports 104 languages. To learn more on implementation read our <a href="http://docs.deeppavlov.ai/en/master/components/ner.html">documentation.</a>' + '<br><br>Hover over an entity to see its class description<br/>Classes: ' + Object.entries(ontonotesClasses).map(function (_ref) {
         var _ref2 = _slicedToArray(_ref, 2),
             k = _ref2[0],
             _ref2$ = _slicedToArray(_ref2[1], 2),
@@ -346,7 +346,7 @@ Kensington Palace said in a statement that the couple is “hugely grateful” f
     id: 'Intent classification',
     examples: [{ text1: 'Show me the forecast for my upcoming weekend' }, { text1: 'Find me the I, Robot television show' }, { text1: 'Can I get some Russian cuisine at a restaurant with Shari and I?' }, { text1: 'Add Diamonds to my roadtrip playlist' }, { text1: 'Play the last track from Beyoncé off Spotify' }, { text1: 'Give 6 stars to Of Mice and Men' }, { text1: 'Tell me what movies are showing at 7am at the closest movie house' }],
     url: 'https://7007.lnsigo.mipt.ru/answer',
-    about: 'Intent classification recognizes user intents based on her utterance. This demo was trained on the <a href="https://github.com/snipsco/nlu-benchmark/tree/master/2017-06-custom-intent-engines">SNIPS</a> dataset that focuses on seven intents <b>SearchCreativeWork</b>, <b>GetWeather</b>, <b>BookRestaurant</b> and others. This component solves various business problems such as ticketing and booking services, renting and scheduling, accepting orders, consulting and customer support. To learn more on implementation read our <a href="http://docs.deeppavlov.ai/en/master/components/classifiers.html">documentation</a> and check out our <a href="https://towardsdatascience.com/the-bert-based-text-classification-models-of-deeppavlov-a85892f14d61">tutorial.</a>' + '<br><br>Classes: ' + Object.entries(intentsClasses).map(function (_ref3) {
+    about: 'Intent classification recognizes intents based on users utterance. This demo was trained on the <a href="https://github.com/snipsco/nlu-benchmark/tree/master/2017-06-custom-intent-engines">SNIPS</a> dataset that focuses on seven intents <b>SearchCreativeWork</b>, <b>GetWeather</b>, <b>BookRestaurant</b> and others. This component solves various business problems such as ticketing and booking services, renting and scheduling, accepting orders, consulting and customer support. To learn more on implementation read our <a href="http://docs.deeppavlov.ai/en/master/components/classifiers.html">documentation</a> and check out our <a href="https://towardsdatascience.com/the-bert-based-text-classification-models-of-deeppavlov-a85892f14d61">tutorial.</a>' + '<br><br>Classes: ' + Object.entries(intentsClasses).map(function (_ref3) {
         var _ref4 = _slicedToArray(_ref3, 2),
             k = _ref4[0],
             v = _ref4[1];
@@ -421,7 +421,7 @@ Kensington Palace said in a statement that the couple is “hugely grateful” f
         text1: 'Ge\xE7ti\u011Fimiz sezonun devre aras\u0131nda Sassuolo\u2019ya transfer olan Merih Demiral, g\xF6sterdi\u011Fi performans sonras\u0131 \u0130talya Seria A\u2019n\u0131n son \u015Fampiyonu Juventus\u2019a transfer oldu.\n\u0130talyan gazeteci Gianluca Di Marzio,ki\u015Fisel twitter hesab\u0131nda Merih Demiral\u2019\u0131n Juventus\u2019a transferinin sonu\xE7land\u0131\u011F\u0131n\u0131 ve Merih\u2019in Juventus ile 5 y\u0131ll\u0131k s\xF6zle\u015Fme imzalayaca\u011F\u0131n\u0131 s\xF6yledi.\nJuventus, Merih\u2019in transferi i\xE7in Sassuolo\u2019ya 15 milyon euro bonservis bedeli \xF6deyece\u011Fini a\xE7\u0131klad\u0131.'
     }],
     url: 'https://7013.lnsigo.mipt.ru/answer',
-    about: 'Named Entity Recognition (NER) classifies tokens in text into predefined categories (tags), such as person names, quantity expressions, percentage expressions, names of locations, organizations, as well as expression of time, currency and others. We can recognize up to 19 entities. DeepPavlov also features a multilingual model that is available for 104 languages. NER can be used as a knowledge extractor when you are interested in a piece of certain information in your text. To learn more on implementation read our <a href="http://docs.deeppavlov.ai/en/master/components/ner.html">documentation.</a>' + '<br><br>Hover over an entity to see its class description<br/>Classes: ' + Object.entries(ontonotesClasses).map(function (_ref5) {
+    about: 'Named Entity Recognition (NER) classifies tokens in text into predefined categories (tags), such as <b>person names</b>, <b>quantity expressions</b>, <b>percentage expressions</b>, <b>names of locations</b>, <b>organizations</b>, as well as expression of <b>time</b>, <b>currency</b> and others. We can recognize up to 19 entities. DeepPavlov also features a multilingual model that is available for 104 languages. NER can be used as a knowledge extractor when you are interested in a piece of certain information in your text. To learn more on implementation read our <a href="http://docs.deeppavlov.ai/en/master/components/ner.html">documentation.</a>' + '<br><br>Hover over an entity to see its class description<br/>Classes: ' + Object.entries(ontonotesClasses).map(function (_ref5) {
         var _ref6 = _slicedToArray(_ref5, 2),
             k = _ref6[0],
             _ref6$ = _slicedToArray(_ref6[1], 2),
