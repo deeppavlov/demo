@@ -224,7 +224,7 @@ let tabs = [
         id: 'Анализ тональности',
         examples: [
             {text1: 'Мне нравится этот телевизор.'},
-            {text1: 'Я не любл это ТВ шоу.'}
+            {text1: 'это плохое ТВ шоу'}
         ],
         url: 'https://7015.lnsigo.mipt.ru/answer',
         about: 'Это задача для автоматизированного выявления в текстах эмоционально окрашенной лексики и эмоциональной оценки авторов (мнений) по отношению к объектам, речь о которых идёт в тексте. Этот компонент позволит вам оценить комментарии о вашем продукте или сервисе. Подробнее смотрите в нашем туториале на <a href="https://towardsdatascience.com/the-bert-based-text-classification-models-of-deeppavlov-a85892f14d61">Medium</a> и в <a href="http://docs.deeppavlov.ai/en/master/components/classifiers.html">документации.</a>',
