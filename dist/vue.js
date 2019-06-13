@@ -228,6 +228,7 @@ var tabs = [{
     text1Header: 'Введите текст',
     submitText: 'Распознать',
     lang: 'ru',
+    docker: 'deeppavlov/sentiment_ru',
     report: classifiersReport
 }, {
     id: 'Text QA',
