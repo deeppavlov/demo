@@ -499,7 +499,7 @@ Rowlingin tarinaan perustuva näytelmä, Harry Potter ja kirottu lapsi, sai ensi
         ],
         url: 'https://7014.lnsigo.mipt.ru/answer',
         about: 'Question Answering component answers a question based on a given context (e.g, a paragraph of text), where the answer to the question is a segment of the context. This component allows you to answer questions based on your documentation. To learn more on implementation check out our <a href="http://docs.deeppavlov.ai/en/master/components/squad.html">documentation.</a>',
-        docker: 'deeppavlov/squad_en',
+        docker: 'deeppavlov/squad_ml',
         text1Header: 'Enter Text',
         submitText: 'Ask',
         lang: 'multiLang',
