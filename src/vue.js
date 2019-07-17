@@ -729,15 +729,13 @@ let vue = new Vue({
     methods: {
         langChange() {
             let lang = this.lang;
-            Vue.nextTick().then(function () {
-                $('#tabs li:first-child a').tab('show');
-                window.location.hash = lang;
-            })
+            $($(`#tabs li[lang="${lang}"] a`)[0]).tab('show');
+            window.location.hash = lang;
         }
     }
 });
 
-$('#tabs li:first-child a').tab('show');
+$($(`#tabs li[lang="${lang}"] a`)[0]).tab('show');
 
 $(window).on('hashchange', function () {
     let hash = window.location.hash.replace('#', '');

@@ -76,7 +76,7 @@
                 <!-- Nav tabs -->
                 <div class="NavMenu">
                     <ul class="nav nav-pills nav-fill" id="tabs">
-                        <li class="nav-item NavButton" v-for="(tab, index) in tabs" v-if="tab.lang===lang">
+                        <li class="nav-item NavButton" v-for="(tab, index) in tabs" :lang="tab.lang" v-show="tab.lang===lang">
                             <a class="nav-link" :href="'#' + tab.id" role="tab"
                                data-toggle="tab">{{tab.name || tab.id}}</a>
                         </li>
