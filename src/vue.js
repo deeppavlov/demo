@@ -325,16 +325,13 @@ Kensington Palace said in a statement that the couple is “hugely grateful” f
                 text1: 'What does computational linguistics study?'
             },
             {
-                text1: 'When did the Lynmouth floods happen?'
-            },
-            {
-                text1: "What was Char Aznable's nickname?"
-            },
-            {
-                text1: 'When is the Bastille Day?'
+                text1: 'When did the first moon landing happen?'
             },
             {
                 text1: 'Where did guinea pigs originate?'
+            },
+            {
+                text1: "Who is the Greek god of War?"
             }
         ],
         url: 'https://7011.lnsigo.mipt.ru/answer',

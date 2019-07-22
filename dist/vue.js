@@ -284,13 +284,11 @@ Kensington Palace said in a statement that the couple is “hugely grateful” f
     examples: [{
         text1: 'What does computational linguistics study?'
     }, {
-        text1: 'When did the Lynmouth floods happen?'
-    }, {
-        text1: "What was Char Aznable's nickname?"
-    }, {
-        text1: 'When is the Bastille Day?'
+        text1: 'When did the first moon landing happen?'
     }, {
         text1: 'Where did guinea pigs originate?'
+    }, {
+        text1: "Who is the Greek god of War?"
     }],
     url: 'https://7011.lnsigo.mipt.ru/answer',
     about: 'Open Domain Question Answering (ODQA) answers any question based on the document collection covering a wide range of topics. The ODQA task combines two challenges of document retrieval (finding the relevant articles) with that of machine comprehension of text (identifying the answer span from those articles). This component can be used to answer questions based on the company knowledge base. This demo uses entire Wikipedia as a knowledge-base. To learn more on implementation read our <a href="http://docs.deeppavlov.ai/en/master/skills/odqa.html">documentation</a> and check out our <a href="https://medium.com/deeppavlov/open-domain-question-answering-with-deeppavlov-c665d2ee4d65">tutorial</a> on this component.',
