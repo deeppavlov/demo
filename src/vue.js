@@ -139,7 +139,7 @@ let tabs = [
             }
         ],
         url: 'https://7005.lnsigo.mipt.ru/answer',
-        about: 'Ответы на вопросы по тексту (Text QA) — это задача поиска ответов на вопросы в известном контексте (например, в параграфе из Википедии). С помощью этого функционала можно искать ответы на вопросы по документации. Больше информации о модели и ее применении читайте в <a href="http://docs.deeppavlov.ai/en/master/components/squad.html">документации.</a>',
+        about: 'Ответы на вопросы по тексту (Text QA) — это задача поиска ответов на вопросы в известном контексте (например, в параграфе из Википедии). С помощью этого функционала можно искать ответы на вопросы по документации. Больше информации о модели и ее применении читайте в <a href="http://docs.deeppavlov.ai/en/master/features/models/squad.html">документации.</a>',
         docker: 'deeppavlov/squad_ru',
         text1Header: 'Введите текст',
         text2Header: 'Введите вопрос',
@@ -167,7 +167,7 @@ let tabs = [
         ],
         url: 'https://7012.lnsigo.mipt.ru/answer',
         about: 'Open Domain Question Answering (ODQA) — это задача поиска ответа на любой вопрос внутри коллекции документов, например, в Википедии. Решение задачи идет в два шага: сначала подбираются релевантные документы, затем в тексте каждого выбирается фраза, предположительно содержащая ответ, и наиболее подходящий отображается на экране. Представленный здесь скил ищет ответы в русскоязычной Википедии. Бизнес решения на основе ODQA — это, например, диалоговые ассистенты, отвечающие на вопросы по корпоративным базам знаний, справочной и технической документации.\
-        <br><br> Основы практического использования описано в нашем туториале на <a href="https://medium.com/deeppavlov/open-domain-question-answering-with-deeppavlov-c665d2ee4d65">Medium</a> и в <a href="http://docs.deeppavlov.ai/en/master/skills/odqa.html">документации.</a>',
+        <br><br> Основы практического использования описано в нашем туториале на <a href="https://medium.com/deeppavlov/open-domain-question-answering-with-deeppavlov-c665d2ee4d65">Medium</a> и в <a href="http://docs.deeppavlov.ai/en/master/features/skills/odqa.html">документации.</a>',
         docker: 'deeppavlov/odqa_ru',
         text1Header: 'Введите вопрос',
         submitText: 'Спросить',
@@ -187,7 +187,7 @@ let tabs = [
         ],
         url: 'https://7004.lnsigo.mipt.ru/answer',
         about: 'NER (Named Entity Recognition) — компонент для распознавания именованных сущностей. Задача заключается в классификации токенов текста по известным категориям - тэгам: имена людей, количество, локации, организации, время и дата, цена и валюта, и т.п.\
-        <br><br>Здесь представлена модель, обученная на Collection 3 датасете для русского языка. Во вкладке Multi-lang вы найдете мультиязычную модель для 104 языков, обученную на датасете Ontonotes. Наши модели распознают до 19 сущностей. Больше о моделях и их использовании читайте в <a href="http://docs.deeppavlov.ai/en/master/components/ner.html">документации.</a>\
+        <br><br>Здесь представлена модель, обученная на Collection 3 датасете для русского языка. Во вкладке Multi-lang вы найдете мультиязычную модель для 104 языков, обученную на датасете Ontonotes. Наши модели распознают до 19 сущностей. Больше о моделях и их использовании читайте в <a href="http://docs.deeppavlov.ai/en/master/features/models/ner.html">документации.</a>\
         <br><br>NER — существенная часть любой диалоговой системы, которая необходима для извлечения машиной информации из текста.' +
         `<br><br>Сущности: <span class="${ruNerStyles['PER']}">Человек</span> <span class="${ruNerStyles['ORG']}">Организация</span> <span class="${ruNerStyles['LOC']}">Локация</span>`,
         docker: 'deeppavlov/ner_ru',
@@ -227,7 +227,7 @@ let tabs = [
             {text1: 'это плохое ТВ шоу'}
         ],
         url: 'https://7015.lnsigo.mipt.ru/answer',
-        about: 'Анализ тональности — это задача для автоматизированного выявления в текстах эмоционально окрашенной лексики и эмоциональной оценки авторов (мнений) по отношению к объектам, речь о которых идёт в тексте. Этот компонент позволит вам оценить комментарии о вашем продукте или сервисе. Подробнее смотрите в нашем туториале на <a href="https://towardsdatascience.com/the-bert-based-text-classification-models-of-deeppavlov-a85892f14d61">Medium</a> и в <a href="http://docs.deeppavlov.ai/en/master/components/classifiers.html">документации.</a>',
+        about: 'Анализ тональности — это задача для автоматизированного выявления в текстах эмоционально окрашенной лексики и эмоциональной оценки авторов (мнений) по отношению к объектам, речь о которых идёт в тексте. Этот компонент позволит вам оценить комментарии о вашем продукте или сервисе. Подробнее смотрите в нашем туториале на <a href="https://towardsdatascience.com/the-bert-based-text-classification-models-of-deeppavlov-a85892f14d61">Medium</a> и в <a href="http://docs.deeppavlov.ai/en/master/features/models/classifiers.html">документации.</a>',
         text1Header: 'Введите текст',
         submitText: 'Распознать',
         lang: 'ru',
@@ -311,7 +311,7 @@ Kensington Palace said in a statement that the couple is “hugely grateful” f
             }
         ],
         url: 'https://7008.lnsigo.mipt.ru/answer',
-        about: 'The Question Answering component answers a question based on a given context (e.g, a paragraph of text), where the answer to the question is a segment of the context. This component allows you to answer questions based on your documentation. To learn more on implementation check out our <a href="http://docs.deeppavlov.ai/en/master/components/squad.html">documentation.</a>',
+        about: 'The Question Answering component answers a question based on a given context (e.g, a paragraph of text), where the answer to the question is a segment of the context. This component allows you to answer questions based on your documentation. To learn more on implementation check out our <a href="http://docs.deeppavlov.ai/en/master/features/models/squad.html">documentation.</a>',
         docker: 'deeppavlov/squad_en',
         text1Header: 'Enter Text',
         submitText: 'Ask',
@@ -335,7 +335,7 @@ Kensington Palace said in a statement that the couple is “hugely grateful” f
             }
         ],
         url: 'https://7011.lnsigo.mipt.ru/answer',
-        about: 'Open Domain Question Answering (ODQA) answers any question based on the document collection covering a wide range of topics. The ODQA task combines two challenges of document retrieval (finding the relevant articles) with that of machine comprehension of text (identifying the answer span from those articles). This component can be used to answer questions based on the company knowledge base. This demo uses entire Wikipedia as a knowledge-base. To learn more on implementation read our <a href="http://docs.deeppavlov.ai/en/master/skills/odqa.html">documentation</a> and check out our <a href="https://medium.com/deeppavlov/open-domain-question-answering-with-deeppavlov-c665d2ee4d65">tutorial</a> on this component.',
+        about: 'Open Domain Question Answering (ODQA) answers any question based on the document collection covering a wide range of topics. The ODQA task combines two challenges of document retrieval (finding the relevant articles) with that of machine comprehension of text (identifying the answer span from those articles). This component can be used to answer questions based on the company knowledge base. This demo uses entire Wikipedia as a knowledge-base. To learn more on implementation read our <a href="http://docs.deeppavlov.ai/en/master/features/skills/odqa.html">documentation</a> and check out our <a href="https://medium.com/deeppavlov/open-domain-question-answering-with-deeppavlov-c665d2ee4d65">tutorial</a> on this component.',
         docker: 'deeppavlov/odqa_en',
         text1Header: 'Question',
         submitText: 'Ask',
@@ -384,7 +384,7 @@ Kensington Palace said in a statement that the couple is “hugely grateful” f
             }
         ],
         url: 'https://7010.lnsigo.mipt.ru/answer',
-        about:  'Named Entity Recognition (NER) classifies tokens in text into predefined categories (tags), such as person names, quantity expressions, percentage expressions, names of locations, organizations, as well as expression of time, currency and others. We can recognize up to 19 entities. NER can be used as a knowledge extractor when you are interested in a piece of certain information in your text. On Multi-lang tab you can find a multilingual model that supports 104 languages. To learn more on implementation read our <a href="http://docs.deeppavlov.ai/en/master/components/ner.html">documentation.</a>' + 
+        about:  'Named Entity Recognition (NER) classifies tokens in text into predefined categories (tags), such as person names, quantity expressions, percentage expressions, names of locations, organizations, as well as expression of time, currency and others. We can recognize up to 19 entities. NER can be used as a knowledge extractor when you are interested in a piece of certain information in your text. On Multi-lang tab you can find a multilingual model that supports 104 languages. To learn more on implementation read our <a href="http://docs.deeppavlov.ai/en/master/features/models/ner.html">documentation.</a>' +
         `<br><br>Hover over an entity to see its class description<br/>Classes: ` +
         Object.entries(ontonotesClasses).map(function([k, [class_name, about]]) {
             return `<span class="badge ${class_name}" data-toggle="tooltip" title="${about}" style="cursor: help;">${k}</span>`
@@ -407,7 +407,7 @@ Kensington Palace said in a statement that the couple is “hugely grateful” f
             {text1: 'Tell me what movies are showing at 7am at the closest movie house'}
         ],
         url: 'https://7007.lnsigo.mipt.ru/answer',
-        about: 'Intent classification recognizes intents based on users utterance. This demo was trained on the <a href="https://github.com/snipsco/nlu-benchmark/tree/master/2017-06-custom-intent-engines">SNIPS</a> dataset that focuses on seven intents <b>SearchCreativeWork</b>, <b>GetWeather</b>, <b>BookRestaurant</b> and others. This component solves various business problems such as ticketing and booking services, renting and scheduling, accepting orders, consulting and customer support. To learn more on implementation read our <a href="http://docs.deeppavlov.ai/en/master/components/classifiers.html">documentation</a> and check out our <a href="https://towardsdatascience.com/the-bert-based-text-classification-models-of-deeppavlov-a85892f14d61">tutorial.</a>' +
+        about: 'Intent classification recognizes intents based on users utterance. This demo was trained on the <a href="https://github.com/snipsco/nlu-benchmark/tree/master/2017-06-custom-intent-engines">SNIPS</a> dataset that focuses on seven intents <b>SearchCreativeWork</b>, <b>GetWeather</b>, <b>BookRestaurant</b> and others. This component solves various business problems such as ticketing and booking services, renting and scheduling, accepting orders, consulting and customer support. To learn more on implementation read our <a href="http://docs.deeppavlov.ai/en/master/features/models/classifiers.html">documentation</a> and check out our <a href="https://towardsdatascience.com/the-bert-based-text-classification-models-of-deeppavlov-a85892f14d61">tutorial.</a>' +
         '<br><br>Classes: ' + Object.entries(intentsClasses).map(function ([k, v]) {
             return `<span class="badge ${v}">${k}</span>`
         }).join(" "),
@@ -429,7 +429,7 @@ Kensington Palace said in a statement that the couple is “hugely grateful” f
             {text1: 'Your house is so dirty you have to wipe your feet before you go outside'}
         ],
         url: 'https://7006.lnsigo.mipt.ru/answer',
-        about: 'Insult detection predicts whether a comment posted during a public discussion is considered insulting to one of the participants. This component is the defense against spam and abuse in your business. To learn more on implementation read our <a href="docs.deeppavlov.ai/en/master/components/classifiers.html">documentation.</a>',
+        about: 'Insult detection predicts whether a comment posted during a public discussion is considered insulting to one of the participants. This component is the defense against spam and abuse in your business. To learn more on implementation read our <a href="http://docs.deeppavlov.ai/en/master/features/models/classifiers.html">documentation.</a>',
         docker: 'deeppavlov/insults_en',
         text1Header: 'Enter Text',
         submitText: 'Classify',
@@ -496,7 +496,7 @@ Rowlingin tarinaan perustuva näytelmä, Harry Potter ja kirottu lapsi, sai ensi
             }
         ],
         url: 'https://7014.lnsigo.mipt.ru/answer',
-        about: 'Question Answering component answers a question based on a given context (e.g, a paragraph of text), where the answer to the question is a segment of the context. This component allows you to answer questions based on your documentation. To learn more on implementation check out our <a href="http://docs.deeppavlov.ai/en/master/components/squad.html">documentation.</a>',
+        about: 'Question Answering component answers a question based on a given context (e.g, a paragraph of text), where the answer to the question is a segment of the context. This component allows you to answer questions based on your documentation. To learn more on implementation check out our <a href="http://docs.deeppavlov.ai/en/master/features/models/squad.html">documentation.</a>',
         docker: 'deeppavlov/squad_ml',
         text1Header: 'Enter Text',
         submitText: 'Ask',
@@ -541,7 +541,7 @@ Juventus, Merih’in transferi için Sassuolo’ya 15 milyon euro bonservis bede
             }
         ],
         url: 'https://7013.lnsigo.mipt.ru/answer',
-        about: 'Named Entity Recognition (NER) classifies tokens in text into predefined categories (tags), such as <b>person names</b>, <b>quantity expressions</b>, <b>percentage expressions</b>, <b>names of locations</b>, <b>organizations</b>, as well as expression of <b>time</b>, <b>currency</b> and others. We can recognize up to 19 entities. DeepPavlov also features a multilingual model that is available for 104 languages. NER can be used as a knowledge extractor when you are interested in a piece of certain information in your text. To learn more on implementation read our <a href="http://docs.deeppavlov.ai/en/master/components/ner.html">documentation.</a>' + 
+        about: 'Named Entity Recognition (NER) classifies tokens in text into predefined categories (tags), such as <b>person names</b>, <b>quantity expressions</b>, <b>percentage expressions</b>, <b>names of locations</b>, <b>organizations</b>, as well as expression of <b>time</b>, <b>currency</b> and others. We can recognize up to 19 entities. DeepPavlov also features a multilingual model that is available for 104 languages. NER can be used as a knowledge extractor when you are interested in a piece of certain information in your text. To learn more on implementation read our <a href="http://docs.deeppavlov.ai/en/master/features/models/ner.html">documentation.</a>' +
         `<br><br>Hover over an entity to see its class description<br/>Classes: ` +
         Object.entries(ontonotesClasses).map(function([k, [class_name, about]]) {
             return `<span class="badge ${class_name}" data-toggle="tooltip" title="${about}" style="cursor: help;">${k}</span>`
